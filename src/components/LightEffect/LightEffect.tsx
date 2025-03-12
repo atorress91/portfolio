@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import "../../styles/light-effect.scss";
+import styles from "./LightEffect.module.scss";
 
 export default function LightEffect() {
   useEffect(() => {
@@ -13,5 +13,5 @@ export default function LightEffect() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  return <div className="neon-light" />;
+  return <div className={styles["neon-light"]} />;
 }
