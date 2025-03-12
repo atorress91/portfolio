@@ -25,5 +25,5 @@ jobs:
           username: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
           local-dir: .next/
-          server-dir: /andres-ts.dev/public_html/
+          server-dir: /domains/andres-ts.dev/public_html/
 
