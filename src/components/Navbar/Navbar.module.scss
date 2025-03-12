@@ -1,0 +1,42 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+
+.navbar {
+    background-color: black !important; 
+    color: white !important;
+  }
+  
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.navbar-logo svg {
+  color: $primary-color;
+}
+
+.navbar-brand {
+  background-image: linear-gradient(135deg, $primary-color, $secondary-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  color: $secondary-color;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.language-btn {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 5px;
+}
