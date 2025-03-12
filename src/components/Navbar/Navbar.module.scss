@@ -1,11 +1,15 @@
-$primary-color: #007bff;
-$secondary-color: #6c757d;
+$primary-color: #6B46C1;
+$secondary-color: #2DD4BF;
 
 .navbar {
-    background-color: black !important; 
-    color: white !important;
-  }
-  
+  background-color: black !important;
+  color: white !important;
+  font-size: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -25,13 +29,39 @@ $secondary-color: #6c757d;
   -webkit-text-fill-color: transparent;
 }
 
-.navbar-links a {
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-  color: $secondary-color;
+.navbar-links {
+  a {
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    color: $secondary-color;
+    text-transform: capitalize;
 
-  &:hover {
-    color: $primary-color;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.language-dropdown-mobile {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-links-mobile {
+  a {
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    color: $secondary-color;
+    text-transform: capitalize;
+    border-bottom: 1px solid #333;
+    padding: 0.8rem 0;
+
+    &:hover {
+      color: $primary-color;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
   }
 }
 
@@ -39,4 +69,250 @@ $secondary-color: #6c757d;
   width: 1.2em;
   height: 1.2em;
   margin-right: 5px;
+}
+
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-selector-btn {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  span {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  span:last-child {
+    transition: transform 0.2s ease;
+    margin-left: 6px;
+    font-size: 0.7rem;
+    opacity: 0.7;
+  }
+
+  &[aria-expanded="true"] span:last-child {
+    transform: rotate(180deg);
+  }
+}
+
+.language-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 140px;
+  background-color: rgba(30, 30, 30, 0.95);
+  border-radius: 8px;
+  z-index: 1010;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transform-origin: top right;
+  animation: dropdownScale 0.2s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: 14px;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(30, 30, 30, 0.95);
+    transform: rotate(45deg);
+  }
+}
+
+.lang-dropdown-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  border: none;
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: $primary-color;
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@keyframes dropdownScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  color: white;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+/**
+ * Tablet-specific (iPad) responsive styles for the navigation bar
+ *
+ * This media query targets devices with screen widths between 768px and 991.98px
+ * and applies the following adjustments to improve usability on tablet screens:
+ *
+ * - Reduces navbar link font size and padding for better space utilization
+ * - Decreases language selector button padding and text size
+ * - Tightens the spacing between navbar logo elements
+ *
+ * These adjustments ensure the navigation remains accessible and visually balanced
+ * on mid-sized tablet screens without overflow issues.
+ */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .navbar-links {
+    a {
+      font-size: 0.9rem;
+      padding: 0.2rem 0.3rem;
+      margin-right: 0.2rem;
+    }
+  }
+
+  .lang-selector-btn {
+    padding: 0.3rem 0.5rem;
+
+    span {
+      font-size: 0.8rem;
+    }
+  }
+
+  .navbar-logo {
+    gap: 0.5rem;
+  }
+}
+
+/**
+ * Responsive Navbar styles for mobile devices and small tablets
+ * ============================================================
+ * 
+ * This media query targets screens with max-width of 991.98px and applies
+ * mobile-specific styling to the navbar components.
+ *
+ * Key components styled:
+ * - .navbar: Increases font size for better readability on small screens
+ * - .navbar-brand: Slightly reduced font size compared to main navbar text
+ * - .navbar-links-mobile: Adds vertical spacing for mobile navigation links
+ * - .lang-selector-btn: Compact button styling for language selection with
+ *   smaller padding and rounded corners
+ * - .language-dropdown: Centers the language selector in the mobile view
+ * - .language-dropdown-menu: Ensures proper centering of dropdown menu
+ *   with appropriate arrow positioning using transform
+ * 
+ * The language dropdown implementation uses CSS transforms to ensure
+ * the dropdown is horizontally centered regardless of its width or
+ * the language selector button position.
+ */
+@media (max-width: 991.98px) {
+  .navbar {
+    font-size: 1.5rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .navbar-links-mobile {
+    margin-top: 0.5rem;
+  }
+
+  .lang-selector-btn {
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+
+    span:last-child {
+      font-size: 0.65rem;
+    }
+  }
+
+  .language-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .language-dropdown-menu {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+
+    &::before {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+    }
+  }
+}
+
+/**
+ * Mobile-specific navbar styling (extra small devices)
+ * 
+ * This media query targets mobile devices with maximum width of 575.98px
+ * and applies responsive adjustments to the navbar elements:
+ * 
+ * - Increases the main navbar font size for better readability on small screens
+ * - Centers the mobile navigation links
+ * - Reduces the brand text size to fit smaller screen width
+ * - Decreases spacing between logo elements
+ */
+@media (max-width: 575.98px) {
+  .navbar {
+    font-size: 1.3rem;
+  }
+
+  .navbar-links-mobile {
+    justify-content: center;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  .navbar-logo {
+    gap: 0.5rem;
+  }
 }
