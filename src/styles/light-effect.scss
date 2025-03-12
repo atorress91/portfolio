@@ -1,0 +1,17 @@
+.neon-light {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle,
+      rgba(0, 255, 255, 0.4) 0%,
+      rgba(0, 255, 255, 0.1) 50%,
+      rgba(0, 255, 255, 0) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+  z-index: 9999;
+  transition: left 0.05s ease-out, top 0.05s ease-out;
+
+  left: calc(var(--x, 0px) - 250px);
+  top: calc(var(--y, 0px) - 250px);
+}

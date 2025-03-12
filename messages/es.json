@@ -1,0 +1,18 @@
+{
+  "HomePage": {
+    "welcome": "Bienvenido",
+    "description": "Comienza editando",
+    "getStarted": "Comienza editando",
+    "saveChanges": "Guarda los cambios y observa el resultado",
+    "deploy": "Desplegar",
+    "readDocs": "Leer Documentación",
+    "learn": "Aprende Next.js",
+    "examples": "Plantillas",
+    "visitNext": "Visita Next.js",
+    "nextLogoAlt": "Logo de Next.js",
+    "vercelLogoAlt": "Logo de Vercel",
+    "fileIconAlt": "Icono de archivo",
+    "windowIconAlt": "Icono de ventana",
+    "globeIconAlt": "Icono de globo"
+  }
+}
