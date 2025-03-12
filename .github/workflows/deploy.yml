@@ -15,7 +15,7 @@ jobs:
 
       - name: Install dependencies and build
         run: |
-          npm Install
+          npm install
           npm run build
 
       - name: Deploy to Hostinger via FTP
