@@ -16,10 +16,10 @@ $secondary-color: #2DD4BF;
   gap: 1rem;
   font-weight: 500;
   font-size: 1.5rem;
-}
 
-.navbar-logo svg {
-  color: $primary-color;
+  svg {
+    color: $primary-color;
+  }
 }
 
 .navbar-brand {
@@ -40,13 +40,6 @@ $secondary-color: #2DD4BF;
       color: $primary-color;
     }
   }
-}
-
-.language-dropdown-mobile {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .navbar-links-mobile {
@@ -179,7 +172,6 @@ $secondary-color: #2DD4BF;
 .navbar-toggler {
   border: none;
   background: transparent;
-  font-size: 1.5rem;
   padding: 0.25rem 0.5rem;
   cursor: pointer;
   color: white;
@@ -187,132 +179,5 @@ $secondary-color: #2DD4BF;
 
   &:hover {
     color: $primary-color;
-  }
-}
-
-/**
- * Tablet-specific (iPad) responsive styles for the navigation bar
- *
- * This media query targets devices with screen widths between 768px and 991.98px
- * and applies the following adjustments to improve usability on tablet screens:
- *
- * - Reduces navbar link font size and padding for better space utilization
- * - Decreases language selector button padding and text size
- * - Tightens the spacing between navbar logo elements
- *
- * These adjustments ensure the navigation remains accessible and visually balanced
- * on mid-sized tablet screens without overflow issues.
- */
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .navbar-links {
-    a {
-      font-size: 0.9rem;
-      padding: 0.2rem 0.3rem;
-      margin-right: 0.2rem;
-    }
-  }
-
-  .lang-selector-btn {
-    padding: 0.3rem 0.5rem;
-
-    span {
-      font-size: 0.8rem;
-    }
-  }
-
-  .navbar-logo {
-    gap: 0.5rem;
-  }
-}
-
-/**
- * Responsive Navbar styles for mobile devices and small tablets
- * ============================================================
- * 
- * This media query targets screens with max-width of 991.98px and applies
- * mobile-specific styling to the navbar components.
- *
- * Key components styled:
- * - .navbar: Increases font size for better readability on small screens
- * - .navbar-brand: Slightly reduced font size compared to main navbar text
- * - .navbar-links-mobile: Adds vertical spacing for mobile navigation links
- * - .lang-selector-btn: Compact button styling for language selection with
- *   smaller padding and rounded corners
- * - .language-dropdown: Centers the language selector in the mobile view
- * - .language-dropdown-menu: Ensures proper centering of dropdown menu
- *   with appropriate arrow positioning using transform
- * 
- * The language dropdown implementation uses CSS transforms to ensure
- * the dropdown is horizontally centered regardless of its width or
- * the language selector button position.
- */
-@media (max-width: 991.98px) {
-  .navbar {
-    font-size: 1.5rem;
-  }
-
-  .navbar-brand {
-    font-size: 1.25rem;
-  }
-
-  .navbar-links-mobile {
-    margin-top: 0.5rem;
-  }
-
-  .lang-selector-btn {
-    padding: 0.3rem 0.6rem;
-    border-radius: 6px;
-
-    span:last-child {
-      font-size: 0.65rem;
-    }
-  }
-
-  .language-dropdown {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-
-  .language-dropdown-menu {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-
-    &::before {
-      right: auto;
-      left: 50%;
-      transform: translateX(-50%) rotate(45deg);
-    }
-  }
-}
-
-/**
- * Mobile-specific navbar styling (extra small devices)
- * 
- * This media query targets mobile devices with maximum width of 575.98px
- * and applies responsive adjustments to the navbar elements:
- * 
- * - Increases the main navbar font size for better readability on small screens
- * - Centers the mobile navigation links
- * - Reduces the brand text size to fit smaller screen width
- * - Decreases spacing between logo elements
- */
-@media (max-width: 575.98px) {
-  .navbar {
-    font-size: 1.3rem;
-  }
-
-  .navbar-links-mobile {
-    justify-content: center;
-  }
-
-  .navbar-brand {
-    font-size: 1.1rem;
-  }
-
-  .navbar-logo {
-    gap: 0.5rem;
   }
 }
