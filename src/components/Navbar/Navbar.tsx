@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
-import StarWrapper from "../../hoc/SectionWrapper";
 import styles from "./Navbar.module.scss";
 
 function Navbar() {
@@ -92,7 +91,7 @@ function Navbar() {
   const alternateLang = languages[alternateLocale as keyof typeof languages];
 
   return (
-    <nav className={`py-1 ${styles.navbar}`}>
+    <nav className={`py-3 ${styles.navbar}`}>
       <div className="container">
         <div className="row">
           {/* Logo y Marca */}
@@ -253,4 +252,4 @@ function Navbar() {
   );
 }
 
-export default StarWrapper(Navbar, "navbar");
+export default Navbar;

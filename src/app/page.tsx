@@ -1,5 +1,7 @@
 "use client";
 
+import About from "@/components/About/About";
+import Hero from "@/components/Hero/Hero";
 import LightEffect from "@/components/LightEffect/LightEffect";
 import Navbar from "@/components/Navbar/Navbar";
 import { useLanguage } from "@/context/languageContext";
@@ -14,8 +16,12 @@ function MainContent() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Navbar />
+        <div className={styles["bg-hero-pattern"]}>
+          <Navbar />
+          <Hero />
+        </div>
         <LightEffect />
+        <About />
       </main>
     </div>
   );

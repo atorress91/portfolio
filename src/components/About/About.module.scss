@@ -1,0 +1,52 @@
+/* About.scss */
+
+.about-section {
+    padding: 2rem 0;
+  }
+  
+  .section-subtext {
+    font-size: 1.25rem;
+    color: #6c757d; // color secundario de Bootstrap
+  }
+  
+  .section-headtext {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Limitar el ancho máximo para el párrafo descriptivo */
+  .max-width-3xl {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  
+  /* Opcional: estilos para el contenedor de Tilt si necesitas ajustar el ancho */
+  .service-tilt {
+    /* Puedes agregar reglas personalizadas aquí si lo requieres */
+  }
+  
+  /* Estilo para la tarjeta con efecto de degradado */
+  .service-card {
+    background: linear-gradient(135deg, #00ff85, #ff00c3); /* Simula el green-pink-gradient */
+    border-radius: 20px;
+  }
+  
+  /* Estilo interno de la tarjeta */
+  .service-card-inner {
+    background-color: #2d2d2d; /* Color terciario; ajústalo según tu diseño */
+    border-radius: 20px;
+  }
+  
+  /* Altura mínima de la tarjeta */
+  .min-height-280 {
+    min-height: 280px;
+  }
+  
+  /* Estilos para la imagen del ícono */
+  .service-icon {
+    width: 64px;  /* Aproximadamente 4rem */
+    height: 64px;
+    object-fit: contain;
+  }
+  

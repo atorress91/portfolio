@@ -1,0 +1,31 @@
+/* Indicador de scroll en la parte inferior */
+.scrollIndicator {
+    position: absolute;
+    bottom: 32px;
+}
+
+/* Estilo del contenedor que simula el "mouse" */
+.mouse {
+    width: 35px;
+    height: 64px;
+}
+
+.customBorder {
+    border-color: #2DD4BF !important;
+}
+
+/* Punto animado dentro del "mouse" */
+.mouseDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #6B46C1;
+    margin-bottom: 0.25rem;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+    .scrollIndicator {
+        bottom: 10px;
+    }
+}

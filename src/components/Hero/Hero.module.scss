@@ -1,0 +1,40 @@
+.heroContent {
+    padding: 1rem;
+}
+
+/* Círculo decorativo */
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #6B46C1;
+}
+
+/* Línea vertical con degradado */
+.verticalLine {
+    width: 4px;
+    height: 320px;
+    background: linear-gradient(180deg, #6B46C1, #FF6B6B);
+    margin-top: 10px;
+}
+
+/* Títulos y textos del hero */
+.heroHeadText {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #915eff;
+}
+
+.heroSubText {
+    font-size: 1.25rem;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+    .verticalLine {
+        height: 160px;
+    }
+}

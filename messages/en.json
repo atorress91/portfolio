@@ -3,6 +3,12 @@
     "title": "My portfolio",
     "description": "Andrés Torres Sánchez's personal portfolio"
   },
+  "Hero": {
+    "line-1": "Hello, I'm",
+    "line-2": "Full stack Software Developer, with experience",
+    "line-3": "in Web Development, Microservices, and Software Analysis. Constantly updating, with teamwork skills,",
+    "line-4": "problem solving and results oriented."
+  },
   "Navbar": {
     "about": "About me",
     "experience": "Experience",
