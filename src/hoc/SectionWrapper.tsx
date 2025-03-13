@@ -9,7 +9,7 @@ const StarWrapper = (Component, idName) =>
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className="container mx-auto position-relative py-5"
+        className="container mx-auto position-relative py-1"
       >
         <span className="d-block" id={idName}>
           &nbsp;

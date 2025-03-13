@@ -1,18 +1,13 @@
 {
-  "HomePage": {
-    "welcome": "Welcome",
-    "description": "Get started by editing",
-    "getStarted": "Get started by editing",
-    "saveChanges": "Save changes and see the result",
-    "deploy": "Deploy",
-    "readDocs": "Read Documentation",
-    "learn": "Learn Next.js",
-    "examples": "Templates",
-    "visitNext": "Visit Next.js",
-    "nextLogoAlt": "Next.js Logo",
-    "vercelLogoAlt": "Vercel Logo",
-    "fileIconAlt": "File Icon",
-    "windowIconAlt": "Window Icon",
-    "globeIconAlt": "Globe Icon"
+  "Layout": {
+    "title": "My portfolio",
+    "description": "Andrés Torres Sánchez's personal portfolio"
+  },
+  "Navbar": {
+    "about": "About me",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
   }
 }

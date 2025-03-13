@@ -1,12 +1,6 @@
 import { LanguageProvider } from "@/context/languageContext";
 import clsx from "clsx";
-import type { Metadata } from "next";
 import "../styles/style.scss";
-
-export const metadata: Metadata = {
-  title: "My portfolio",
-  description: "Personal portfolio",
-};
 
 export default function RootLayout({
   children,
