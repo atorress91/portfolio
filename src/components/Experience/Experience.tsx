@@ -60,8 +60,7 @@ const Experience = () => {
         <h2 className={`text-center mb-4 ${styles['secondary-color']}`}>
           {t('headerTitle')}
         </h2>
-      </motion.div>
-      <div className={styles.timeline}>
+        <div className={styles.timeline}>
         {experiences.map((experience, index) => (
           <ExperienceCard
             key={`experience-${index}`}
@@ -70,6 +69,7 @@ const Experience = () => {
           />
         ))}
       </div>
+      </motion.div>
     </div>
   );
 };

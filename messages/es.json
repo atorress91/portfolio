@@ -21,7 +21,12 @@
     "title": "Contacto",
     "nameLabel": "Tu nombre",
     "emailLabel": "Tu correo electrónico",
-    "messageLabel": "Tu mensaje"
+    "messageLabel": "Tu mensaje",
+    "btnSend": "Enviar",
+    "contactMessage": "¿Prefieres hablar directamente? Contáctame por cualquiera de mis redes.",
+    "placeholderName": "¿Cómo te llamas?",
+    "placeholderEmail": "¿Cuál es tu correo electrónico?",
+    "placeholderMessage": "¿Qué quieres decir?"
   },
   "Services": {
     "webDeveloper": "Desarrollador Web",
@@ -31,7 +36,7 @@
   },
   "Experiences": {
     "headerSubtitle": "Lo que he hecho hasta ahora",
-    "headerTitle": "Experiencia laboral.",
+    "headerTitle": "Experiencia laboral",
     "webDeveloper": "Desarrollador Web",
     "fullStackDeveloper": "Desarrollador Full Stack",
     "date1": "Ene 2022 - Dic 2022",

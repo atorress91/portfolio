@@ -21,7 +21,12 @@
     "title": "Contact",
     "nameLabel": "Your Name",
     "emailLabel": "Your Email",
-    "messageLabel": "Your Message"
+    "messageLabel": "Your Message",
+    "btnSend": "Send",
+    "contactMessage": "Prefer to speak directly? Contact me through any of my social channels.",
+    "placeholderName": "What's your good name?",
+    "placeholderEmail": "What's your email?",
+    "placeholderMessage": "What do you want to say?"
   },
   "Services": {
     "webDeveloper": "Web Developer",
@@ -31,7 +36,7 @@
   },
   "Experiences": {
     "headerSubtitle": "What I have done so far",
-    "headerTitle": "Work Experience.",
+    "headerTitle": "Work Experience",
     "webDeveloper": "Web Developer",
     "fullStackDeveloper": "Full Stack Developer",
     "date1": "Jan 2022 - Dec 2022",
