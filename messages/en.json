@@ -15,5 +15,33 @@
     "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact"
+  },
+  "Contact": {
+    "subtitle": "Get in touch",
+    "title": "Contact",
+    "nameLabel": "Your Name",
+    "emailLabel": "Your Email",
+    "messageLabel": "Your Message"
+  },
+  "Services": {
+    "webDeveloper": "Web Developer",
+    "reactNativeDeveloper": "React Native Developer",
+    "backendDeveloper": "Backend Developer",
+    "contentCreator": "Content Creator"
+  },
+  "Experiences": {
+    "headerSubtitle": "What I have done so far",
+    "headerTitle": "Work Experience.",
+    "webDeveloper": "Web Developer",
+    "fullStackDeveloper": "Full Stack Developer",
+    "date1": "Jan 2022 - Dec 2022",
+    "date2": "Jan 2023 - Present",
+    "point1": "Participation in the design and administration of databases in MS SQL Server, ensuring efficiency and security in data storage and access",
+    "point2": "Implementation of business logic and server functionalities using .NET Core, handling interaction with the database and communication with the frontend.",
+    "point3": "Development and optimization of user interfaces with Angular, translating technical requirements into a smooth and effective user experience.",
+    "point4": "Collaboration in evaluating and continuously improving existing processes, increasing software efficiency and enhancing user satisfaction.",
+    "point5": "Design and development of the user interface in Angular, providing a smooth and functional experience for the equipment management and technical staff system.",
+    "point6": "Implementation of business logic in .NET 6 to control data flow between the server and the user interface, enhancing system functionality and efficiency.",
+    "point7": "Creation of the database in SQL Server from scratch, considering the business's specific needs and designing the structure to optimize data storage and retrieval."
   }
 }

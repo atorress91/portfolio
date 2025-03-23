@@ -15,5 +15,33 @@
     "projects": "Proyectos",
     "skills": "Habilidades",
     "contact": "Contacto"
+  },
+  "Contact": {
+    "subtitle": "Ponte en contacto",
+    "title": "Contacto",
+    "nameLabel": "Tu nombre",
+    "emailLabel": "Tu correo electrónico",
+    "messageLabel": "Tu mensaje"
+  },
+  "Services": {
+    "webDeveloper": "Desarrollador Web",
+    "reactNativeDeveloper": "Desarrollador React Native",
+    "backendDeveloper": "Desarrollador Backend",
+    "contentCreator": "Creador de Contenido"
+  },
+  "Experiences": {
+    "headerSubtitle": "Lo que he hecho hasta ahora",
+    "headerTitle": "Experiencia laboral.",
+    "webDeveloper": "Desarrollador Web",
+    "fullStackDeveloper": "Desarrollador Full Stack",
+    "date1": "Ene 2022 - Dic 2022",
+    "date2": "Ene 2023 - Presente",
+    "point1": "Participación en el diseño y administración de bases de datos en MS SQL Server, asegurando la eficiencia y seguridad en el almacenamiento y acceso a los datos",
+    "point2": "Implementación de la lógica de negocios y funcionalidades de servidor usando .NET Core, manejando la interacción con la base de datos y la comunicación con el frontend. ",
+    "point3": " Desarrollo y optimización de interfaces de usuario con Angular, traduciendo los requerimientos técnicos en una experiencia de usuario fluida y efectiva. ",
+    "point4": "Colaboración en la evaluación y mejora continua de los procesos existentes, incrementando la eficiencia del software y mejorando la satisfacción de los usuarios. ",
+    "point5": "Diseño y desarrollo de la interfaz de usuario en Angular, ofreciendo una experiencia fluida y funcional para el sistema de control de equipos y personal técnico. ",
+    "point6": "Implementación de la lógica de negocio en .NET 6 para controlar el flujo de datos entre el servidor y la interfaz de usuario, mejorando la funcionalidad y eficiencia del sistema.",
+    "point7": "Creación de la base de datos en SQL Server desde cero, considerando las necesidades específicas del   negocio y diseñando la estructura para optimizar el almacenamiento y la recuperación de datos."
   }
 }

@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Tilt from "react-parallax-tilt";
-import { services } from "../../constants";
+import { services } from "@/constants";
 import SectionWrapper from "../../hoc/SectionWrapper";
-import { fadeIn, textVariant } from "../../utils/motion";
+import { fadeIn, textVariant } from "@/utils/motion";
 import styles from "./About.module.scss";
 
 const ServiceCard = ({ index, title, icon }) => (

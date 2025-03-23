@@ -1,6 +1,7 @@
 import { LanguageProvider } from "@/context/languageContext";
 import clsx from "clsx";
 import "../styles/style.scss";
+import React from "react";
 
 export default function RootLayout({
   children,

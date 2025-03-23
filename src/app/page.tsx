@@ -1,6 +1,7 @@
 "use client";
 
-import About from "@/components/About/About";
+import Contact from "@/components/Contact/Contact";
+import Experience from "@/components/Experience/Experience";
 import Hero from "@/components/Hero/Hero";
 import LightEffect from "@/components/LightEffect/LightEffect";
 import Navbar from "@/components/Navbar/Navbar";
@@ -21,7 +22,8 @@ function MainContent() {
           <Hero />
         </div>
         <LightEffect />
-        <About />
+        <Experience />
+        <Contact />
       </main>
     </div>
   );
