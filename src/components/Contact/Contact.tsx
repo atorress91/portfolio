@@ -22,7 +22,7 @@ const Contact = () => {
   // Enlaces a redes sociales
   const socialLinks = [
     { id: 'linkedin', icon: <Linkedin size={22} />, label: 'LinkedIn', url: 'https://linkedin.com/in/andrés-torres-sánchez-3ba367353', color: '#0077B5' },
-    { id: 'github', icon: <Github size={22} />, label: 'GitHub', url: 'https://github.com/atorres91', color: '#333' },
+    { id: 'github', icon: <Github size={22} />, label: 'GitHub', url: 'https://github.com/atorress91', color: '#333' },
     { id: 'instagram', icon: <Instagram size={22} />, label: 'Instagram', url: 'https://instagram.com/axts78', color: '#E1306C' },
     { id: 'whatsapp', icon: <Phone size={22} />, label: 'WhatsApp', url: 'https://wa.me/50683010150', color: '#25D366' },
     { id: 'email', icon: <Mail size={22} />, label: 'Email', url: 'mailto:andres91411@gmail.com', color: '#6B46C1' }
