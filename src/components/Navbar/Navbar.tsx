@@ -132,7 +132,7 @@ function Navbar() {
               <button
                 onClick={toggleLangDropdownDesktop}
                 className={styles["lang-selector-btn"]}
-                aria-expanded={isLangDropdownOpenDesktop}
+                aria-expanded={isLangDropdownOpenDesktop ? "true" : "false"}
               >
                 <ReactCountryFlag
                   countryCode={currentLang.code}
@@ -160,7 +160,7 @@ function Navbar() {
                     <span className="ms-1">{alternateLang.name}</span>
                   </button>
                 </div>
-              )}
+              )} 
             </div>
           </div>
 
@@ -214,7 +214,7 @@ function Navbar() {
               className="navbar-toggler"
               type="button"
               onClick={toggleMenu}
-              aria-expanded={isMenuOpen ? "true" : "false"}
+              aria-expanded={isMenuOpen}
               aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon">
