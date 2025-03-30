@@ -1,39 +1,56 @@
-.about-section {
-  padding: 2rem 0;
-}
-
-.section-subtext {
-  font-size: 1.25rem;
-  color: #6c757d;
-}
-
-.section-headtext {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.max-width-3xl {
-  max-width: 960px;
+/* Scroll.module.scss */
+.scrollIndicator {
+  position: absolute;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  pointer-events: none; /* Allow clicks to pass through the container */
+  left: 0;
+  right: 0;
   margin: 0 auto;
+  width: 45px; /* Container width for the mouse */
 }
 
-.service-card {
-  background: linear-gradient(135deg, #00ff85, #ff00c3);
-  border-radius: 20px;
+.scrollIndicator a {
+  pointer-events: auto; /* Re-enable clicks just on the link */
 }
 
-.service-card-inner {
-  background-color: #2d2d2d;
-  border-radius: 20px;
+.scrollDown {
+  bottom: 20px; /* Reduced from 32px to avoid content overlap */
 }
 
-.min-height-280 {
-  min-height: 280px;
+.scrollUp {
+  top: 80px; /* Below navbar to avoid overlap */
+  transform: rotate(180deg);
 }
 
-.service-icon {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
+/* Estilo del contenedor que simula el "mouse" */
+.mouse {
+  width: 32px; /* Slightly smaller */
+  height: 58px; /* Slightly smaller */
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+}
+
+.customBorder {
+  border-color: #2DD4BF !important;
+}
+
+/* Punto animado dentro del "mouse" */
+.mouseDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #6B46C1;
+  margin-bottom: 0.25rem;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+  .scrollDown {
+      bottom: 10px;
+  }
+  
+  .scrollUp {
+      top: 70px;
+  }
 }

@@ -1,31 +1,61 @@
-/* Indicador de scroll en la parte inferior */
 .scrollIndicator {
     position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: fit-content;
+    transition: opacity 0.3s ease;
+  }
+  
+  .scrollDown {
     bottom: 32px;
-}
-
-/* Estilo del contenedor que simula el "mouse" */
-.mouse {
-    width: 35px;
-    height: 64px;
-}
-
-.customBorder {
-    border-color: #2DD4BF !important;
-}
-
-/* Punto animado dentro del "mouse" */
-.mouseDot {
-    width: 12px;
-    height: 12px;
+  }
+  
+  .scrollUp {
+    top: 32px;
+  }
+  
+  .arrowContainer {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background-color: #6B46C1;
-    margin-bottom: 0.25rem;
-}
+    background-color: rgba(45, 212, 191, 0.15);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .arrowContainer:hover {
+    transform: translateY(3px);
+    background-color: rgba(45, 212, 191, 0.25);
+  }
+  
+  .scrollUp .arrowContainer:hover {
+    transform: translateY(-3px);
+  }
+  
+  .arrow {
+    fill: #2DD4BF;
+    transition: fill 0.2s ease;
+  }
+  
+  .arrowContainer:hover .arrow {
+    fill: #ffffff;
+  }
 
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 576px) {
-    .scrollIndicator {
-        bottom: 10px;
+  @media (max-width: 576px) {
+    .scrollDown {
+      bottom: 16px;
     }
-}
+    
+    .scrollUp {
+      top: 16px;
+    }
+    
+    .arrowContainer {
+      width: 36px;
+      height: 36px;
+    }
+  }

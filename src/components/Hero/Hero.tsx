@@ -1,9 +1,9 @@
+import SectionWrapper from "@/hoc/SectionWrapper";
 import { useTranslations } from "next-intl";
-import Scroll from "../Scroll/Scroll";
 import styles from "./Hero.module.scss";
 
 const Hero = () => {
-    const t = useTranslations("Hero");
+  const t = useTranslations("Hero");
 
   return (
     <section className={`position-relative w-100 vh-100 ${styles.heroSection}`}>
@@ -21,24 +21,25 @@ const Hero = () => {
               {/* Texto de bienvenida */}
               <div>
                 <h1 className={`${styles.heroHeadText} text-white`}>
-                 {t("line-1")} <span className={styles.highlight}>Andrés Torres Sánchez</span>
+                  {t("line-1")} <span className={styles.highlight}>Andrés Torres Sánchez</span>
                 </h1>
                 <p className={`${styles.heroSubText} mt-2 text-white`}>
-                {t("line-2")} <br className="d-none d-sm-block" />
-                {t("line-3")}
-                {t("line-4")}
+                  {t("line-2")} <br className="d-none d-sm-block" />
+                  {t("line-3")}
+                  {t("line-4")}
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Indicador de scroll */}
-      <Scroll route="#about" title="Ir a sobre mí" />
-
     </section>
   );
 };
 
-export default Hero;
+export default SectionWrapper(Hero, "hero", {
+  showScroll: true,
+  showUpScroll: false,    
+  showDownScroll: true, 
+  scrollUpTitle: "Back to Experience"
+});

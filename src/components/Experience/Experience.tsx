@@ -61,17 +61,22 @@ const Experience = () => {
           {t('headerTitle')}
         </h2>
         <div className={styles.timeline}>
-        {experiences.map((experience, index) => (
-          <ExperienceCard
-            key={`experience-${index}`}
-            experience={experience}
-            index={index}
-          />
-        ))}
-      </div>
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={`experience-${index}`}
+              experience={experience}
+              index={index}
+            />
+          ))}
+        </div>
       </motion.div>
     </div>
   );
 };
 
-export default SectionWrapper(Experience, "work");
+export default SectionWrapper(Experience, "work", {
+  showScroll: true,
+  showUpScroll: true,
+  showDownScroll: true,
+  scrollUpTitle: "Back to Hero or Contact"
+});
