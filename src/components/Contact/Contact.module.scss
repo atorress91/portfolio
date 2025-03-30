@@ -18,6 +18,10 @@ $complementary-color: #FF6B6B;
   margin-top: 2rem;
 }
 
+.formLabel {
+  color: $secondary-color !important;
+}
+
 .formContainer {
   background-color: none;
   border-radius: 0.75rem;
@@ -37,20 +41,19 @@ $complementary-color: #FF6B6B;
 
 .customInput,
 .customTextarea {
-  background-color: #2c2c2c;
-  color: #fff;
-  border: none;
+  background-color: #1d1836 !important;
   border-radius: 0.5rem;
   padding: 1rem;
   transition: background-color 0.2s ease;
+  color: white !important;
 
   &::placeholder {
-    color: #a0a0a0;
+    color: white !important;
   }
 
   &:focus {
     outline: none;
-    background-color: darken(#2c2c2c, 5%);
+    background-color: darken(#fff, 5%);
   }
 }
 

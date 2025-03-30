@@ -19,9 +19,9 @@
   "Contact": {
     "subtitle": "Get in touch",
     "title": "Contact",
-    "nameLabel": "Your Name",
-    "emailLabel": "Your Email",
-    "messageLabel": "Your Message",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
     "btnSend": "Send",
     "contactMessage": "Prefer to speak directly? Contact me through any of my social channels.",
     "placeholderName": "What's your good name?",

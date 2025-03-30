@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Github, Instagram, Linkedin, Mail, MessageCircle, Phone, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import React, { useRef, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import styles from "./Contact.module.scss";
 
 const Contact = () => {
@@ -38,6 +39,8 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
+    const loadingToast = toast.loading(t("sendingMessage") || "Enviando mensaje...");
+
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -52,8 +55,18 @@ const Contact = () => {
       )
       .then(
         () => {
+          toast.dismiss(loadingToast);
+          toast.success(t("successMessage") || "Gracias por comunicarse, pronto estaremos en contacto", {
+            duration: 5000,
+            icon: '👋',
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          });
+
           setLoading(false);
-          alert("Gracias por comunicarse, pronto estaremos en contacto");
           setForm({
             name: "",
             email: "",
@@ -61,11 +74,35 @@ const Contact = () => {
           });
         },
         (error) => {
+          toast.dismiss(loadingToast);
+          toast.error(t("errorMessage") || "Por favor intente de nuevo.", {
+            duration: 4000,
+            style: {
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            },
+          });
+
           setLoading(false);
           console.error(error);
-          alert("Por favor intente de nuevo.");
         }
       );
+  };
+
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 10
+      }
+    },
+    tap: {
+      scale: 0.95
+    }
   };
 
   return (
@@ -73,6 +110,14 @@ const Contact = () => {
       variants={slideIn("up", "tween", 0.2, 1)}
       className={`container ${styles.contactContainer}`}
     >
+      {/* Toaster para notificaciones */}
+      <Toaster position="top-center" toastOptions={{
+        className: '',
+        style: {
+          zIndex: 9999,
+        },
+      }} />
+
       <div className="row justify-content-center">
         <div className="col-12 col-lg-10">
           <div className={`${styles.formContainer} p-4 p-md-5`}>
@@ -107,7 +152,7 @@ const Contact = () => {
                 <form ref={formRef} onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-md-6 mb-3">
-                      <label className="form-label text-white">
+                      <label className={`mb-2 ${styles.formLabel}`}>
                         {t("nameLabel") || "Your Name"}
                       </label>
                       <input
@@ -117,10 +162,11 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder={t("placeholderName")}
                         className={`form-control ${styles.customInput}`}
+                        required
                       />
                     </div>
                     <div className="col-md-6 mb-3">
-                      <label className="form-label text-white">
+                      <label className={`mb-2 ${styles.formLabel}`}>
                         {t("emailLabel") || "Your Email"}
                       </label>
                       <input
@@ -130,11 +176,12 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder={t("placeholderEmail")}
                         className={`form-control ${styles.customInput}`}
+                        required
                       />
                     </div>
                   </div>
                   <div className="mb-3">
-                    <label className="form-label text-white">
+                    <label className={`mb-2 ${styles.formLabel}`}>
                       {t("messageLabel") || "Your Message"}
                     </label>
                     <textarea
@@ -144,6 +191,7 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder={t("placeholderMessage")}
                       className={`form-control ${styles.customTextarea}`}
+                      required
                     />
                   </div>
 
@@ -154,16 +202,42 @@ const Contact = () => {
                         <span>{t("contactMessage")}</span>
                       </p>
                     </div>
-                    <button type="submit" className={`btn ${styles.customButton}`}>
+                    <motion.button
+                      type="submit"
+                      className={`btn ${styles.customButton}`}
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                      disabled={loading}
+                    >
                       {loading ? (
-                        "Enviando..."
+                        <span className="d-flex align-items-center text-white">
+                          <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                            style={{ marginRight: "8px", width: "16px", height: "16px" }}
+                          >
+                            ⟳
+                          </motion.div>
+                          {t("sending") || "Enviando..."}
+                        </span>
                       ) : (
-                        <span className="d-flex align-items-center">
+                        <span className="d-flex align-items-center text-white">
                           {t("btnSend")}
-                          <Send size={16} className="ms-2" />
+                          <motion.div
+                            animate={{ x: [0, 4, 0] }}
+                            transition={{
+                              repeat: Infinity,
+                              repeatType: "mirror",
+                              duration: 1,
+                              repeatDelay: 1
+                            }}
+                          >
+                            <Send size={16} className="ms-2 text-white" />
+                          </motion.div>
                         </span>
                       )}
-                    </button>
+                    </motion.button>
                   </div>
                 </form>
               </div>

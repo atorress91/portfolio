@@ -19,9 +19,9 @@
   "Contact": {
     "subtitle": "Ponte en contacto",
     "title": "Contacto",
-    "nameLabel": "Tu nombre",
-    "emailLabel": "Tu correo electrónico",
-    "messageLabel": "Tu mensaje",
+    "nameLabel": "Nombre",
+    "emailLabel": "Correo electrónico",
+    "messageLabel": "Mensaje",
     "btnSend": "Enviar",
     "contactMessage": "¿Prefieres hablar directamente? Contáctame por cualquiera de mis redes.",
     "placeholderName": "¿Cómo te llamas?",
