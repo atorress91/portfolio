@@ -1,6 +1,7 @@
 import Scroll from "@/components/Scroll/Scroll";
 import { staggerContainer } from "@/utils/motion";
 import { motion, useInView } from "framer-motion";
+import { useTranslations } from "next-intl";
 import React, { useEffect, useRef, useState } from "react";
 
 export interface SectionConfig {
@@ -18,6 +19,7 @@ interface SectionWrapperProps {
   showScroll?: boolean;
   showUpScroll?: boolean;
   showDownScroll?: boolean;
+  useCustomScrollTitles?: boolean;
   scrollUpTitle?: string;
   scrollDownTitle?: string;
 }
@@ -28,29 +30,34 @@ const SectionWrapper = <P extends Record<string, unknown>>(
   options: SectionWrapperProps = {}
 ) => {
   const {
-    showScroll = false, 
+    showScroll = false,
     showUpScroll = true,
     showDownScroll = true,
+    useCustomScrollTitles = false,
     scrollUpTitle = "Scroll up",
-    scrollDownTitle = "Scroll down"
+    scrollDownTitle = "Scroll down",
   } = options;
 
   return function HOC(props: P) {
+    const t = useTranslations("Scroll");
     const sectionRef = useRef(null);
-    const isInView = useInView(sectionRef, { amount: 0.3 }); 
+    const isInView = useInView(sectionRef, { amount: 0.3 });
     const [shouldShowScroll, setShouldShowScroll] = useState(false);
     const [prevSection, setPrevSection] = useState<SectionConfig | null>(null);
     const [nextSection, setNextSection] = useState<SectionConfig | null>(null);
-    
+
+    const upScrollText = useCustomScrollTitles ? scrollUpTitle : t("scrollUp");
+    const downScrollText = useCustomScrollTitles ? scrollDownTitle : t("scrollDown");
+
     useEffect(() => {
       const currentIndex = sectionConfigs.findIndex(section => section.id === idName);
-      
+
       if (currentIndex > 0) {
         setPrevSection(sectionConfigs[currentIndex - 1]);
       } else {
         setPrevSection(null);
       }
-      
+
       if (currentIndex < sectionConfigs.length - 1) {
         setNextSection(sectionConfigs[currentIndex + 1]);
       } else {
@@ -79,11 +86,10 @@ const SectionWrapper = <P extends Record<string, unknown>>(
           &nbsp;
         </span>
 
-        {/* Only render scroll indicators if explicitly enabled */}
         {showScroll && shouldShowScroll && prevSection && showUpScroll && (
-          <Scroll 
-            targetId={prevSection.id} 
-            title={scrollUpTitle} 
+          <Scroll
+            targetId={prevSection.id}
+            title={upScrollText}
             direction="up"
             className="fade-in"
           />
@@ -92,9 +98,9 @@ const SectionWrapper = <P extends Record<string, unknown>>(
         <Component {...props} />
 
         {showScroll && shouldShowScroll && nextSection && showDownScroll && (
-          <Scroll 
-            targetId={nextSection.id} 
-            title={scrollDownTitle} 
+          <Scroll
+            targetId={nextSection.id}
+            title={downScrollText}
             direction="down"
             className="fade-in"
           />

@@ -26,7 +26,8 @@
     "contactMessage": "Prefer to speak directly? Contact me through any of my social channels.",
     "placeholderName": "What's your good name?",
     "placeholderEmail": "What's your email?",
-    "placeholderMessage": "What do you want to say?"
+    "placeholderMessage": "What do you want to say?",
+    "scrollTitle": "Back to Experience"
   },
   "Services": {
     "webDeveloper": "Web Developer",
@@ -48,5 +49,9 @@
     "point5": "Design and development of the user interface in Angular, providing a smooth and functional experience for the equipment management and technical staff system.",
     "point6": "Implementation of business logic in .NET 6 to control data flow between the server and the user interface, enhancing system functionality and efficiency.",
     "point7": "Creation of the database in SQL Server from scratch, considering the business's specific needs and designing the structure to optimize data storage and retrieval."
+  },
+  "Scroll": {
+    "scrollUp": "Scroll up",
+    "scrollDown": "Scroll down"
   }
 }

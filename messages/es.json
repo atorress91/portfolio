@@ -26,7 +26,8 @@
     "contactMessage": "¿Prefieres hablar directamente? Contáctame por cualquiera de mis redes.",
     "placeholderName": "¿Cómo te llamas?",
     "placeholderEmail": "¿Cuál es tu correo electrónico?",
-    "placeholderMessage": "¿Qué quieres decir?"
+    "placeholderMessage": "¿Qué quieres decir?",
+    "scrollTitle": "Regresar a experiencia"
   },
   "Services": {
     "webDeveloper": "Desarrollador Web",
@@ -48,5 +49,9 @@
     "point5": "Diseño y desarrollo de la interfaz de usuario en Angular, ofreciendo una experiencia fluida y funcional para el sistema de control de equipos y personal técnico. ",
     "point6": "Implementación de la lógica de negocio en .NET 6 para controlar el flujo de datos entre el servidor y la interfaz de usuario, mejorando la funcionalidad y eficiencia del sistema.",
     "point7": "Creación de la base de datos en SQL Server desde cero, considerando las necesidades específicas del   negocio y diseñando la estructura para optimizar el almacenamiento y la recuperación de datos."
+  },
+  "Scroll": {
+    "scrollUp": "Subir",
+    "scrollDown": "Bajar"
   }
 }

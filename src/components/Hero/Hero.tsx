@@ -40,6 +40,5 @@ const Hero = () => {
 export default SectionWrapper(Hero, "hero", {
   showScroll: true,
   showUpScroll: false,    
-  showDownScroll: true, 
-  scrollUpTitle: "Back to Experience"
+  showDownScroll: true
 });

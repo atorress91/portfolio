@@ -77,6 +77,5 @@ const Experience = () => {
 export default SectionWrapper(Experience, "work", {
   showScroll: true,
   showUpScroll: true,
-  showDownScroll: true,
-  scrollUpTitle: "Back to Hero or Contact"
+  showDownScroll: true
 });

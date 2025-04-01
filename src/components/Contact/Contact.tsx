@@ -252,6 +252,5 @@ const Contact = () => {
 export default SectionWrapper(Contact, "contact", {
   showScroll: true,
   showUpScroll: true,
-  showDownScroll: false,
-  scrollUpTitle: "Back to Experience"
+  showDownScroll: false
 });

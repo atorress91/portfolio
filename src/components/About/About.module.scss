@@ -1,41 +1,38 @@
-/* Scroll.module.scss */
 .scrollIndicator {
   position: absolute;
   transition: opacity 0.3s ease;
   z-index: 10;
-  pointer-events: none; /* Allow clicks to pass through the container */
+  pointer-events: none;
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 45px; /* Container width for the mouse */
+  width: 45px; 
 }
 
 .scrollIndicator a {
-  pointer-events: auto; /* Re-enable clicks just on the link */
+  pointer-events: auto;
 }
 
 .scrollDown {
-  bottom: 20px; /* Reduced from 32px to avoid content overlap */
+  bottom: 20px; 
 }
 
 .scrollUp {
-  top: 80px; /* Below navbar to avoid overlap */
+  top: 80px; 
   transform: rotate(180deg);
 }
 
-/* Estilo del contenedor que simula el "mouse" */
 .mouse {
-  width: 32px; /* Slightly smaller */
-  height: 58px; /* Slightly smaller */
+  width: 32px; 
+  height: 58px; 
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.4); 
 }
 
 .customBorder {
   border-color: #2DD4BF !important;
 }
 
-/* Punto animado dentro del "mouse" */
 .mouseDot {
   width: 10px;
   height: 10px;
@@ -44,7 +41,6 @@
   margin-bottom: 0.25rem;
 }
 
-/* Ajustes para pantallas pequeñas */
 @media (max-width: 576px) {
   .scrollDown {
       bottom: 10px;

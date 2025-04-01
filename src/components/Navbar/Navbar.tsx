@@ -7,6 +7,11 @@ import { useEffect, useRef, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import styles from "./Navbar.module.scss";
 
+interface NavItem {
+  key: string;
+  id: string; 
+}
+
 function Navbar() {
   const { locale, setLocale } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,6 +21,14 @@ function Navbar() {
   const langDropdownDesktopRef = useRef<HTMLDivElement | null>(null);
   const langDropdownMobileRef = useRef<HTMLDivElement | null>(null);
   const t = useTranslations("Navbar");
+
+  const navItems: NavItem[] = [
+    { key: "about", id: "about" },
+    { key: "experience", id: "work" },
+    { key: "projects", id: "projects" },
+    { key: "skills", id: "skills" },
+    { key: "contact", id: "contact" }
+  ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -29,7 +42,22 @@ function Navbar() {
     setIsLangDropdownOpenMobile(!isLangDropdownOpenMobile);
   };
 
-  // Para cerrar el dropdown cuando se hace clic fuera (Desktop)
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+    
+    const targetElement = document.getElementById(id);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -55,7 +83,6 @@ function Navbar() {
     };
   }, []);
 
-  // Para cerrar el dropdown cuando se hace clic fuera (Mobile)
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -111,15 +138,14 @@ function Navbar() {
           <div className="col-lg-9 d-none d-lg-flex align-items-center justify-content-end">
             {/* Enlaces de Navegación */}
             <div className={`d-flex me-4 ${styles["navbar-links"]}`}>
-              {[
-                t("about"),
-                t("experience"),
-                t("projects"),
-                t("skills"),
-                t("contact"),
-              ].map((item) => (
-                <a key={item} href={`#${item}`} className="mx-2">
-                  {item}
+              {navItems.map((item) => (
+                <a 
+                  key={item.key} 
+                  href={`#${item.id}`} 
+                  className="mx-2"
+                  onClick={(e) => handleNavClick(e, item.id)}
+                >
+                  {t(item.key)}
                 </a>
               ))}
             </div>
@@ -227,20 +253,14 @@ function Navbar() {
           {isMenuOpen && (
             <div className="col-12 d-lg-none mt-3">
               <div className={`d-flex flex-column ${styles["navbar-links-mobile"]}`}>
-                {[
-                  t("about"),
-                  t("experience"),
-                  t("projects"),
-                  t("skills"),
-                  t("contact"),
-                ].map((item) => (
+                {navItems.map((item) => (
                   <a
-                    key={item}
-                    href={`#${item}`}
+                    key={item.key}
+                    href={`#${item.id}`}
                     className="py-2"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(e) => handleNavClick(e, item.id)}
                   >
-                    {item}
+                    {t(item.key)}
                   </a>
                 ))}
               </div>
