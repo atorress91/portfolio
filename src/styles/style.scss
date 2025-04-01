@@ -11,13 +11,14 @@
  * 1. Reset styles - Normalizes browser defaults
  * 2. Bootstrap setup - Sets up Bootstrap framework
  */
+
 /* 1. Reset styles
 */
-@import "./reset";
+@use "./reset";
 
-/* 2. Bootstrap setup
+/* 2. Bootstrap setup - Usando @use en lugar de @import
 */
-@import "node_modules/bootstrap/scss/bootstrap";
+@use "bootstrap" as bootstrap;
 
 /**
  * Global body styles
