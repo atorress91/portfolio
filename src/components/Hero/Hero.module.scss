@@ -29,6 +29,22 @@
     font-size: 1.25rem;
 }
 
+.cursor {
+    display: inline-block;
+    margin-left: 3px;
+    width: 2px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
 @media (max-width: 576px) {
     .verticalLine {
         height: 19rem;

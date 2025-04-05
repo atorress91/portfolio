@@ -1,6 +1,7 @@
 import SectionWrapper from "@/hoc/SectionWrapper";
 import { useTranslations } from "next-intl";
 import styles from "./Hero.module.scss";
+import Typewriter from "../Typewriter/Tipewriter";
 
 const Hero = () => {
   const t = useTranslations("Hero");
@@ -20,13 +21,16 @@ const Hero = () => {
               </div>
               {/* Texto de bienvenida */}
               <div>
+                <span className={styles.highlight}>Andrés Torres Sánchez</span> <br className="d-none d-sm-block" />
                 <h1 className={`${styles.heroHeadText} text-white`}>
-                  {t("line-1")} <span className={styles.highlight}>Andrés Torres Sánchez</span>
+                  {t("line-1")} <span className={styles.highlight}>Andrés</span>
                 </h1>
                 <p className={`${styles.heroSubText} mt-2 text-white`}>
-                  {t("line-2")} <br className="d-none d-sm-block" />
-                  {t("line-3")}
-                  {t("line-4")}
+                  <Typewriter
+                    text={`${t("line-2")} ${t("line-3")} ${t("line-4")}`}
+                    speed={50}
+                    delay={3000}
+                  />
                 </p>
               </div>
             </div>
@@ -39,6 +43,6 @@ const Hero = () => {
 
 export default SectionWrapper(Hero, "hero", {
   showScroll: true,
-  showUpScroll: false,    
+  showUpScroll: false,
   showDownScroll: true
 });
