@@ -6,7 +6,8 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
   output: 'export', 
   images: {
-    unoptimized: true, 
+    unoptimized: true,
+    domains: ['drive.google.com'],
   },
 };
 

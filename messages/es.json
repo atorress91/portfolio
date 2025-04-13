@@ -53,5 +53,52 @@
   "Scroll": {
     "scrollUp": "Subir",
     "scrollDown": "Bajar"
+  },
+  "Skills": {
+    "headerSubtitle": "Lo que puedo hacer",
+    "headerTitle": "Mis Habilidades",
+    "technicalSkills": "Habilidades Técnicas",
+    "softSkills": "Habilidades Blandas",
+    "skill.react.name": "React",
+    "skill.react.point1": "Desarrollo de aplicaciones SPA con hooks, custom hooks y Context API",
+    "skill.react.point2": "Implementación de sistemas de diseño con componentes reutilizables",
+    "skill.node.name": "Node.js",
+    "skill.node.point1": "Creación de APIs RESTful y servicios backend escalables",
+    "skill.aws.name": "AWS",
+    "skill.aws.point1": "Implementación de arquitecturas serverless con Lambda y API Gateway",
+    "skill.typescript.name": "TypeScript",
+    "skill.typescript.point1": "Desarrollo de aplicaciones con tipado estático y interfaces robustas",
+    "skill.docker.name": "Docker",
+    "skill.docker.point1": "Containerización de aplicaciones y configuración con Docker Compose",
+    "skill.mongodb.name": "MongoDB",
+    "skill.mongodb.point1": "Diseño de esquemas y operaciones avanzadas con Mongoose",
+    "skill.communication.name": "Comunicación",
+    "skill.communication.point1": "Capacidad para transmitir ideas técnicas complejas de forma clara y efectiva",
+    "skill.teamwork.name": "Trabajo en Equipo",
+    "skill.teamwork.point1": "Colaboración efectiva en equipos multidisciplinarios y remotos",
+    "skill.problemsolving.name": "Resolución de Problemas",
+    "skill.problemsolving.point1": "Enfoque analítico para diagnosticar y resolver problemas complejos",
+    "skill.leadership.name": "Liderazgo",
+    "skill.leadership.point1": "Capacidad para guiar equipos y proyectos hacia objetivos comunes"
+  },
+  "Projects": {
+    "sectionTitle": "Mis Proyectos",
+    "sectionDescription": "Una selección de mis trabajos más recientes y destacados. Haz clic en cualquier proyecto para ver más detalles.",
+    "viewDetails": "Ver detalles",
+    "technologies": "Tecnologías",
+    "viewCode": "Ver Código",
+    "imageAlt": "imagen",
+    "project1": {
+      "title": "Proyecto Componentes",
+      "description": "Una aplicación desarrollada con Angular y .Net similar a un Ecommerce de NFTS, donde los usuarios pueden comprar y vender NFTS. Incluye un sistema de autenticación, gestión de usuarios y un panel de administración."
+    },
+    "project2": {
+      "title": "Proyecto Patrones",
+      "description": "Videojuego en Unity similar a Pokemon, donde los jugadores pueden capturar criaturas, entrenarlas y luchar entre sí. Incluye un sistema de inventario, gestión de personajes y un mapa interactivo."
+    },
+    "project3": {
+      "title": "Proyecto 3",
+      "description": "Sistema web llamado Rural Animal, creado para necesidades Agropecuarias, los usuarios pueden ofertar o subastar sus animales, visualizar en 3D, reservar citas por medio de un chat con IA."
+    }
   }
 }

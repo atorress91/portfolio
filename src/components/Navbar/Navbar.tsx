@@ -3,7 +3,7 @@
 import { useLanguage } from "@/context/languageContext";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import styles from "./Navbar.module.scss";
 
@@ -23,7 +23,7 @@ function Navbar() {
   const t = useTranslations("Navbar");
 
   const navItems: NavItem[] = [
-    { key: "about", id: "about" },
+    { key: "about", id: "hero" },
     { key: "experience", id: "work" },
     { key: "projects", id: "projects" },
     { key: "skills", id: "skills" },
@@ -118,7 +118,7 @@ function Navbar() {
   const alternateLang = languages[alternateLocale as keyof typeof languages];
 
   return (
-    <nav className={`py-3 ${styles.navbar}`}>
+    <nav className={`py-2 ${styles.navbar}`}>
       <div className="container">
         <div className="row">
           {/* Logo y Marca */}
@@ -126,7 +126,7 @@ function Navbar() {
             <div className={styles["navbar-logo"]}>
               <Image
                 src="/images/ats-logo.png"
-                alt="VisionDev Logo"
+                alt="Dev Logo"
                 width={80}
                 height={80}
               />
@@ -252,7 +252,7 @@ function Navbar() {
           {/* Menú Mobile */}
           {isMenuOpen && (
             <div className="col-12 d-lg-none mt-3">
-              <div className={`d-flex flex-column ${styles["navbar-links-mobile"]}`}>
+              <div className={`d-flex flex-column text-center ${styles["navbar-links-mobile"]}`}>
                 {navItems.map((item) => (
                   <a
                     key={item.key}

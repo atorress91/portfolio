@@ -53,5 +53,52 @@
   "Scroll": {
     "scrollUp": "Scroll up",
     "scrollDown": "Scroll down"
+  },
+  "Skills": {
+    "headerSubtitle": "What I Can Do",
+    "headerTitle": "My Skills",
+    "technicalSkills": "Technical Skills",
+    "softSkills": "Soft Skills",
+    "skill.react.name": "React",
+    "skill.react.point1": "Development of SPA applications using hooks, custom hooks, and Context API",
+    "skill.react.point2": "Implementation of design systems with reusable components",
+    "skill.node.name": "Node.js",
+    "skill.node.point1": "Creation of RESTful APIs and scalable backend services",
+    "skill.aws.name": "AWS",
+    "skill.aws.point1": "Implementation of serverless architectures with Lambda and API Gateway",
+    "skill.typescript.name": "TypeScript",
+    "skill.typescript.point1": "Development of applications with static typing and robust interfaces",
+    "skill.docker.name": "Docker",
+    "skill.docker.point1": "Containerization of applications and configuration with Docker Compose",
+    "skill.mongodb.name": "MongoDB",
+    "skill.mongodb.point1": "Schema design and advanced operations with Mongoose",
+    "skill.communication.name": "Communication",
+    "skill.communication.point1": "Ability to convey complex technical ideas clearly and effectively",
+    "skill.teamwork.name": "Teamwork",
+    "skill.teamwork.point1": "Effective collaboration in multidisciplinary and remote teams",
+    "skill.problemsolving.name": "Problem Solving",
+    "skill.problemsolving.point1": "Analytical approach to diagnosing and solving complex problems",
+    "skill.leadership.name": "Leadership",
+    "skill.leadership.point1": "Ability to lead teams and projects towards common goals"
+  },
+  "Projects": {
+    "sectionTitle": "My Projects",
+    "sectionDescription": "A selection of my most recent and outstanding works. Click on any project to see more details.",
+    "viewDetails": "View Details",
+    "technologies": "Technologies",
+    "viewCode": "View Code",
+    "imageAlt": "image",
+    "project1": {
+      "title": "Component Project",
+      "description": "An application developed with Angular and .Net similar to an NFT Ecommerce, where users can buy and sell NFTs. Includes an authentication system, user management, and an admin panel."
+    },
+    "project2": {
+      "title": "Patterns Project",
+      "description": "A Unity video game similar to Pokemon, where players can capture creatures, train them, and battle each other. Includes an inventory system, character management, and an interactive map."
+    },
+    "project3": {
+      "title": "Project 3",
+      "description": "A web system called Rural Animal, created for agricultural needs. Users can offer or auction their animals, view them in 3D, and book appointments through an AI-powered chat."
+    }
   }
 }

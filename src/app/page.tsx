@@ -12,6 +12,8 @@ import { useEffect } from "react";
 import messagesEn from "../../messages/en.json";
 import messagesEs from "../../messages/es.json";
 import styles from "./page.module.scss";
+import Skills from "@/components/Skills/Skills";
+import Projects from "@/components/Projects/Projects";
 
 function MainContent() {
   return (
@@ -20,10 +22,12 @@ function MainContent() {
         <div className={styles["bg-hero-pattern"]}>
           <Navbar />
           <Hero />
-        </div>
         <LightEffect />
         <Experience />
+        <Projects />
+        <Skills />
         <Contact />
+        </div>
       </main>
     </div>
   );

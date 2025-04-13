@@ -2,7 +2,7 @@
 
 import { SectionWrapper } from "@/hoc";
 import { slideIn } from "@/utils/motion";
-import emailjs from "@emailjs/browser";
+import emailjs from "@emailjs/browser/dist/email.min.js";
 import { motion } from "framer-motion";
 import { Github, Instagram, Linkedin, Mail, MessageCircle, Phone, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -132,17 +132,29 @@ const Contact = () => {
               {/* Iconos de redes sociales */}
               <div className={`d-flex justify-content-center gap-3 mb-4 ${styles.socialIcons}`}>
                 {socialLinks.map((social) => (
-                  <a
+                  <motion.a
                     key={social.id}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`${styles.socialLink} ${styles["social_" + social.id]}`}
                     aria-label={social.label}
+                    animate={{
+                      y: [0, -10, 0],       
+                      scale: [1, 1.2, 1],   
+                      rotate: [0, 5, 0]    
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {social.icon}
                     <span className={styles.socialTooltip}>{social.label}</span>
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>

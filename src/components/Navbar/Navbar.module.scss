@@ -1,6 +1,6 @@
 $primary-color: #6B46C1;
 $secondary-color: #2DD4BF;
-$complementary: #FF6B6B; 
+$complementary: #FF6B6B;
 
 .navbar {
   background-color: black !important;
@@ -181,5 +181,23 @@ $complementary: #FF6B6B;
 
   &:hover {
     color: $primary-color;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    font-size: 1.2rem;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .navbar-links {
+    a {
+      font-size: 1rem;
+    }
+  }
+
+  .navbar-toggler {
+    font-size: 1.5rem;
   }
 }

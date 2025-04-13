@@ -1,0 +1,220 @@
+$primary-color: #6B46C1;
+$secondary-color: #2DD4BF;
+$complementary-color: #FF6B6B;
+$dark-bg: #1d1836;
+
+// Variables específicas para el componente
+$card-bg: rgba(29, 24, 54, 0.8);
+$card-border: 1px solid rgba(255, 255, 255, 0.1);
+$card-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+$card-radius: 12px;
+
+// Textos principales
+.headerSubtitle {
+  color: $primary-color;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.headerTitle {
+  color: $secondary-color;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  color: $complementary-color;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  margin-bottom: 2rem;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: $complementary-color;
+    border-radius: 2px;
+  }
+}
+
+// Contenedor principal
+.skillsContainer {
+  padding: 1rem 0;
+}
+
+// Grid para las tarjetas
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+// Tarjeta de habilidad
+.skillCard {
+  position: relative;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    
+    .skillCardInner {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      border-color: rgba($secondary-color, 0.3);
+    }
+    
+    .skillIcon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.skillCardInner {
+  background: $card-bg;
+  border: $card-border;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  padding: 1.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+  }
+}
+
+// Icono de habilidad
+.skillIconContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.skillIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $dark-bg;
+  border: 3px solid $complementary-color;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.purple {
+  background-color: #1d1836;
+}
+
+.gray {
+  background-color: mix(#0066FF, #7F00FF, 50%);
+}
+
+.skillIconImage {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+}
+
+// Contenido de la habilidad
+.skillContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.skillName {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.skillCategory {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: $secondary-color;
+  background-color: rgba($secondary-color, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+  align-self: center;
+}
+
+// Nivel de habilidad usando puntos en lugar de porcentajes
+.skillLevel {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 0.75rem 0;
+}
+
+.skillDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  
+  &.active {
+    background: linear-gradient(45deg, $primary-color, $secondary-color);
+  }
+}
+
+// Lista de puntos
+.skillPoints {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.skillPoint {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $complementary-color;
+  }
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .headerTitle {
+    font-size: 2rem;
+  }
+}

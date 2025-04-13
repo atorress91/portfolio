@@ -10,8 +10,10 @@ export interface SectionConfig {
 }
 
 const sectionConfigs: SectionConfig[] = [
-  { id: "hero", title: "Home" },
+  { id: "hero", title: "About" },
   { id: "work", title: "Experience" },
+  { id: "projects", title: "Projects" },
+  { id: "skills", title: "Skills" },
   { id: "contact", title: "Contact" }
 ];
 
