@@ -3,16 +3,16 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { skills } from '../../constants';
+import { skills } from '@/constants';
 import { SectionWrapper } from '../../hoc';
-import { textVariant, fadeIn } from '../../utils/motion';
+import { textVariant, fadeIn } from '@/utils/motion';
 import styles from './Skills.module.scss';
 
 const SkillCard = ({ skill, index }) => {
   const t = useTranslations('Skills');
-  
+
   return (
-    <motion.div 
+    <motion.div
       variants={fadeIn("up", "spring", index * 0.1, 0.75)}
       className={styles.skillCard}
     >
@@ -36,8 +36,8 @@ const SkillCard = ({ skill, index }) => {
           {skill.level && (
             <div className={styles.skillLevel}>
               {Array.from({ length: 5 }).map((_, i) => (
-                <span 
-                  key={i} 
+                <span
+                  key={i}
                   className={`${styles.skillDot} ${i < skill.level / 20 ? styles.active : ''}`}
                 ></span>
               ))}
@@ -60,7 +60,7 @@ const SkillCard = ({ skill, index }) => {
 
 const SkillSection = ({ title, skills }) => {
   const t = useTranslations('Skills');
-  
+
   return (
     <div className="mb-5">
       <h3 className={`mb-4 ${styles.sectionTitle}`}>{t(title)}</h3>
@@ -85,7 +85,7 @@ const SkillsComponent = () => {
         <h2 className={`text-center mb-5 ${styles.headerTitle}`}>
           {t('headerTitle')}
         </h2>
-        
+
         <div className={styles.skillsContainer}>
           <SkillSection title="technicalSkills" skills={skills.technical} />
           <SkillSection title="softSkills" skills={skills.soft} />
