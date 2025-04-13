@@ -1,0 +1,296 @@
+$primary-color: #6B46C1;
+$secondary-color: #2DD4BF;
+$complementary-color: #FF6B6B;
+$bg-dark: #1d1836;
+$bg-card: #2a2550;
+$text-light: #ffffff;
+$text-muted: #b4b4b4;
+
+.projectsSection {
+  padding: 5rem 0;
+}
+
+.sectionTitle {
+  color: $secondary-color;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sectionDivider {
+  width: 80px;
+  height: 4px;
+  background-color: $complementary-color;
+  margin: 0 auto 2rem;
+}
+
+.sectionDescription {
+  color: $text-light;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.projectCard {
+  background-color: $bg-card;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    .projectImage img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.projectImage {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(42, 37, 80, 0.8), transparent);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+}
+
+.projectContent {
+  padding: 1.5rem;
+}
+
+.projectTitle {
+  color: $secondary-color;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.projectDescription {
+  color: $text-light;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.projectTag {
+  background-color: $primary-color;
+  color: $text-light;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.projectLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.viewDetails {
+  color: $complementary-color;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.projectIcons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.projectIcon {
+  color: $secondary-color;
+  background-color: rgba(45, 212, 191, 0.1);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(45, 212, 191, 0.2);
+  }
+}
+
+:global(.modal-backdrop) {
+  background-color: black !important;
+  opacity: 0.85 !important;
+}
+
+.projectModal {
+  :global(.modal-content) {
+    background-color: black;
+    color: $text-light;
+    border: none;
+    border-radius: 12px;
+  }
+
+  :global(.modal-header) {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  :global(.modal-title) {
+    color: $secondary-color;
+  }
+
+  :global(.modal-footer) {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+
+  :global(.btn-close) {
+    color: $complementary-color;
+    opacity: 1;
+    filter: invert(1) grayscale(100%) brightness(200%);
+
+    &:hover {
+      color: darken($complementary-color, 10%);
+    }
+  }
+}
+
+.modalImagesSlider {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.carouselItem {
+  height: 300px;
+
+  img {
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.carouselControl {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(42, 37, 80, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+.carouselIndicators {
+  .active {
+    background-color: $secondary-color;
+  }
+}
+
+.modalDescription {
+  margin-bottom: 1.5rem;
+}
+
+.modalTechnologies {
+  margin-bottom: 1.5rem;
+
+  h4 {
+    color: $complementary-color;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.modalButtons {
+  .btn-demo {
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+    color: $bg-dark;
+    font-weight: 500;
+
+    &:hover {
+      background-color: darken($secondary-color, 10%);
+      border-color: darken($secondary-color, 10%);
+    }
+  }
+
+  .btn-code {
+    background-color: transparent;
+    border-color: $secondary-color;
+    color: $secondary-color;
+    font-weight: 500;
+
+    &:hover {
+      background-color: rgba(45, 212, 191, 0.1);
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 767px) {
+  .projectsSection {
+    padding: 3rem 0;
+  }
+
+  .projectCard {
+    margin-bottom: 2rem;
+  }
+
+  .carouselItem {
+    height: 200px;
+  }
+}
+
+:global(.carousel-control-prev-icon),
+:global(.carousel-control-next-icon) {
+  background-image: none !important;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.carousel-control-prev-icon)::before,
+:global(.carousel-control-next-icon)::before {
+  content: '';
+  font-size: 2rem;
+  font-weight: bold;
+  color: $complementary-color;
+  display: block;
+}
+
+:global(.carousel-control-prev-icon)::before {
+  content: '‹';
+}
+
+:global(.carousel-control-next-icon)::before {
+  content: '›';
+}
+
+
