@@ -147,7 +147,7 @@ export const projectsData = [
         description: "project1.description",
         tags: ["Angular", ".Net", "Firebase", "SqlServer"],
         mainImage: "https://i.imgur.com/hDa7xLn.png",
-        images: ["https://i.imgur.com/hDa7xLn.png", "https://i.imgur.com/dlGeDRc.png", "/api/placeholder/600/400"],
+        images: ["https://i.imgur.com/hDa7xLn.png", "https://i.imgur.com/dlGeDRc.png"],
         githubLink: "https://github.com/username/proyecto1"
     },
     {
@@ -155,8 +155,8 @@ export const projectsData = [
         title: "project2.title",
         description: "project2.description",
         tags: ["Unity", "C#"],
-        mainImage: "/api/placeholder/600/400",
-        images: ["/api/placeholder/600/400", "/api/placeholder/600/400", "/api/placeholder/600/400"],
+        mainImage: "https://i.imgur.com/80zL8Mt.png",
+        images: ["https://i.imgur.com/dVt2oUa.png", "https://i.imgur.com/OMPd4eI.png"],
         githubLink: "https://github.com/username/proyecto2"
     },
     {
