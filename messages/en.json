@@ -27,7 +27,11 @@
     "placeholderName": "What's your good name?",
     "placeholderEmail": "What's your email?",
     "placeholderMessage": "What do you want to say?",
-    "scrollTitle": "Back to Experience"
+    "scrollTitle": "Back to Experience",
+    "sendingMessage": "Sending message...",
+    "successMessage": "Thank you for your message! I will get back to you soon.",
+    "errorMessage": "There was an error sending the message. Please try again.",
+    "sending": "Sending..."
   },
   "Services": {
     "webDeveloper": "Web Developer",
