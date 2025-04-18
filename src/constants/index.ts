@@ -37,105 +37,112 @@ export const experiences = [
 ];
 
 export const skills = {
+    featured: [
+        {
+            id: "react",
+            icon: "react",
+            iconBg: "blue",
+            level: 90,
+            points: [1, 2, 3],
+            featured: true
+        },
+        {
+            id: "typescript",
+            icon: "typescript",
+            iconBg: "purple",
+            level: 85,
+            points: [1, 2],
+            featured: true
+        }
+    ],
     technical: [
         {
-            name: "skill.react.name",
-            icon: "/icons/react.png",
-            iconBg: "purple",
-            level: 5,
-            category: "Frontend",
-            points: [
-                "skill.react.point1",
-                "skill.react.point2"
-            ]
+            id: "react",
+            icon: "react",
+            iconBg: "blue",
+            level: 90,
+            points: [1, 2, 3]
         },
         {
-            name: "skill.node.name",
-            icon: "/icons/node.png",
+            id: "node",
+            icon: "node",
+            iconBg: "green",
+            level: 80,
+            points: [1, 2]
+        },
+        {
+            id: "aws",
+            icon: "aws",
             iconBg: "gray",
-            level: 4,
-            category: "Backend",
-            points: [
-                "skill.node.point1"
-            ]
+            level: 75,
+            points: [1, 2]
         },
         {
-            name: "skill.aws.name",
-            icon: "/icons/aws.png",
+            id: "typescript",
+            icon: "typescript",
             iconBg: "purple",
-            level: 3,
-            category: "Cloud",
-            points: [
-                "skill.aws.point1"
-            ]
+            level: 85,
+            points: [1, 2]
         },
         {
-            name: "skill.typescript.name",
-            icon: "/icons/typescript.png",
-            iconBg: "gray",
-            level: 4,
-            category: "Languages",
-            points: [
-                "skill.typescript.point1"
-            ]
+            id: "docker",
+            icon: "docker",
+            iconBg: "blue",
+            level: 70,
+            points: [1, 2]
         },
         {
-            name: "skill.docker.name",
-            icon: "/icons/docker.png",
-            iconBg: "purple",
-            level: 3,
-            category: "DevOps",
-            points: [
-                "skill.docker.point1"
-            ]
-        },
-        {
-            name: "skill.mongodb.name",
-            icon: "/icons/mongodb.png",
-            iconBg: "gray",
-            level: 4,
-            category: "Database",
-            points: [
-                "skill.mongodb.point1"
-            ]
+            id: "mongodb",
+            icon: "mongodb",
+            iconBg: "green",
+            level: 75,
+            points: [1, 2]
         }
     ],
     soft: [
         {
-            name: "skill.communication.name",
-            icon: "/icons/communication.png",
+            id: "communication",
+            icon: "communication",
             iconBg: "purple",
-            level: 5,
-            points: [
-                "skill.communication.point1"
-            ]
+            level: 95,
+            points: [1, 2]
         },
         {
-            name: "skill.teamwork.name",
-            icon: "/icons/teamwork.png",
+            id: "teamwork",
+            icon: "teamwork",
+            iconBg: "blue",
+            level: 90,
+            points: [1, 2]
+        },
+        {
+            id: "problemsolving",
+            icon: "problemsolving",
+            iconBg: "green",
+            level: 85,
+            points: [1, 2]
+        },
+        {
+            id: "leadership",
+            icon: "leadership",
             iconBg: "gray",
-            level: 5,
-            points: [
-                "skill.teamwork.point1"
-            ]
+            level: 80,
+            points: [1, 2]
+        }
+    ],
+    languages: [
+        {
+            id: "english",
+            icon: "english",
+            iconBg: "blue",
+            level: 90,
+            points: [1]
         },
         {
-            name: "skill.problemsolving.name",
-            icon: "/icons/problemsolving.png",
+            id: "spanish",
+            icon: "spanish",
             iconBg: "purple",
-            level: 4,
-            points: [
-                "skill.problemsolving.point1"
-            ]
-        },
-        {
-            name: "skill.leadership.name",
-            icon: "/icons/leadership.png",
-            iconBg: "gray",
-            level: 4,
-            points: [
-                "skill.leadership.point1"
-            ]
+            level: 100,
+            points: [1]
         }
     ]
 };

@@ -60,30 +60,86 @@
   },
   "Skills": {
     "headerSubtitle": "Lo que puedo hacer",
-    "headerTitle": "Mis Habilidades",
+    "headerTitle": "Mis Competencias",
+    "headerDescription": "Una colección seleccionada de habilidades técnicas e interpersonales que he desarrollado a lo largo de mi carrera, demostrando mi capacidad para ofrecer soluciones integrales.",
     "technicalSkills": "Habilidades Técnicas",
-    "softSkills": "Habilidades Blandas",
-    "skill.react.name": "React",
-    "skill.react.point1": "Desarrollo de aplicaciones SPA con hooks, custom hooks y Context API",
-    "skill.react.point2": "Implementación de sistemas de diseño con componentes reutilizables",
-    "skill.node.name": "Node.js",
-    "skill.node.point1": "Creación de APIs RESTful y servicios backend escalables",
-    "skill.aws.name": "AWS",
-    "skill.aws.point1": "Implementación de arquitecturas serverless con Lambda y API Gateway",
-    "skill.typescript.name": "TypeScript",
-    "skill.typescript.point1": "Desarrollo de aplicaciones con tipado estático y interfaces robustas",
-    "skill.docker.name": "Docker",
-    "skill.docker.point1": "Containerización de aplicaciones y configuración con Docker Compose",
-    "skill.mongodb.name": "MongoDB",
-    "skill.mongodb.point1": "Diseño de esquemas y operaciones avanzadas con Mongoose",
-    "skill.communication.name": "Comunicación",
-    "skill.communication.point1": "Capacidad para transmitir ideas técnicas complejas de forma clara y efectiva",
-    "skill.teamwork.name": "Trabajo en Equipo",
-    "skill.teamwork.point1": "Colaboración efectiva en equipos multidisciplinarios y remotos",
-    "skill.problemsolving.name": "Resolución de Problemas",
-    "skill.problemsolving.point1": "Enfoque analítico para diagnosticar y resolver problemas complejos",
-    "skill.leadership.name": "Liderazgo",
-    "skill.leadership.point1": "Capacidad para guiar equipos y proyectos hacia objetivos comunes"
+    "softSkills": "Habilidades Interpersonales",
+    "featuredSkills": "Habilidades Destacadas",
+    "languageSkills": "Idiomas",
+    "skillLevel": "Nivel",
+    "keyCapabilities": "Capacidades Clave",
+    "featured": "Destacado",
+    "react": {
+      "name": "React",
+      "category": "Frontend",
+      "point1": "Desarrollo de aplicaciones SPA con hooks, custom hooks y Context API",
+      "point2": "Implementación de sistemas de diseño con componentes reutilizables",
+      "point3": "Optimización de rendimiento y gestión de estados"
+    },
+    "node": {
+      "name": "Node.js",
+      "category": "Backend",
+      "point1": "Creación de APIs RESTful y servicios backend escalables",
+      "point2": "Implementación de flujos de autenticación y autorización"
+    },
+    "aws": {
+      "name": "AWS",
+      "category": "Cloud",
+      "point1": "Implementación de arquitecturas serverless con Lambda y API Gateway",
+      "point2": "Gestión de recursos cloud con CDK y CloudFormation"
+    },
+    "typescript": {
+      "name": "TypeScript",
+      "category": "Lenguaje",
+      "point1": "Desarrollo de aplicaciones con tipado estático e interfaces robustas",
+      "point2": "Creación de bibliotecas y funciones de utilidad type-safe"
+    },
+    "docker": {
+      "name": "Docker",
+      "category": "DevOps",
+      "point1": "Containerización de aplicaciones y configuración con Docker Compose",
+      "point2": "Construcción de imágenes multi-etapa listas para producción"
+    },
+    "mongodb": {
+      "name": "MongoDB",
+      "category": "Base de datos",
+      "point1": "Diseño de esquemas y operaciones avanzadas con Mongoose",
+      "point2": "Optimización del rendimiento de la base de datos y patrones de consulta"
+    },
+    "communication": {
+      "name": "Comunicación",
+      "category": "Habilidad Blanda",
+      "point1": "Capacidad para transmitir ideas técnicas complejas de forma clara y efectiva",
+      "point2": "Presentación de soluciones a stakeholders técnicos y no técnicos"
+    },
+    "teamwork": {
+      "name": "Trabajo en Equipo",
+      "category": "Habilidad Blanda",
+      "point1": "Colaboración efectiva en equipos multidisciplinarios y remotos",
+      "point2": "Contribución a un entorno de equipo positivo y productivo"
+    },
+    "problemsolving": {
+      "name": "Resolución de Problemas",
+      "category": "Habilidad Blanda",
+      "point1": "Enfoque analítico para diagnosticar y resolver problemas complejos",
+      "point2": "Desglose de grandes desafíos en componentes manejables"
+    },
+    "leadership": {
+      "name": "Liderazgo",
+      "category": "Habilidad Blanda",
+      "point1": "Capacidad para guiar equipos y proyectos hacia objetivos comunes",
+      "point2": "Mentoría a desarrolladores junior y promoción del intercambio de conocimientos"
+    },
+    "english": {
+      "name": "Inglés",
+      "category": "Idioma",
+      "point1": "Nivel profesional"
+    },
+    "spanish": {
+      "name": "Español",
+      "category": "Idioma",
+      "point1": "Nivel nativo"
+    }
   },
   "Projects": {
     "sectionTitle": "Mis Proyectos",

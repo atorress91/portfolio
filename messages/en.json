@@ -60,30 +60,86 @@
   },
   "Skills": {
     "headerSubtitle": "What I Can Do",
-    "headerTitle": "My Skills",
+    "headerTitle": "My Skillset",
+    "headerDescription": "A curated collection of technical and interpersonal skills I've developed throughout my career, demonstrating my ability to deliver comprehensive solutions.",
     "technicalSkills": "Technical Skills",
-    "softSkills": "Soft Skills",
-    "skill.react.name": "React",
-    "skill.react.point1": "Development of SPA applications using hooks, custom hooks, and Context API",
-    "skill.react.point2": "Implementation of design systems with reusable components",
-    "skill.node.name": "Node.js",
-    "skill.node.point1": "Creation of RESTful APIs and scalable backend services",
-    "skill.aws.name": "AWS",
-    "skill.aws.point1": "Implementation of serverless architectures with Lambda and API Gateway",
-    "skill.typescript.name": "TypeScript",
-    "skill.typescript.point1": "Development of applications with static typing and robust interfaces",
-    "skill.docker.name": "Docker",
-    "skill.docker.point1": "Containerization of applications and configuration with Docker Compose",
-    "skill.mongodb.name": "MongoDB",
-    "skill.mongodb.point1": "Schema design and advanced operations with Mongoose",
-    "skill.communication.name": "Communication",
-    "skill.communication.point1": "Ability to convey complex technical ideas clearly and effectively",
-    "skill.teamwork.name": "Teamwork",
-    "skill.teamwork.point1": "Effective collaboration in multidisciplinary and remote teams",
-    "skill.problemsolving.name": "Problem Solving",
-    "skill.problemsolving.point1": "Analytical approach to diagnosing and solving complex problems",
-    "skill.leadership.name": "Leadership",
-    "skill.leadership.point1": "Ability to lead teams and projects towards common goals"
+    "softSkills": "Interpersonal Skills",
+    "featuredSkills": "Featured Skills",
+    "languageSkills": "Languages",
+    "skillLevel": "Proficiency",
+    "keyCapabilities": "Key Capabilities",
+    "featured": "Featured",
+    "react": {
+      "name": "React",
+      "category": "Frontend",
+      "point1": "Building SPA applications with hooks, custom hooks and Context API",
+      "point2": "Implementing design systems with reusable components",
+      "point3": "Performance optimization and state management"
+    },
+    "node": {
+      "name": "Node.js",
+      "category": "Backend",
+      "point1": "Creating RESTful APIs and scalable backend services",
+      "point2": "Implementing authentication and authorization flows"
+    },
+    "aws": {
+      "name": "AWS",
+      "category": "Cloud",
+      "point1": "Implementing serverless architectures with Lambda and API Gateway",
+      "point2": "Managing cloud resources with CDK and CloudFormation"
+    },
+    "typescript": {
+      "name": "TypeScript",
+      "category": "Language",
+      "point1": "Developing applications with static typing and robust interfaces",
+      "point2": "Creating type-safe libraries and utility functions"
+    },
+    "docker": {
+      "name": "Docker",
+      "category": "DevOps",
+      "point1": "Containerizing applications and configuring with Docker Compose",
+      "point2": "Building multi-stage production-ready images"
+    },
+    "mongodb": {
+      "name": "MongoDB",
+      "category": "Database",
+      "point1": "Designing schemas and advanced operations with Mongoose",
+      "point2": "Optimizing database performance and query patterns"
+    },
+    "communication": {
+      "name": "Communication",
+      "category": "Soft Skill",
+      "point1": "Ability to convey complex technical ideas clearly and effectively",
+      "point2": "Presenting solutions to technical and non-technical stakeholders"
+    },
+    "teamwork": {
+      "name": "Teamwork",
+      "category": "Soft Skill",
+      "point1": "Effective collaboration in multidisciplinary and remote teams",
+      "point2": "Contributing to a positive and productive team environment"
+    },
+    "problemsolving": {
+      "name": "Problem Solving",
+      "category": "Soft Skill",
+      "point1": "Analytical approach to diagnosing and solving complex problems",
+      "point2": "Breaking down large challenges into manageable components"
+    },
+    "leadership": {
+      "name": "Leadership",
+      "category": "Soft Skill",
+      "point1": "Ability to guide teams and projects toward common goals",
+      "point2": "Mentoring junior developers and promoting knowledge sharing"
+    },
+    "english": {
+      "name": "English",
+      "category": "Language",
+      "point1": "Professional working proficiency"
+    },
+    "spanish": {
+      "name": "Spanish",
+      "category": "Language",
+      "point1": "Native proficiency"
+    }
   },
   "Projects": {
     "sectionTitle": "My Projects",
