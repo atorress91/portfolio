@@ -142,9 +142,11 @@ $text-muted: #b4b4b4;
   }
 }
 
-:global(.modal-backdrop) {
-  background-color: black !important;
-  opacity: 0.85 !important;
+.modalBackdropContainer {
+  :global(.modal-backdrop) {
+    background-color: black !important;
+    opacity: 0.85 !important;
+  }
 }
 
 .projectModal {
@@ -266,31 +268,31 @@ $text-muted: #b4b4b4;
   }
 }
 
-:global(.carousel-control-prev-icon),
-:global(.carousel-control-next-icon) {
-  background-image: none !important;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.carouselControlsContainer {
+  :global(.carousel-control-prev-icon),
+  :global(.carousel-control-next-icon) {
+    background-image: none !important;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  :global(.carousel-control-prev-icon)::before,
+  :global(.carousel-control-next-icon)::before {
+    content: '';
+    font-size: 2rem;
+    font-weight: bold;
+    color: $complementary-color;
+    display: block;
+  }
+
+  :global(.carousel-control-prev-icon)::before {
+    content: '‹';
+  }
+
+  :global(.carousel-control-next-icon)::before {
+    content: '›';
+  }
 }
-
-:global(.carousel-control-prev-icon)::before,
-:global(.carousel-control-next-icon)::before {
-  content: '';
-  font-size: 2rem;
-  font-weight: bold;
-  color: $complementary-color;
-  display: block;
-}
-
-:global(.carousel-control-prev-icon)::before {
-  content: '‹';
-}
-
-:global(.carousel-control-next-icon)::before {
-  content: '›';
-}
-
-
