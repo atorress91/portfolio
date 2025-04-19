@@ -26,7 +26,8 @@
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
     "react-parallax-tilt": "^1.7.286",
-    "sass": "^1.85.1"
+    "sass": "^1.85.1",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -2,16 +2,89 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import {Code, Server, Cloud, FileJson, Database, BarChart3, Users, Brain, Trophy, ArrowUpCircle, Languages, Globe
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import {
+    Code, Server, Cloud, FileJson, Database, BarChart3,
+    Users, Brain, Trophy, ArrowUpCircle, Languages, Globe
 } from 'lucide-react';
 import { SectionWrapper } from '../../hoc';
 import styles from './Skills.module.scss';
-import {skills} from '@/constants';
+import { skills } from '@/constants';
 
+// Interfaces
+interface SkillItem {
+    id: string;
+    icon: string;
+    iconBg?: string;
+    level?: number;
+    points?: number[];
+    featured?: boolean;
+}
+
+interface SkillCardProps {
+    skill: SkillItem;
+    t: (key: string) => string;
+}
+
+// Componente SkillCard
+const SkillCard: React.FC<SkillCardProps> = ({ skill, t }) => {
+    if (!skill || !skill.id) return null;
+
+    return (
+        <div className={styles.skillCard}>
+            <div className={styles.skillCardInner}>
+                <div className={styles.cardHeader}>
+                    <div className={`${styles.skillIcon} ${styles[skill.iconBg || 'purple']}`}>
+                        {getSkillIcon(skill.icon)}
+                    </div>
+                    <div>
+                        <h3 className={styles.skillName}>{t(`${skill.id}.name`)}</h3>
+                        <span className={styles.skillCategory}>{t(`${skill.id}.category`)}</span>
+                    </div>
+                </div>
+                {skill.level && (
+                    <div className={styles.skillLevelContainer}>
+                        <div className={styles.skillLevelLabel}>
+                            <span>{t('skillLevel')}</span>
+                            <span>{skill.level}%</span>
+                        </div>
+                        <div className={styles.skillLevelBar}>
+                            <div
+                                className={styles.skillLevelProgress}
+                                style={{ width: `${skill.level}%` }}
+                            ></div>
+                        </div>
+                    </div>
+                )}
+                {skill.points && skill.points.length > 0 && (
+                    <div className={styles.skillPointsContainer}>
+                        <h4 className={styles.skillPointsTitle}>{t('keyCapabilities')}</h4>
+                        <ul className={styles.skillPoints}>
+                            {skill.points.map((pointNumber, idx) => (
+                                <li key={`skill-point-${idx}`} className={styles.skillPoint}>
+                                    {t(`${skill.id}.point${pointNumber}`)}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+                {skill.featured && (
+                    <div className={styles.featuredBadge}>
+                        {t('featured')}
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
+
+// Íconos
 const getSkillIcon = (iconName: string) => {
     const iconProps = { size: 28, className: styles.skillIconImage };
-
-    switch(iconName) {
+    switch (iconName) {
         case 'react': return <Code {...iconProps} />;
         case 'node': return <Server {...iconProps} />;
         case 'aws': return <Cloud {...iconProps} />;
@@ -28,248 +101,44 @@ const getSkillIcon = (iconName: string) => {
     }
 };
 
-const SkillsComponent = () => {
+const SkillsComponent: React.FC = () => {
     const t = useTranslations('Skills');
+    const categoriesOrder = ['featured', 'technical', 'soft', 'languages'];
+
+    const allSkills = categoriesOrder.reduce<SkillItem[]>((acc, category) => {
+        if (skills[category] && Array.isArray(skills[category])) {
+            return [...acc, ...skills[category]];
+        }
+        return acc;
+    }, []);
 
     return (
         <div className={styles.container}>
-            {/* Encabezado */}
             <div className={styles.header}>
                 <p className={styles.headerSubtitle}>{t('headerSubtitle')}</p>
                 <h2 className={styles.headerTitle}>{t('headerTitle')}</h2>
                 <p className={styles.headerDescription}>{t('headerDescription')}</p>
             </div>
 
-            {/* Contenedor de todas las habilidades */}
-            <div className={styles.skillsContainer} style={{color: 'white'}}>
-                {/* Sección de habilidades destacadas */}
-                {skills.featured && skills.featured.length > 0 && (
-                    <div className={styles.skillSection}>
-                        <h3 className={styles.sectionTitle}>{t('featuredSkills')}</h3>
-                        <div className={styles.skillsGrid}>
-                            {skills.featured.map((skill, index) => (
-                                <div key={`featured-${index}`} className={styles.skillCard}>
-                                    <div className={styles.skillCardInner}>
-                                        {/* Encabezado de la tarjeta */}
-                                        <div className={styles.cardHeader}>
-                                            <div className={`${styles.skillIcon} ${styles[skill.iconBg || 'purple']}`}>
-                                                {getSkillIcon(skill.icon)}
-                                            </div>
-                                            <div>
-                                                <h3 className={styles.skillName}>{t(`${skill.id}.name`)}</h3>
-                                                <span className={styles.skillCategory}>{t(`${skill.id}.category`)}</span>
-                                            </div>
-                                        </div>
-
-                                        {/* Nivel de habilidad */}
-                                        {skill.level && (
-                                            <div className={styles.skillLevelContainer}>
-                                                <div className={styles.skillLevelLabel}>
-                                                    <span>{t('skillLevel')}</span>
-                                                    <span>{skill.level}%</span>
-                                                </div>
-                                                <div className={styles.skillLevelBar}>
-                                                    <div
-                                                        className={styles.skillLevelProgress}
-                                                        style={{ width: `${skill.level}%` }}
-                                                    ></div>
-                                                </div>
-                                            </div>
-                                        )}
-
-                                        {/* Puntos de habilidad */}
-                                        {skill.points && skill.points.length > 0 && (
-                                            <div className={styles.skillPointsContainer}>
-                                                <h4 className={styles.skillPointsTitle}>{t('keyCapabilities')}</h4>
-                                                <ul className={styles.skillPoints}>
-                                                    {skill.points.map((pointNumber, idx) => {
-                                                        const translationKey = `${skill.id}.point${pointNumber}`;
-                                                        return (
-                                                            <li key={`skill-point-${idx}`} className={styles.skillPoint}>
-                                                                {t(translationKey)}
-                                                            </li>
-                                                        );
-                                                    })}
-                                                </ul>
-                                            </div>
-                                        )}
-
-                                        {/* Insignia destacada */}
-                                        {skill.featured && (
-                                            <div className={styles.featuredBadge}>
-                                                {t('featured')}
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* Sección de habilidades técnicas */}
-                <div className={styles.skillSection}>
-                    <h3 className={styles.sectionTitle}>{t('technicalSkills')}</h3>
-                    <div className={styles.skillsGrid}>
-                        {skills.technical.map((skill, index) => (
-                            <div key={`technical-${index}`} className={styles.skillCard}>
-                                <div className={styles.skillCardInner}>
-                                    {/* Contenido de tarjeta similar al anterior */}
-                                    <div className={styles.cardHeader}>
-                                        <div className={`${styles.skillIcon} ${styles[skill.iconBg || 'purple']}`}>
-                                            {getSkillIcon(skill.icon)}
-                                        </div>
-                                        <div>
-                                            <h3 className={styles.skillName}>{t(`${skill.id}.name`)}</h3>
-                                            <span className={styles.skillCategory}>{t(`${skill.id}.category`)}</span>
-                                        </div>
-                                    </div>
-
-                                    {skill.level && (
-                                        <div className={styles.skillLevelContainer}>
-                                            <div className={styles.skillLevelLabel}>
-                                                <span>{t('skillLevel')}</span>
-                                                <span>{skill.level}%</span>
-                                            </div>
-                                            <div className={styles.skillLevelBar}>
-                                                <div
-                                                    className={styles.skillLevelProgress}
-                                                    style={{ width: `${skill.level}%` }}
-                                                ></div>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {skill.points && skill.points.length > 0 && (
-                                        <div className={styles.skillPointsContainer}>
-                                            <h4 className={styles.skillPointsTitle}>{t('keyCapabilities')}</h4>
-                                            <ul className={styles.skillPoints}>
-                                                {skill.points.map((pointNumber, idx) => {
-                                                    const translationKey = `${skill.id}.point${pointNumber}`;
-                                                    return (
-                                                        <li key={`skill-point-${idx}`} className={styles.skillPoint}>
-                                                            {t(translationKey)}
-                                                        </li>
-                                                    );
-                                                })}
-                                            </ul>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Sección de habilidades interpersonales */}
-                <div className={styles.skillSection}>
-                    <h3 className={styles.sectionTitle}>{t('softSkills')}</h3>
-                    <div className={styles.skillsGrid}>
-                        {skills.soft.map((skill, index) => (
-                            <div key={`soft-${index}`} className={styles.skillCard}>
-                                <div className={styles.skillCardInner}>
-                                    {/* Contenido similar */}
-                                    <div className={styles.cardHeader}>
-                                        <div className={`${styles.skillIcon} ${styles[skill.iconBg || 'purple']}`}>
-                                            {getSkillIcon(skill.icon)}
-                                        </div>
-                                        <div>
-                                            <h3 className={styles.skillName}>{t(`${skill.id}.name`)}</h3>
-                                            <span className={styles.skillCategory}>{t(`${skill.id}.category`)}</span>
-                                        </div>
-                                    </div>
-
-                                    {skill.level && (
-                                        <div className={styles.skillLevelContainer}>
-                                            <div className={styles.skillLevelLabel}>
-                                                <span>{t('skillLevel')}</span>
-                                                <span>{skill.level}%</span>
-                                            </div>
-                                            <div className={styles.skillLevelBar}>
-                                                <div
-                                                    className={styles.skillLevelProgress}
-                                                    style={{ width: `${skill.level}%` }}
-                                                ></div>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {skill.points && skill.points.length > 0 && (
-                                        <div className={styles.skillPointsContainer}>
-                                            <h4 className={styles.skillPointsTitle}>{t('keyCapabilities')}</h4>
-                                            <ul className={styles.skillPoints}>
-                                                {skill.points.map((pointNumber, idx) => {
-                                                    const translationKey = `${skill.id}.point${pointNumber}`;
-                                                    return (
-                                                        <li key={`skill-point-${idx}`} className={styles.skillPoint}>
-                                                            {t(translationKey)}
-                                                        </li>
-                                                    );
-                                                })}
-                                            </ul>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Sección de idiomas */}
-                {skills.languages && skills.languages.length > 0 && (
-                    <div className={styles.skillSection}>
-                        <h3 className={styles.sectionTitle}>{t('languageSkills')}</h3>
-                        <div className={styles.skillsGrid}>
-                            {skills.languages.map((skill, index) => (
-                                <div key={`language-${index}`} className={styles.skillCard}>
-                                    <div className={styles.skillCardInner}>
-                                        {/* Contenido similar */}
-                                        <div className={styles.cardHeader}>
-                                            <div className={`${styles.skillIcon} ${styles[skill.iconBg || 'purple']}`}>
-                                                {getSkillIcon(skill.icon)}
-                                            </div>
-                                            <div>
-                                                <h3 className={styles.skillName}>{t(`${skill.id}.name`)}</h3>
-                                                <span className={styles.skillCategory}>{t(`${skill.id}.category`)}</span>
-                                            </div>
-                                        </div>
-
-                                        {skill.level && (
-                                            <div className={styles.skillLevelContainer}>
-                                                <div className={styles.skillLevelLabel}>
-                                                    <span>{t('skillLevel')}</span>
-                                                    <span>{skill.level}%</span>
-                                                </div>
-                                                <div className={styles.skillLevelBar}>
-                                                    <div
-                                                        className={styles.skillLevelProgress}
-                                                        style={{ width: `${skill.level}%` }}
-                                                    ></div>
-                                                </div>
-                                            </div>
-                                        )}
-
-                                        {skill.points && skill.points.length > 0 && (
-                                            <div className={styles.skillPointsContainer}>
-                                                <h4 className={styles.skillPointsTitle}>{t('keyCapabilities')}</h4>
-                                                <ul className={styles.skillPoints}>
-                                                    {skill.points.map((pointNumber, idx) => {
-                                                        const translationKey = `${skill.id}.point${pointNumber}`;
-                                                        return (
-                                                            <li key={`skill-point-${idx}`} className={styles.skillPoint}>
-                                                                {t(translationKey)}
-                                                            </li>
-                                                        );
-                                                    })}
-                                                </ul>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
+            <div className={styles.carouselWrapper}>
+                <Swiper
+                    modules={[Autoplay]}
+                    spaceBetween={20}
+                    slidesPerView={'auto'}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    loop={true}
+                    centeredSlides={true}
+                    className={styles.carouselContainer}
+                >
+                    {allSkills.map((skill, index) => (
+                        <SwiperSlide key={`skill-${index}`} className={styles.skillSlide}>
+                            <SkillCard skill={skill} t={t} />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </div>
         </div>
     );

@@ -34,11 +34,13 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
+  color: $light-text;
+  overflow: hidden;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
 }
 
 .headerSubtitle {
@@ -66,47 +68,43 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   line-height: 1.6;
 }
 
-.skillsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
-
-.skillSection {
-  margin-bottom: 1rem;
-}
-
-.sectionTitle {
-  color: $accent-color;
-  font-size: 1.8rem;
-  font-weight: 700;
+.carouselWrapper {
   position: relative;
-  margin-bottom: 2.5rem;
-  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  margin: 0 auto;
+}
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, $accent-color, $secondary-color);
-    border-radius: 4px;
+.carouselContainer {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
-.skillsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.8rem;
-  padding: 0.5rem;
-}
-
 .skillCard {
-  height: 100%;
+  flex: 0 0 auto;
+  width: 300px;
+  min-width: 300px;
+  height: 450px;
   perspective: 1000px;
+  margin: 0;
+  transform-origin: center center;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    z-index: 10;
+  }
 }
 
 .skillCardInner {
@@ -125,6 +123,10 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   &:hover {
     box-shadow: $hover-shadow;
     border-color: rgba($secondary-color, 0.35);
+
+    .skillIcon {
+      transform: translateY(-5px);
+    }
 
     .skillLevelProgress {
       background: linear-gradient(90deg, $secondary-color, $primary-color);
@@ -146,7 +148,7 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -279,26 +281,30 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
+.skillSlide {
+  width: 300px; // Igual al ancho de .skillCard
+  height: 450px; // Igual a la altura de .skillCard
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Responsive
 @media screen and (max-width: 768px) {
   .headerTitle {
     font-size: 2.2rem;
   }
 
-  .skillsGrid {
-    grid-template-columns: 1fr;
+  .skillCard {
+    width: 270px;
+    min-width: 270px;
+    height: 430px;
   }
 
   .cardHeader {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .skillIcon {
-    margin-bottom: 0.8rem;
-  }
-
-  .skillCategory {
-    margin-top: 0.5rem;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
   }
 }
 
@@ -307,7 +313,19 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     font-size: 1.8rem;
   }
 
-  .sectionTitle {
-    font-size: 1.5rem;
+  .skillCard {
+    width: 250px;
+    min-width: 250px;
+    height: 400px;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .skillIcon {
+    margin-bottom: 0.8rem;
   }
 }
