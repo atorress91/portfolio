@@ -63,7 +63,7 @@ export default function Page() {
   return (
     <NextIntlClientProvider key={locale} locale={locale} messages={messages}>
       <Head>
-        <meta name="description" content={messages.Layout.description} />
+        <meta name="description" content="Portafolio personal" />
       </Head>
       <MainContent />
     </NextIntlClientProvider>
