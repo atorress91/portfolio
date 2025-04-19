@@ -43,6 +43,7 @@ const ProjectCard = ({project, onClick}) => {
                             rel="noopener noreferrer"
                             className={styles.projectIcon}
                             onClick={(e) => e.stopPropagation()}
+                            aria-label={"viewCodeOnGitHub"}
                         >
                             <i className="bi bi-github"></i>
                         </a>

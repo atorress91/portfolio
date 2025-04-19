@@ -2,6 +2,11 @@ import { LanguageProvider } from "@/context/languageContext";
 import clsx from "clsx";
 import "../styles/style.scss";
 import React from "react";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+    description: "Portafolio personal Andrés Torres Sánchez",
+};
 
 export default function RootLayout({
   children,
