@@ -14,7 +14,10 @@
     "experience": "Experiencia",
     "projects": "Proyectos",
     "skills": "Habilidades",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "currentLangFlag": "Bandera de {lang}",
+    "alternateLangFlag": "Bandera de {lang}",
+    "toggleMenu": "Abrir/Cerrar menú de navegación"
   },
   "Contact": {
     "subtitle": "Ponte en contacto",

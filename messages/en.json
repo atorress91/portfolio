@@ -14,7 +14,10 @@
     "experience": "Experience",
     "projects": "Projects",
     "skills": "Skills",
-    "contact": "Contact"
+    "contact": "Contact",
+    "currentLangFlag": "Flag of {lang}",
+    "alternateLangFlag": "Flag of {lang}",
+    "toggleMenu": "Open/Close navigation menu"
   },
   "Contact": {
     "subtitle": "Get in touch",
