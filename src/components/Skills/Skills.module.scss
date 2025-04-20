@@ -1,15 +1,7 @@
 $primary-color: #6B46C1;
 $secondary-color: #2DD4BF;
 $accent-color: #FF6B6B;
-$dark-bg: #1d1836;
-$light-text: rgba(255, 255, 255, 0.85);
-$muted-text: rgba(255, 255, 255, 0.65);
-
 $card-bg: rgba(29, 24, 54, 0.85);
-$card-border: 1px solid rgba(255, 255, 255, 0.12);
-$card-radius: 16px;
-$card-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-$hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 
 @mixin glass-effect {
   backdrop-filter: blur(10px);
@@ -21,61 +13,22 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   );
 }
 
-@mixin gradient-text {
-  background: linear-gradient(90deg, $secondary-color, $primary-color);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-  color: $light-text;
-  overflow: hidden;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
 .headerTitle {
- color: $primary-color;
-  font-size: 3rem;
+  color: $primary-color;
+  font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 1rem;
   letter-spacing: -0.5px;
 }
 
 .headerDescription {
   color: $secondary-color;
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
   line-height: 1.6;
 }
 
-.carouselWrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 20px 0;
-  margin: 0 auto;
-}
-
 .carouselContainer {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
   padding: 10px 20px;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 
   &::-webkit-scrollbar {
     display: none;
@@ -88,7 +41,6 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   min-width: 300px;
   height: 450px;
   perspective: 1000px;
-  margin: 0;
   transform-origin: center center;
   transition: transform 0.5s ease, opacity 0.3s ease;
 
@@ -100,19 +52,14 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 
 .skillCardInner {
   @include glass-effect;
-  border: $card-border;
-  border-radius: $card-radius;
-  box-shadow: $card-shadow;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
   padding: 1.8rem;
-  height: 100%;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
 
   &:hover {
-    box-shadow: $hover-shadow;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     border-color: rgba($secondary-color, 0.35);
 
     .skillIcon {
@@ -125,22 +72,11 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   }
 }
 
-.cardHeader {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
 .skillIcon {
   min-width: 60px;
   height: 60px;
   border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -167,26 +103,18 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .skillName {
-  color: $light-text;
+  color: rgba(255, 255, 255, 0.85);
   font-size: 1.3rem;
   font-weight: 700;
-  margin-bottom: 0.3rem;
 }
 
 .skillCategory {
-  display: inline-block;
   font-size: 0.8rem;
   color: $secondary-color;
   background-color: rgba($secondary-color, 0.12);
@@ -195,56 +123,26 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   font-weight: 500;
 }
 
-.skillLevelContainer {
-  margin: 1.2rem 0;
-}
-
-.skillLevelLabel {
-  display: flex;
-  justify-content: space-between;
-  color: $muted-text;
+.skillLevelText {
+  color: rgba(255, 255, 255, 0.65);
   font-size: 0.85rem;
-  margin-bottom: 0.5rem;
-}
-
-.skillLevelBar {
-  height: 8px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  overflow: hidden;
 }
 
 .skillLevelProgress {
-  height: 100%;
   background: $accent-color;
-  border-radius: 4px;
   transition: all 0.4s ease;
 }
 
-.skillPointsContainer {
-  margin-top: 1.2rem;
-  flex-grow: 1;
-}
-
 .skillPointsTitle {
-  color: $light-text;
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-}
-
-.skillPoints {
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .skillPoint {
   position: relative;
   padding-left: 1.5rem;
-  margin-bottom: 0.7rem;
   font-size: 0.9rem;
-  color: $muted-text;
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.4;
 
   &::before {
@@ -260,7 +158,6 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 .featuredBadge {
-  position: absolute;
   top: 1rem;
   right: 1rem;
   background: linear-gradient(135deg, $primary-color, $secondary-color);
@@ -273,50 +170,27 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 .skillSlide {
-  width: 300px; // Igual al ancho de .skillCard
-  height: 450px; // Igual a la altura de .skillCard
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 300px;
+  height: 450px;
 }
 
 // Responsive
 @media screen and (max-width: 768px) {
-  .headerTitle {
-    font-size: 2.2rem;
-  }
-
   .skillCard {
     width: 270px;
     min-width: 270px;
     height: 430px;
   }
-
-  .cardHeader {
-    flex-direction: row;
-    text-align: left;
-    align-items: center;
-  }
 }
 
 @media screen and (max-width: 480px) {
-  .headerTitle {
-    font-size: 1.8rem;
-  }
-
   .skillCard {
     width: 250px;
     min-width: 250px;
     height: 400px;
   }
 
-  .cardHeader {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .skillIcon {
-    margin-bottom: 0.8rem;
+  .headerTitle {
+    font-size: 1.8rem;
   }
 }

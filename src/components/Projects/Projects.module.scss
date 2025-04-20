@@ -312,6 +312,51 @@ $text-muted: #b4b4b4;
   }
 }
 
+@media (max-width: 576px) {
+  .projectsSection {
+    padding: 2rem 0;
+  }
+
+  .projectImage {
+    height: 180px;
+  }
+
+  .techIconsContainer {
+    gap: 0.6rem;
+  }
+
+  .techIcon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .projectTitle {
+    font-size: 1.2rem;
+  }
+
+  .projectDescription {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
+  }
+}
+
+@media (min-width: 992px) {
+  .projectCard {
+    min-height: 400px;
+  }
+
+  .projectImage {
+    height: 220px;
+  }
+}
+
+// Mejora animaciones en dispositivos táctiles
+@media (hover: none) {
+  .projectCard:active {
+    transform: translateY(-5px);
+  }
+}
+
 .carouselControlsContainer {
   :global(.carousel-control-prev-icon),
   :global(.carousel-control-next-icon) {

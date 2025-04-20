@@ -18,7 +18,7 @@ const techIconMap = {
     'MariaDb': '/mariadb.svg',
 };
 
-const TechIcon = ({ tag }) => {
+const TechIcon = ({tag}) => {
     const hasIcon = techIconMap[tag] !== undefined;
 
     if (!hasIcon) return null;
@@ -36,9 +36,8 @@ const TechIcon = ({ tag }) => {
     );
 };
 
-const ProjectCard = ({project, onClick}) => {
+const ProjectCard = ({ project, onClick }) => {
     const t = useTranslations("Projects");
-
     return (
         <div className={styles.projectCard} onClick={onClick}>
             <div className={styles.projectImage}>
@@ -49,22 +48,19 @@ const ProjectCard = ({project, onClick}) => {
                     height={400}
                     style={{
                         width: '100%',
-                        height: 'auto',
+                        height: '100%',
                         objectFit: 'cover'
                     }}
                 />
             </div>
-
             <div className={styles.projectContent}>
                 <h3 className={styles.projectTitle}>{t(project.title)}</h3>
                 <p className={styles.projectDescription}>{t(project.description)}</p>
-
                 <div className={styles.techIconsContainer}>
                     {project.tags.map((tag: string, index: number) => (
                         <TechIcon key={index} tag={tag} />
                     ))}
                 </div>
-
                 <div className={styles.projectLinks}>
                     <span className={styles.viewDetails}>{t("viewDetails")}</span>
                     <div className={styles.projectIcons}>
@@ -74,7 +70,7 @@ const ProjectCard = ({project, onClick}) => {
                             rel="noopener noreferrer"
                             className={styles.projectIcon}
                             onClick={(e) => e.stopPropagation()}
-                            aria-label={"viewCodeOnGitHub"}
+                            aria-label={t("viewCode")}
                         >
                             <i className="bi bi-github"></i>
                         </a>
@@ -100,16 +96,16 @@ const ProjectsSection = () => {
     };
 
     return (
-        <section className={styles.projectsSection} id="projects">
+        <section className={`${styles.projectsSection} py-4 py-md-5`} id="projects">
             <Container>
-                <h2 className={styles.sectionTitle}>{t("sectionTitle")}</h2>
-                <p className={styles.sectionDescription}>
+                <h2 className={`${styles.sectionTitle} mb-2 mb-md-3`}>{t("sectionTitle")}</h2>
+                <p className={`${styles.sectionDescription} mb-4 mb-md-5 px-2`}>
                     {t("sectionDescription")}
                 </p>
 
-                <Row>
+                <Row className="g-4">
                     {projectsData.map((project) => (
-                        <Col key={project.id} md={4} sm={6} xs={12} className="mb-4">
+                        <Col key={project.id} lg={4} md={6} sm={12} className="mb-4">
                             <ProjectCard
                                 project={project}
                                 onClick={() => handleProjectClick(project)}

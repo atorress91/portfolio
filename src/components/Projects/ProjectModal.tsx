@@ -50,37 +50,39 @@ const ProjectModal = ({project, show, handleClose}) => {
                 <Modal.Title>{t(project.title)}</Modal.Title>
             </Modal.Header>
 
-            <Modal.Body>
+            <Modal.Body className="px-2 px-sm-3 py-3">
                 <Carousel
                     className={styles.modalImagesSlider}
                     indicators={true}
                     interval={null}
+                    controls={true}
                 >
                     {project.images.map((image: string, index: number) => (
-                        <Carousel.Item key={index}>
-                            <Image
-                                className="d-block w-100"
-                                src={image}
-                                alt={`${t(project.title)} - ${t("imageAlt")} ${index + 1}`}
-                                width={600}
-                                height={400}
-                                style={{
-                                    width: '100%',
-                                    height: 'auto',
-                                    objectFit: 'contain'
-                                }}
-                            />
+                        <Carousel.Item key={index} className="px-0 px-sm-2">
+                            <div className="ratio ratio-16x9">
+                                <Image
+                                    className="d-block rounded"
+                                    src={image}
+                                    alt={`${t(project.title)} - ${t("imageAlt")} ${index + 1}`}
+                                    width={600}
+                                    height={400}
+                                    style={{
+                                        objectFit: 'contain',
+                                        backgroundColor: '#121212'
+                                    }}
+                                />
+                            </div>
                         </Carousel.Item>
                     ))}
                 </Carousel>
 
-                <div className={styles.modalDescription}>
-                    <p>{t(project.description)}</p>
+                <div className={`${styles.modalDescription} my-4`}>
+                    <p className="mb-0">{t(project.description)}</p>
                 </div>
 
                 <div className={styles.modalTechnologies}>
-                    <h4>{t("technologies")}</h4>
-                    <div className={styles.techIconsContainer}>
+                    <h4 className="mb-3 text-center">{t("technologies")}</h4>
+                    <div className={`${styles.techIconsContainer} justify-content-center`}>
                         {project.tags.map((tag: string, index: number) => (
                             <TechIcon key={index} tag={tag} />
                         ))}
