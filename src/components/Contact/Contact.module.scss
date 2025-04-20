@@ -80,36 +80,14 @@ $complementary-color: #FF6B6B;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: white;
+  width: auto;
+  height: auto;
   transition: all 0.3s ease;
 
   &:hover {
+    filter: invert(67%) sepia(85%) saturate(1000%) hue-rotate(330deg) brightness(95%) contrast(110%);
     transform: translateY(-5px);
-
-    .socialTooltip {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
-}
-
-.social_linkedin {
-  background-color: #0077B5;
-}
-
-.social_github {
-  background-color: #333;
-}
-
-.social_instagram {
-  background-color: #E1306C;
-}
-
-.social_whatsapp {
-  background-color: #25D366;
 }
 
 .socialTooltip {
