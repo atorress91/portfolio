@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { experiences } from '../../constants';
+import { experiences } from '@/constants';
 import { SectionWrapper } from '../../hoc';
-import { textVariant } from '../../utils/motion';
+import { textVariant } from '@/utils/motion';
 import styles from './Experience.module.scss';
 
 const ExperienceCard = ({ experience, index }) => {
@@ -36,7 +36,7 @@ const ExperienceCard = ({ experience, index }) => {
           {experience.company_name}
         </p>
         <ul className="mt-3 list-unstyled">
-          {experience.points.map((point, idx) => (
+          {experience.points.map((point: string, idx: number) => (
             <li key={`experience-point-${idx}`} className={styles.timelineListItem}>
               &#8226; {t(point)}
             </li>
@@ -54,10 +54,10 @@ const Experience = () => {
   return (
     <div className="container my-5">
       <motion.div variants={textVariant(1)}>
-        <p className={`text-center mb-2 ${styles['primary-color']}`}>
+        <p className={`text-center mb-2 ${styles['secondary-color']}`}>
           {t('headerSubtitle')}
         </p>
-        <h2 className={`text-center mb-4 ${styles['secondary-color']}`}>
+        <h2 className={`text-center mb-4 ${styles['primary-color']}`}>
           {t('headerTitle')}
         </h2>
         <div className={styles.timeline}>

@@ -103,7 +103,6 @@ const ProjectsSection = () => {
         <section className={styles.projectsSection} id="projects">
             <Container>
                 <h2 className={styles.sectionTitle}>{t("sectionTitle")}</h2>
-                <div className={styles.sectionDivider}></div>
                 <p className={styles.sectionDescription}>
                     {t("sectionDescription")}
                 </p>

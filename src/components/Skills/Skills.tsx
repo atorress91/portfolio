@@ -14,7 +14,6 @@ import { SectionWrapper } from '../../hoc';
 import styles from './Skills.module.scss';
 import { skills } from '@/constants';
 
-// Interfaces
 interface SkillItem {
     id: string;
     icon: string;
@@ -114,8 +113,7 @@ const SkillsComponent: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.header}>
-                <p className={styles.headerSubtitle}>{t('headerSubtitle')}</p>
+            <div className={`mt-5 ${styles.header}`}>
                 <h2 className={styles.headerTitle}>{t('headerTitle')}</h2>
                 <p className={styles.headerDescription}>{t('headerDescription')}</p>
             </div>

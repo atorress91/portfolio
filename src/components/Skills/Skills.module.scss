@@ -43,25 +43,16 @@ $hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
   margin-bottom: 3rem;
 }
 
-.headerSubtitle {
-  color: $secondary-color;
-  font-size: 1.1rem;
-  font-weight: 500;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
 .headerTitle {
-  @include gradient-text;
+ color: $primary-color;
   font-size: 3rem;
   font-weight: 800;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: -0.5px;
 }
 
 .headerDescription {
-  color: $muted-text;
+  color: $secondary-color;
   font-size: 1.1rem;
   max-width: 700px;
   margin: 0 auto;

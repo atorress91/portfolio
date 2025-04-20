@@ -11,21 +11,14 @@ $text-muted: #b4b4b4;
 }
 
 .sectionTitle {
-  color: $secondary-color;
+  color: $primary-color;
   font-weight: 700;
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.sectionDivider {
-  width: 80px;
-  height: 4px;
-  background-color: $complementary-color;
-  margin: 0 auto 2rem;
-}
-
 .sectionDescription {
-  color: $text-light;
+  color: $secondary-color;
   text-align: center;
   max-width: 700px;
   margin: 0 auto 3rem;
