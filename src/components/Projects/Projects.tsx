@@ -7,6 +7,35 @@ import {projectsData} from '@/constants';
 import ProjectModal from './ProjectModal';
 import {useTranslations} from "next-intl";
 
+const techIconMap = {
+    'Angular': '/angular.svg',
+    '.Net': '/dotnet.svg',
+    'Firebase': '/firebase.svg',
+    'SqlServer': '/sql.svg',
+    'Unity': '/unity.svg',
+    'C#': '/c-sharp.svg',
+    'Spring boot': '/spring-boot.svg',
+    'MariaDb': '/mariadb.svg',
+};
+
+const TechIcon = ({ tag }) => {
+    const hasIcon = techIconMap[tag] !== undefined;
+
+    if (!hasIcon) return null;
+
+    return (
+        <div className={styles.techIcon} title={tag}>
+            <Image
+                src={techIconMap[tag]}
+                alt={tag}
+                width={32}
+                height={32}
+                className={styles.svgIcon}
+            />
+        </div>
+    );
+};
+
 const ProjectCard = ({project, onClick}) => {
     const t = useTranslations("Projects");
 
@@ -30,11 +59,9 @@ const ProjectCard = ({project, onClick}) => {
                 <h3 className={styles.projectTitle}>{t(project.title)}</h3>
                 <p className={styles.projectDescription}>{t(project.description)}</p>
 
-                <div className={styles.projectTags}>
+                <div className={styles.techIconsContainer}>
                     {project.tags.map((tag: string, index: number) => (
-                        <span key={index} className={styles.projectTag}>
-                            {tag}
-                        </span>
+                        <TechIcon key={index} tag={tag} />
                     ))}
                 </div>
 

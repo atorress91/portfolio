@@ -4,6 +4,35 @@ import Image from 'next/image';
 import styles from './Projects.module.scss';
 import {useTranslations} from "next-intl";
 
+const techIconMap = {
+    'Angular': '/angular.svg',
+    '.Net': '/dotnet.svg',
+    'Firebase': '/firebase.svg',
+    'SqlServer': '/sql.svg',
+    'Unity': '/unity.svg',
+    'C#': '/c-sharp.svg',
+    'Spring boot': '/spring-boot.svg',
+    'MariaDb': '/mariadb.svg',
+};
+
+const TechIcon = ({ tag }) => {
+    const hasIcon = techIconMap[tag] !== undefined;
+
+    if (!hasIcon) return null;
+
+    return (
+        <div className={styles.techIcon} title={tag}>
+            <Image
+                src={techIconMap[tag]}
+                alt={tag}
+                width={32}
+                height={32}
+                className={styles.svgIcon}
+            />
+        </div>
+    );
+};
+
 const ProjectModal = ({project, show, handleClose}) => {
     const t = useTranslations("Projects");
 
@@ -51,11 +80,9 @@ const ProjectModal = ({project, show, handleClose}) => {
 
                 <div className={styles.modalTechnologies}>
                     <h4>{t("technologies")}</h4>
-                    <div className={styles.projectTags}>
+                    <div className={styles.techIconsContainer}>
                         {project.tags.map((tag: string, index: number) => (
-                            <span key={index} className={styles.projectTag}>
-                  {tag}
-                </span>
+                            <TechIcon key={index} tag={tag} />
                         ))}
                     </div>
                 </div>
