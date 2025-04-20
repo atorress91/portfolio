@@ -29,9 +29,7 @@ const Contact = () => {
     { id: 'email', icon: <Mail size={22} />, label: 'Email', url: 'mailto:andres91411@gmail.com', color: '#6B46C1' }
   ];
 
-  const handleChange = (
-      e
-  ) => {
+  const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
@@ -122,14 +120,11 @@ const Contact = () => {
 
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10">
+            <h3 className={`${styles.sectionHeadText} text-center`}>
+              {t("title") || "Contact."}
+            </h3>
             <div className={`${styles.formContainer} p-4 p-md-5`}>
-              <div className="text-center mb-4">
-                <p className={`${styles.sectionSubText}`}>
-                  {t("subtitle") || "Get in touch"}
-                </p>
-                <h3 className={`${styles.sectionHeadText} mb-3`}>
-                  {t("title") || "Contact."}
-                </h3>
+              <div className="text-center mb-2">
 
                 {/* Social media icons */}
                 <div className={`d-flex justify-content-center gap-3 mb-4 ${styles.socialIcons}`}>
