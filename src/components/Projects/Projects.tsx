@@ -18,7 +18,11 @@ const ProjectCard = ({project, onClick}) => {
                     alt={t(project.title)}
                     width={600}
                     height={400}
-                    layout="responsive"
+                    style={{
+                        width: '100%',
+                        height: 'auto',
+                        objectFit: 'cover'
+                    }}
                 />
             </div>
 

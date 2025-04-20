@@ -35,7 +35,11 @@ const ProjectModal = ({project, show, handleClose}) => {
                                 alt={`${t(project.title)} - ${t("imageAlt")} ${index + 1}`}
                                 width={600}
                                 height={400}
-                                layout="responsive"
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    objectFit: 'contain'
+                                }}
                             />
                         </Carousel.Item>
                     ))}
