@@ -111,6 +111,49 @@ $complementary: #FF6B6B;
   }
 }
 
+.cv-download-btn {
+  background-color: rgba($complementary, 0.15);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($complementary, 0.25);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.cv-icon {
+  transition: transform 0.3s ease;
+}
+
+.cv-download-btn:hover .cv-icon {
+  transform: translateY(-2px);
+}
+
+.navbar-cv-mobile {
+  color: $complementary !important;
+
+  &:hover {
+    color: lighten($complementary, 10%) !important;
+  }
+}
+
 .language-dropdown-menu {
   position: absolute;
   top: calc(100% + 6px);
@@ -199,5 +242,10 @@ $complementary: #FF6B6B;
 
   .navbar-toggler {
     font-size: 1.5rem;
+  }
+
+  .cv-download-btn {
+    width: 32px;
+    height: 32px;
   }
 }

@@ -17,7 +17,8 @@
     "contact": "Contacto",
     "currentLangFlag": "Bandera de {lang}",
     "alternateLangFlag": "Bandera de {lang}",
-    "toggleMenu": "Abrir/Cerrar menú de navegación"
+    "toggleMenu": "Abrir/Cerrar menú de navegación",
+    "downloadCV": "Descarga CV"
   },
   "Contact": {
     "subtitle": "Ponte en contacto",

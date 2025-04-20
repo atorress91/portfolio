@@ -5,6 +5,7 @@ import Image from "next/image";
 import Tilt from "react-parallax-tilt";
 import SectionWrapper from "../../hoc/SectionWrapper";
 import styles from "./About.module.scss";
+import {Download} from "lucide-react";
 
 const ServiceCard = ({ index, title, icon }) => (
   <div className="col-md-4 mb-4">
@@ -28,6 +29,10 @@ const ServiceCard = ({ index, title, icon }) => (
             className={`img-fluid ${styles["service-icon"]}`}
             width={64}
             height={64}
+            style={{
+                maxWidth: '100%',
+                height: 'auto'
+            }}
           />
           <h3 className="text-white fs-4 fw-bold text-center mt-3">
             {title}

@@ -17,7 +17,8 @@
     "contact": "Contact",
     "currentLangFlag": "Flag of {lang}",
     "alternateLangFlag": "Flag of {lang}",
-    "toggleMenu": "Open/Close navigation menu"
+    "toggleMenu": "Open/Close navigation menu",
+    "downloadCV": "Download CV"
   },
   "Contact": {
     "subtitle": "Get in touch",
