@@ -285,23 +285,6 @@ function Navbar() {
                                         {t(item.key)}
                                     </a>
                                 ))}
-                                {/* CV Download Button (Mobile) */}
-                                <a
-                                    href="#"
-                                    onClick={handleDownloadCV}
-                                    className={`py-2 ${styles["navbar-cv-mobile"]}`}
-                                    aria-label={t("downloadCV") || "Descargar CV"}
-                                >
-                                    <div className="d-flex align-items-center justify-content-center">
-                                        <Image
-                                            src="/curriculum-information.svg"
-                                            alt={t("downloadCV") || "Descargar CV"}
-                                            width={20}
-                                            height={20}
-                                            className={styles["cv-icon-mobile"]}
-                                        />
-                                    </div>
-                                </a>
                             </div>
                         </div>
                     )}
