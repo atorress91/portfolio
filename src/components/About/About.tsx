@@ -5,7 +5,6 @@ import Image from "next/image";
 import Tilt from "react-parallax-tilt";
 import SectionWrapper from "../../hoc/SectionWrapper";
 import styles from "./About.module.scss";
-import {Download} from "lucide-react";
 
 const ServiceCard = ({ index, title, icon }) => (
   <div className="col-md-4 mb-4">
