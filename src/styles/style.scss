@@ -1,122 +1,70 @@
-.scrollIndicator {
-  position: absolute;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-  pointer-events: none;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 45px;
+/**
+ * Main SCSS file for the portfolio project
+ * ----------------------------------------
+ * This file serves as the main entry point for all styles
+ *
+ * @imports
+ * - reset.scss: Contains CSS reset styles to normalize browser defaults
+ * - bootstrap: Imports the complete Bootstrap framework from node_modules
+ *
+ * File organization:
+ * 1. Reset styles - Normalizes browser defaults
+ * 2. Bootstrap setup - Sets up Bootstrap framework
+ */
+
+/* 1. Reset styles
+*/
+@use "./reset";
+
+/* 2. Bootstrap setup - Usando @use en lugar de @import
+*/
+@use "bootstrap" as bootstrap;
+
+/**
+ * Global body styles
+ * Sets the base styling for the entire document
+ *
+ * @property {color} background-color - Forces black background with !important
+ * @property {color} color - Sets white text color for better contrast
+ * @property {length} margin - Removes default margin
+ * @property {length} padding - Removes default padding
+ * @property {string} font-family - Uses Roboto font with sans-serif fallback
+ */
+body {
+  background-color: black !important;
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
-.scrollIndicator a {
-  pointer-events: auto;
+/*scroll animation*/
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+  opacity: 1;
 }
 
-.scrollDown {
-  bottom: 20px;
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out;
+  opacity: 0;
 }
 
-.scrollUp {
-  top: 80px;
-  transform: rotate(180deg);
-}
-
-.mouse {
-  width: 32px;
-  height: 58px;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.customBorder {
-  border-color: #2DD4BF !important;
-}
-
-.mouseDot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #6B46C1;
-  margin-bottom: 0.25rem;
-}
-
-/* CV Download Button */
-.cvButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #FF6B6B;
-  color: #ffffff;
-  font-weight: 600;
-  padding: 0.75rem 1.8rem;
-  border-radius: 0.5rem;
-  border: none;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.2);
-  margin-top: 1rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: darken(#FF6B6B, 10%);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(255, 107, 107, 0.3);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
 
-  &:active {
-    transform: translateY(-1px);
+  to {
+    opacity: 1;
   }
 }
 
-.section-subtext {
-  color: #6B46C1;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-
-.section-headtext {
-  color: #2DD4BF;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.max-width-3xl {
-  max-width: 48rem;
-  margin: 0 auto;
-}
-
-.service-card {
-  background-color: #151030;
-}
-
-.service-card-inner {
-  min-height: 280px;
-}
-
-.min-height-280 {
-  min-height: 280px;
-}
-
-.service-icon {
-  transition: transform 0.3s ease;
-}
-
-.service-tilt:hover .service-icon {
-  transform: scale(1.1);
-}
-
-@media (max-width: 576px) {
-  .scrollDown {
-    bottom: 10px;
+@keyframes fadeOut {
+  from {
+    opacity: 1;
   }
 
-  .scrollUp {
-    top: 70px;
-  }
-
-  .cvButton {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.9rem;
+  to {
+    opacity: 0;
   }
 }
