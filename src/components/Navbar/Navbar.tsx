@@ -45,12 +45,6 @@ function Navbar() {
         }
     };
 
-    const handleDownloadCV = (e: React.MouseEvent) => {
-        e.preventDefault();
-        // CV download functionality will be implemented later
-        console.log("Download CV button clicked");
-    };
-
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
@@ -143,8 +137,8 @@ function Navbar() {
                         {/* CV Download Button (Desktop) */}
                         <div className="me-3">
                             <a
-                                href="#"
-                                onClick={handleDownloadCV}
+                                href={`/pdf/${locale}.pdf`}
+                                download
                                 className={styles["cv-download-btn"]}
                                 aria-label={t("downloadCV") || "Descargar CV"}
                                 title={t("downloadCV") || "Descargar CV"}
@@ -170,7 +164,7 @@ function Navbar() {
                                     countryCode={currentLang.code}
                                     svg
                                     className={styles["language-btn"]}
-                                    title={t("currentLangFlag", { lang: currentLang.name }) || `Bandera de ${currentLang.name}`} // Descripción accesible
+                                    title={t("currentLangFlag", { lang: currentLang.name }) || `Bandera de ${currentLang.name}`}
                                 />
                                 <span className="ms-1">{currentLang.name}</span>
                                 <span>▼</span>
@@ -189,7 +183,7 @@ function Navbar() {
                                             countryCode={alternateLang.code}
                                             svg
                                             className={styles["language-btn"]}
-                                            title={t("alternateLangFlag", { lang: alternateLang.name }) || `Bandera de ${alternateLang.name}`} // Descripción accesible
+                                            title={t("alternateLangFlag", { lang: alternateLang.name }) || `Bandera de ${alternateLang.name}`}
                                         />
                                         <span className="ms-1">{alternateLang.name}</span>
                                     </button>
@@ -203,8 +197,8 @@ function Navbar() {
                         {/* CV Download Button (Mobile) */}
                         <div className="me-2">
                             <a
-                                href="#"
-                                onClick={handleDownloadCV}
+                                href={`/pdf/${locale}.pdf`}
+                                download
                                 className={styles["cv-download-btn"]}
                                 aria-label={t("downloadCV") || "Descargar CV"}
                                 title={t("downloadCV") || "Descargar CV"}
@@ -231,7 +225,7 @@ function Navbar() {
                                         countryCode={currentLang.code}
                                         svg
                                         className={styles["language-btn"]}
-                                        title={t("currentLangFlag", { lang: currentLang.name }) || `Bandera de ${currentLang.name}`} // Descripción accesible
+                                        title={t("currentLangFlag", { lang: currentLang.name }) || `Bandera de ${currentLang.name}`}
                                     />
                                     <span className="ms-1 d-none d-sm-inline">{currentLang.name}</span>
                                     <span>▼</span>
@@ -250,7 +244,7 @@ function Navbar() {
                                                 countryCode={alternateLang.code}
                                                 svg
                                                 className={styles["language-btn"]}
-                                                title={t("alternateLangFlag", { lang: alternateLang.name }) || `Bandera de ${alternateLang.name}`} // Descripción accesible
+                                                title={t("alternateLangFlag", { lang: alternateLang.name }) || `Bandera de ${alternateLang.name}`}
                                             />
                                             <span className="ms-1">{alternateLang.name}</span>
                                         </button>
@@ -265,7 +259,7 @@ function Navbar() {
                             type="button"
                             onClick={toggleMenu}
                             aria-expanded={isMenuOpen}
-                            aria-label={t("toggleMenu") || "Abrir/Cerrar menú de navegación"} // Descripción dinámica o por defecto
+                            aria-label={t("toggleMenu") || "Abrir/Cerrar menú de navegación"}
                         >
                             <span className="navbar-toggler-icon">{isMenuOpen ? "✕" : "☰"}</span>
                         </button>
