@@ -98,10 +98,7 @@ const ProjectsSection = () => {
     return (
         <section className={`${styles.projectsSection} py-4 py-md-5`} id="projects">
             <Container>
-                <h2 className={`${styles.sectionTitle} mb-2 mb-md-3`}>{t("sectionTitle")}</h2>
-                <p className={`${styles.sectionDescription} mb-4 mb-md-5 px-2`}>
-                    {t("sectionDescription")}
-                </p>
+                <h2 className={`${styles.sectionTitle} mt-4 mb-4`}>{t("sectionTitle")}</h2>
 
                 <Row className="g-4">
                     {projectsData.map((project) => (

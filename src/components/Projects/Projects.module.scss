@@ -8,6 +8,11 @@ $text-muted: #b4b4b4;
 
 .projectsSection {
   padding: 5rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sectionTitle {
@@ -171,6 +176,36 @@ $text-muted: #b4b4b4;
       color: darken($complementary-color, 10%);
     }
   }
+
+  :global(.modal-body) {
+    scrollbar-width: thin;
+    scrollbar-color: rgba($complementary-color, 0.4) rgba(30, 30, 30, 0.2);
+  }
+
+  :global(.modal-body::-webkit-scrollbar) {
+    width: 6px;
+  }
+
+  :global(.modal-body::-webkit-scrollbar-track) {
+    background: rgba(30, 30, 30, 0.2);
+    border-radius: 10px;
+  }
+
+  :global(.modal-body::-webkit-scrollbar-thumb) {
+    background-color: rgba($complementary-color, 0.4);
+    border-radius: 10px;
+
+    &:hover {
+      background-color: rgba($complementary-color, 0.6);
+    }
+  }
+
+  :global(.modal-body) {
+    -ms-overflow-style: none;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    }
+  }
 }
 
 .modalImagesSlider {
@@ -221,28 +256,24 @@ $text-muted: #b4b4b4;
   }
 }
 
-.modalButtons {
-  .btn-demo {
-    background-color: $secondary-color;
-    border-color: $secondary-color;
-    color: $bg-dark;
-    font-weight: 500;
+.customBtnCode {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  background-color: transparent;
+  border: 2px solid $complementary-color;
+  color: $complementary-color;
+  transition: all 0.15s ease-in-out;
 
-    &:hover {
-      background-color: darken($secondary-color, 10%);
-      border-color: darken($secondary-color, 10%);
-    }
-  }
-
-  .btn-code {
-    background-color: transparent;
-    border-color: $secondary-color;
-    color: $secondary-color;
-    font-weight: 500;
-
-    &:hover {
-      background-color: rgba(45, 212, 191, 0.1);
-    }
+  &:hover {
+    background-color: $complementary-color;
+    color: $text-light;
+    border-color: $complementary-color;
+    text-decoration: none;
   }
 }
 
@@ -350,7 +381,6 @@ $text-muted: #b4b4b4;
   }
 }
 
-// Mejora animaciones en dispositivos táctiles
 @media (hover: none) {
   .projectCard:active {
     transform: translateY(-5px);

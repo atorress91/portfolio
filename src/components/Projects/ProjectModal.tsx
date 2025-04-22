@@ -44,6 +44,8 @@ const ProjectModal = ({project, show, handleClose}) => {
             onHide={handleClose}
             size="lg"
             centered
+            dialogClassName="modal-90w modal-dialog-scrollable"
+            contentClassName="h-100"
             className={styles.projectModal}
         >
             <Modal.Header closeButton>
@@ -92,10 +94,9 @@ const ProjectModal = ({project, show, handleClose}) => {
 
             <Modal.Footer className={styles.modalButtons}>
                 <Button
-                    variant="outline-primary"
                     href={project.githubLink}
                     target="_blank"
-                    className={`${styles.btnCode} d-flex align-items-center`}
+                    className={`${styles.customBtnCode} d-flex align-items-center`}
                 >
                     <i className="bi bi-github me-2"></i>
                     {t("viewCode")}
