@@ -136,7 +136,7 @@ $text-muted: #b4b4b4;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: rgba(45, 212, 191, 0.2);
+    background-color: $complementary-color !important;
   }
 }
 

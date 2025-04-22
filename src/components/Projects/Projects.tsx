@@ -72,7 +72,7 @@ const ProjectCard = ({ project, onClick }) => {
                             onClick={(e) => e.stopPropagation()}
                             aria-label={t("viewCode")}
                         >
-                            <i className="bi bi-github"></i>
+                            <Image src="/github.svg" width={40} height={40} alt="GitHub" unoptimized/>,
                         </a>
                     </div>
                 </div>
