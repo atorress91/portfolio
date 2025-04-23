@@ -42,7 +42,6 @@ export const skills = {
             id: "react",
             icon: "react",
             iconBg: "blue",
-            level: 90,
             points: [1, 2, 3],
             featured: true
         },
@@ -50,7 +49,6 @@ export const skills = {
             id: "typescript",
             icon: "typescript",
             iconBg: "purple",
-            level: 85,
             points: [1, 2],
             featured: true
         }
@@ -60,42 +58,36 @@ export const skills = {
             id: "react",
             icon: "react",
             iconBg: "blue",
-            level: 90,
             points: [1, 2, 3]
         },
         {
             id: "node",
             icon: "node",
             iconBg: "green",
-            level: 80,
             points: [1, 2]
         },
         {
             id: "aws",
             icon: "aws",
             iconBg: "gray",
-            level: 75,
             points: [1, 2]
         },
         {
             id: "typescript",
             icon: "typescript",
             iconBg: "purple",
-            level: 85,
             points: [1, 2]
         },
         {
             id: "docker",
             icon: "docker",
             iconBg: "blue",
-            level: 70,
             points: [1, 2]
         },
         {
             id: "mongodb",
             icon: "mongodb",
             iconBg: "green",
-            level: 75,
             points: [1, 2]
         }
     ],
@@ -104,28 +96,24 @@ export const skills = {
             id: "communication",
             icon: "communication",
             iconBg: "purple",
-            level: 95,
             points: [1, 2]
         },
         {
             id: "teamwork",
             icon: "teamwork",
             iconBg: "blue",
-            level: 90,
             points: [1, 2]
         },
         {
             id: "problemsolving",
             icon: "problemsolving",
             iconBg: "green",
-            level: 85,
             points: [1, 2]
         },
         {
             id: "leadership",
             icon: "leadership",
             iconBg: "gray",
-            level: 80,
             points: [1, 2]
         }
     ],
@@ -134,14 +122,12 @@ export const skills = {
             id: "english",
             icon: "english",
             iconBg: "blue",
-            level: 90,
             points: [1]
         },
         {
             id: "spanish",
             icon: "spanish",
             iconBg: "purple",
-            level: 100,
             points: [1]
         }
     ]

@@ -64,85 +64,63 @@
   },
   "Skills": {
     "headerSubtitle": "What I Can Do",
-    "headerTitle": "My Skillset",
-    "headerDescription": "A curated collection of technical and interpersonal skills I've developed throughout my career, demonstrating my ability to deliver comprehensive solutions.",
+    "headerTitle": "My Skills",
+    "headerDescription": "A selected collection of technical and interpersonal skills that I have developed throughout my career, demonstrating my ability to deliver comprehensive solutions.",
     "technicalSkills": "Technical Skills",
     "softSkills": "Interpersonal Skills",
     "featuredSkills": "Featured Skills",
     "languageSkills": "Languages",
-    "skillLevel": "Proficiency",
+    "skillLevel": "Level",
     "keyCapabilities": "Key Capabilities",
     "featured": "Featured",
-    "react": {
-      "name": "React",
+    "frontendCategory": "Frontend",
+    "backendCategory": "Backend",
+    "softSkillsCategory": "Soft Skills",
+    "ui": {
+      "name": "UI/UX",
+      "category": "Frontend"
+    },
+    "nextjs": {
+      "name": "Next.js",
       "category": "Frontend",
-      "point1": "Building SPA applications with hooks, custom hooks and Context API",
-      "point2": "Implementing design systems with reusable components",
-      "point3": "Performance optimization and state management"
+      "point1": "Web application development with SSR and SSG",
+      "point2": "Performance and SEO optimization"
     },
-    "node": {
-      "name": "Node.js",
-      "category": "Backend",
-      "point1": "Creating RESTful APIs and scalable backend services",
-      "point2": "Implementing authentication and authorization flows"
+    "css": {
+      "name": "CSS/SCSS",
+      "category": "Frontend"
     },
-    "aws": {
-      "name": "AWS",
-      "category": "Cloud",
-      "point1": "Implementing serverless architectures with Lambda and API Gateway",
-      "point2": "Managing cloud resources with CDK and CloudFormation"
+    "responsive": {
+      "name": "Responsive Design",
+      "category": "Frontend"
     },
-    "typescript": {
-      "name": "TypeScript",
-      "category": "Language",
-      "point1": "Developing applications with static typing and robust interfaces",
-      "point2": "Creating type-safe libraries and utility functions"
+    "express": {
+      "name": "Express.js",
+      "category": "Backend"
     },
-    "docker": {
-      "name": "Docker",
-      "category": "DevOps",
-      "point1": "Containerizing applications and configuring with Docker Compose",
-      "point2": "Building multi-stage production-ready images"
+    "databases": {
+      "name": "Databases",
+      "category": "Backend"
     },
-    "mongodb": {
-      "name": "MongoDB",
-      "category": "Database",
-      "point1": "Designing schemas and advanced operations with Mongoose",
-      "point2": "Optimizing database performance and query patterns"
+    "sql": {
+      "name": "SQL",
+      "category": "Database"
     },
-    "communication": {
-      "name": "Communication",
-      "category": "Soft Skill",
-      "point1": "Ability to convey complex technical ideas clearly and effectively",
-      "point2": "Presenting solutions to technical and non-technical stakeholders"
+    "devops": {
+      "name": "DevOps",
+      "category": "Infrastructure"
     },
-    "teamwork": {
-      "name": "Teamwork",
-      "category": "Soft Skill",
-      "point1": "Effective collaboration in multidisciplinary and remote teams",
-      "point2": "Contributing to a positive and productive team environment"
+    "frontend": {
+      "name": "Frontend",
+      "category": "Development"
     },
-    "problemsolving": {
-      "name": "Problem Solving",
-      "category": "Soft Skill",
-      "point1": "Analytical approach to diagnosing and solving complex problems",
-      "point2": "Breaking down large challenges into manageable components"
+    "backend": {
+      "name": "Backend",
+      "category": "Development"
     },
-    "leadership": {
-      "name": "Leadership",
-      "category": "Soft Skill",
-      "point1": "Ability to guide teams and projects toward common goals",
-      "point2": "Mentoring junior developers and promoting knowledge sharing"
-    },
-    "english": {
-      "name": "English",
-      "category": "Language",
-      "point1": "Professional working proficiency"
-    },
-    "spanish": {
-      "name": "Spanish",
-      "category": "Language",
-      "point1": "Native proficiency"
+    "soft": {
+      "name": "Soft Skills",
+      "category": "Personal"
     }
   },
   "Projects": {
