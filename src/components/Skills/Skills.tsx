@@ -126,7 +126,7 @@ const SkillNod = ({
     onHover: (node: SkillNode, x: number, y: number) => void;
     onLeave: () => void;
 }) => {
-    const nodeRef = useRef<HTMLDivElement>(null);
+    const nodeRef = React.createRef<HTMLDivElement>();
     const t = useTranslations('Skills');
 
     const handleMouseEnter = () => {
@@ -157,6 +157,78 @@ const SkillNod = ({
     );
 };
 
+// Nuevo componente para la visualización jerárquica en móviles
+const HierarchicalList = ({
+                              skillTrees,
+                              onNodeHover,
+                              onNodeLeave
+                          }: {
+    skillTrees: any,
+    onNodeHover: (node: SkillNode, x: number, y: number) => void,
+    onNodeLeave: () => void
+}) => {
+    const t = useTranslations('Skills');
+
+    const RenderSkillNode = (node: SkillNode, depth = 0) => {
+        const nodeRef = useRef<HTMLDivElement>(null);
+        const skillName = t(`${node.id}.name`, { defaultValue: node.id });
+
+        const handleMouseEnter = () => {
+            if (nodeRef.current) {
+                const rect = nodeRef.current.getBoundingClientRect();
+                onNodeHover(node, rect.x + rect.width / 2, rect.y);
+            }
+        };
+
+        return (
+            <div key={node.id} className={styles.hierarchyNode}>
+                <div
+                    ref={nodeRef}
+                    className={`${styles.hierarchyItem} ${styles[`depth-${depth}`]}`}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={onNodeLeave}
+                >
+                    <div className={`${styles.skillIcon} ${styles[node.iconBg || 'purple']}`}>
+                        <SvgIcon name={node.icon} />
+                    </div>
+                    <span className={styles.nodeTitle}>{skillName}</span>
+                    {node.featured && <div className={styles.featuredIndicator}></div>}
+                </div>
+
+                {node.children && node.children.length > 0 && (
+                    <div className={styles.childrenContainer}>
+                        {node.children.map((child: SkillNode) => RenderSkillNode(child, depth + 1))}
+                    </div>
+                )}
+            </div>
+        );
+    };
+
+    return (
+        <div className={styles.hierarchicalView}>
+            <div className={styles.hierarchyCategory}>
+                <h3 className={`${styles.categoryTitle} ${styles.frontendLabel}`}>
+                    {t('frontendCategory')}
+                </h3>
+                {RenderSkillNode(skillTrees.frontend)}
+            </div>
+
+            <div className={styles.hierarchyCategory}>
+                <h3 className={`${styles.categoryTitle} ${styles.backendLabel}`}>
+                    {t('backendCategory')}
+                </h3>
+                {RenderSkillNode(skillTrees.backend)}
+            </div>
+
+            <div className={styles.hierarchyCategory}>
+                <h3 className={`${styles.categoryTitle} ${styles.softLabel}`}>
+                    {t('softSkillsCategory')}
+                </h3>
+                {RenderSkillNode(skillTrees.soft)}
+            </div>
+        </div>
+    );
+};
 
 const TreeConnections = ({
                              nodes
@@ -285,6 +357,7 @@ const calculateNodePositions = (
 
 const SkillsTree: React.FC = () => {
     const t = useTranslations('Skills');
+    const [isMobileView, setIsMobileView] = useState(false);
 
     const [tooltip, setTooltip] = useState<TooltipState>({
         visible: false,
@@ -312,8 +385,13 @@ const SkillsTree: React.FC = () => {
             if (!containerRef.current) return;
 
             const containerWidth = containerRef.current.clientWidth;
+            const isMobile = window.innerWidth < 768;
+            setIsMobileView(isMobile);
+
+            // Si estamos en vista móvil, no necesitamos calcular las posiciones del árbol
+            if (isMobile) return;
+
             const baseHorizontalSpacing = Math.min(180, containerWidth / 6);
-            const isMobile = containerWidth < 768;
             const frontendSpacing = isMobile ? baseHorizontalSpacing * 0.8 : baseHorizontalSpacing;
             const backendSpacing = isMobile ? baseHorizontalSpacing * 0.6 : baseHorizontalSpacing * 0.7;
             const softSpacing = isMobile ? baseHorizontalSpacing * 0.6 : baseHorizontalSpacing * 0.7;
@@ -383,65 +461,76 @@ const SkillsTree: React.FC = () => {
             <div className="text-center mb-5 mt-3">
                 <h2 className={styles.headerTitle}>{t('headerTitle')}</h2>
             </div>
-            <div
-                ref={containerRef}
-                className={`${styles.skillTreeContainer} mx-auto w-100`}
-            >
-                {/* Connections */}
-                <TreeConnections nodes={[...treePositions.frontend, ...treePositions.backend, ...treePositions.soft]}/>
 
-                {/* Main Categories */}
-                <div className={styles.treeCategoryLabels}>
-                    <div className={`${styles.treeCategoryLabel} ${styles.frontendLabel}`}>
-                        {t('frontendCategory')}
+            {isMobileView ? (
+                // Vista de lista jerárquica para móviles
+                <HierarchicalList
+                    skillTrees={skillTrees}
+                    onNodeHover={handleNodeHover}
+                    onNodeLeave={handleNodeLeave}
+                />
+            ) : (
+                // Vista de árbol para pantallas grandes
+                <div
+                    ref={containerRef}
+                    className={`${styles.skillTreeContainer} mx-auto w-100`}
+                >
+                    {/* Connections */}
+                    <TreeConnections nodes={[...treePositions.frontend, ...treePositions.backend, ...treePositions.soft]}/>
+
+                    {/* Main Categories */}
+                    <div className={styles.treeCategoryLabels}>
+                        <div className={`${styles.treeCategoryLabel} ${styles.frontendLabel}`}>
+                            {t('frontendCategory')}
+                        </div>
+                        <div className={`${styles.treeCategoryLabel} ${styles.backendLabel}`}>
+                            {t('backendCategory')}
+                        </div>
+                        <div className={`${styles.treeCategoryLabel} ${styles.softLabel}`}>
+                            {t('softSkillsCategory')}
+                        </div>
                     </div>
-                    <div className={`${styles.treeCategoryLabel} ${styles.backendLabel}`}>
-                        {t('backendCategory')}
-                    </div>
-                    <div className={`${styles.treeCategoryLabel} ${styles.softLabel}`}>
-                        {t('softSkillsCategory')}
-                    </div>
+
+                    {/* Frontend Nodes */}
+                    {treePositions.frontend.map((item, index) => (
+                        <SkillNod
+                            key={`frontend-${index}`}
+                            node={item.node}
+                            x={item.x}
+                            y={item.y}
+                            onHover={handleNodeHover}
+                            onLeave={handleNodeLeave}
+                        />
+                    ))}
+
+                    {/* Backend Nodes */}
+                    {treePositions.backend.map((item, index) => (
+                        <SkillNod
+                            key={`backend-${index}`}
+                            node={item.node}
+                            x={item.x}
+                            y={item.y}
+                            onHover={handleNodeHover}
+                            onLeave={handleNodeLeave}
+                        />
+                    ))}
+
+                    {/* Soft Skills Nodes */}
+                    {treePositions.soft.map((item, index) => (
+                        <SkillNod
+                            key={`soft-${index}`}
+                            node={item.node}
+                            x={item.x}
+                            y={item.y}
+                            onHover={handleNodeHover}
+                            onLeave={handleNodeLeave}
+                        />
+                    ))}
                 </div>
+            )}
 
-                {/* Frontend Nodes */}
-                {treePositions.frontend.map((item, index) => (
-                    <SkillNod
-                        key={`frontend-${index}`}
-                        node={item.node}
-                        x={item.x}
-                        y={item.y}
-                        onHover={handleNodeHover}
-                        onLeave={handleNodeLeave}
-                    />
-                ))}
-
-                {/* Backend Nodes */}
-                {treePositions.backend.map((item, index) => (
-                    <SkillNod
-                        key={`backend-${index}`}
-                        node={item.node}
-                        x={item.x}
-                        y={item.y}
-                        onHover={handleNodeHover}
-                        onLeave={handleNodeLeave}
-                    />
-                ))}
-
-                {/* Soft Skills Nodes */}
-                {treePositions.soft.map((item, index) => (
-                    <SkillNod
-                        key={`soft-${index}`}
-                        node={item.node}
-                        x={item.x}
-                        y={item.y}
-                        onHover={handleNodeHover}
-                        onLeave={handleNodeLeave}
-                    />
-                ))}
-
-                {/* Tooltip */}
-                <SkillTooltip tooltip={tooltip}/>
-            </div>
+            {/* Tooltip */}
+            <SkillTooltip tooltip={tooltip}/>
         </div>
     );
 };
