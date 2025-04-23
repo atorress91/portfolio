@@ -76,6 +76,87 @@
     "frontendCategory": "Frontend",
     "backendCategory": "Backend",
     "softSkillsCategory": "Soft Skills",
+    "frontend": {
+      "name": "Frontend Development",
+      "category": "Development Area"
+    },
+    "backend": {
+      "name": "Backend Development",
+      "category": "Development Area"
+    },
+    "soft": {
+      "name": "Soft Skills",
+      "category": "Personal Skills"
+    },
+    "react": {
+      "name": "React",
+      "category": "Frontend",
+      "point1": "Building scalable and maintainable component-based UIs",
+      "point2": "State management with Redux and Context API",
+      "point3": "Performance optimization with React hooks and memoization"
+    },
+    "angular": {
+      "name": "Angular",
+      "category": "Frontend",
+      "point1": "Developing enterprise-grade applications with TypeScript",
+      "point2": "Integrating RESTful APIs with Angular services"
+    },
+    "dotnet": {
+      "name": ".NET Core",
+      "category": "Backend",
+      "point1": "Developing scalable web APIs and microservices",
+      "point2": "Implementing secure authentication and authorization systems"
+    },
+    "csharp": {
+      "name": "C#",
+      "category": "Programming Language",
+      "point1": "Object-oriented programming and SOLID principles",
+      "point2": "Asynchronous programming with async/await"
+    },
+    "spring": {
+      "name": "Spring Boot",
+      "category": "Backend",
+      "point1": "Building enterprise applications with Java",
+      "point2": "Implementing dependency injection and IoC"
+    },
+    "java": {
+      "name": "Java",
+      "category": "Programming Language",
+      "point1": "Object-oriented design patterns and best practices",
+      "point2": "Multi-threading and concurrent programming"
+    },
+    "databases": {
+      "name": "Databases",
+      "category": "Backend",
+      "point1": "Database design and optimization",
+      "point2": "Query performance tuning"
+    },
+    "sqlserver": {
+      "name": "SQL Server",
+      "category": "Database"
+    },
+    "mariadb": {
+      "name": "MariaDB",
+      "category": "Database"
+    },
+    "communication": {
+      "name": "Communication",
+      "category": "Soft Skill",
+      "point1": "Clear and effective technical communication",
+      "point2": "Presenting complex ideas to non-technical stakeholders"
+    },
+    "teamwork": {
+      "name": "Teamwork",
+      "category": "Soft Skill",
+      "point1": "Collaborating in cross-functional teams",
+      "point2": "Contributing to positive team culture and knowledge sharing"
+    },
+    "problemsolving": {
+      "name": "Problem Solving",
+      "category": "Soft Skill",
+      "point1": "Analytical thinking and root cause analysis",
+      "point2": "Creative approach to technical challenges"
+    },
     "ui": {
       "name": "UI/UX",
       "category": "Frontend"
@@ -98,10 +179,6 @@
       "name": "Express.js",
       "category": "Backend"
     },
-    "databases": {
-      "name": "Databases",
-      "category": "Backend"
-    },
     "sql": {
       "name": "SQL",
       "category": "Database"
@@ -110,17 +187,51 @@
       "name": "DevOps",
       "category": "Infrastructure"
     },
-    "frontend": {
-      "name": "Frontend",
-      "category": "Development"
+    "typescript": {
+      "name": "TypeScript",
+      "category": "Programming Language",
+      "point1": "Static typing and advanced type features",
+      "point2": "Writing maintainable and scalable code"
     },
-    "backend": {
-      "name": "Backend",
-      "category": "Development"
+    "node": {
+      "name": "Node.js",
+      "category": "Backend",
+      "point1": "Building scalable server-side applications",
+      "point2": "Event-driven and non-blocking I/O model"
     },
-    "soft": {
-      "name": "Soft Skills",
-      "category": "Personal"
+    "aws": {
+      "name": "AWS",
+      "category": "Cloud",
+      "point1": "Designing and implementing cloud-based solutions",
+      "point2": "Infrastructure as code with CloudFormation and CDK"
+    },
+    "docker": {
+      "name": "Docker",
+      "category": "DevOps",
+      "point1": "Containerization of applications for consistent deployments",
+      "point2": "Multi-container applications with Docker Compose"
+    },
+    "mongodb": {
+      "name": "MongoDB",
+      "category": "Database",
+      "point1": "Schema design for NoSQL databases",
+      "point2": "Performance optimization for document databases"
+    },
+    "leadership": {
+      "name": "Leadership",
+      "category": "Soft Skill",
+      "point1": "Mentoring junior developers",
+      "point2": "Leading technical initiatives and feature development"
+    },
+    "english": {
+      "name": "English",
+      "category": "Language",
+      "point1": "Professional proficiency in reading, writing, and speaking"
+    },
+    "spanish": {
+      "name": "Spanish",
+      "category": "Language",
+      "point1": "Native proficiency"
     }
   },
   "Projects": {

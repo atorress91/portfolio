@@ -4,22 +4,9 @@ import React, {useState, useRef, useEffect, useMemo} from 'react';
 import {SectionWrapper} from '../../hoc';
 import styles from './Skills.module.scss';
 import Image from "next/image";
-
-interface SkillNode {
-    id: string;
-    icon: string;
-    iconBg?: string;
-    points?: number[];
-    featured?: boolean;
-    children?: SkillNode[];
-}
-
-interface TooltipState {
-    visible: boolean;
-    skill: SkillNode | null;
-    x: number;
-    y: number;
-}
+import {TooltipState} from "@/interfaces/TooltipState.interface";
+import {SkillNode} from "@/interfaces/SkillNode.interface";
+import {useTranslations} from "next-intl";
 
 const SvgIcon = ({name}: { name: string }) => {
     return (
@@ -126,13 +113,13 @@ const buildSkillTree = () => {
     };
 };
 
-const SkillNode = ({
-                       node,
-                       x,
-                       y,
-                       onHover,
-                       onLeave
-                   }: {
+const SkillNod = ({
+                      node,
+                      x,
+                      y,
+                      onHover,
+                      onLeave
+                  }: {
     node: SkillNode;
     x: number;
     y: number;
@@ -140,6 +127,7 @@ const SkillNode = ({
     onLeave: () => void;
 }) => {
     const nodeRef = useRef<HTMLDivElement>(null);
+    const t = useTranslations('Skills');
 
     const handleMouseEnter = () => {
         if (nodeRef.current) {
@@ -147,6 +135,8 @@ const SkillNode = ({
             onHover(node, rect.x + rect.width / 2, rect.y);
         }
     };
+
+    const nodeLabel = node.id ? t(`${node.id}.name`, { defaultValue: node.id }) : node.id;
 
     return (
         <div
@@ -158,7 +148,7 @@ const SkillNode = ({
         >
             <div
                 className={`${styles.skillIcon} ${styles[node.iconBg || 'purple']}`}
-                data-icon={node.id}
+                data-icon={nodeLabel}
             >
                 <SvgIcon name={node.icon}/>
             </div>
@@ -195,7 +185,16 @@ const SkillTooltip = ({
                       }: {
     tooltip: TooltipState;
 }) => {
+    const t = useTranslations('Skills');
+
     if (!tooltip.visible || !tooltip.skill) return null;
+
+    const skillName = t(`${tooltip.skill.id}.name`, { defaultValue: tooltip.skill.id });
+    const categoryKey = tooltip.skill.id === 'frontend' ? 'frontendCategory' :
+        tooltip.skill.id === 'backend' ? 'backendCategory' :
+            tooltip.skill.id === 'soft' ? 'softSkillsCategory' :
+                `${tooltip.skill.id}.category`;
+    const category = t(categoryKey, { defaultValue: tooltip.skill.id });
 
     return (
         <div
@@ -208,23 +207,28 @@ const SkillTooltip = ({
         >
             <div className={styles.tooltipContent}>
                 <h3 className={styles.tooltipTitle}>
-                    {tooltip.skill.id}
+                    {skillName}
                 </h3>
                 {tooltip.skill.points && tooltip.skill.points.length > 0 && (
                     <div className={styles.tooltipPoints}>
-                        <h4>Key Capabilities</h4>
+                        <h4>{t('keyCapabilities')}</h4>
                         <ul>
                             {tooltip.skill.points.map((pointNumber, idx) => (
                                 <li key={`tooltip-point-${idx}`}>
-                                    Point {pointNumber}
+                                    {t(`${tooltip.skill!.id}.point${pointNumber}`, { defaultValue: `Skill point ${pointNumber}` })}
                                 </li>
                             ))}
                         </ul>
                     </div>
                 )}
                 <div className={styles.tooltipCategory}>
-                    {tooltip.skill.id}
+                    {category}
                 </div>
+                {tooltip.skill.featured && (
+                    <div className={styles.tooltipCategory} style={{ marginLeft: '8px' }}>
+                        {t('featured')}
+                    </div>
+                )}
             </div>
             <div className={styles.tooltipArrow}></div>
         </div>
@@ -240,7 +244,7 @@ const calculateNodePositions = (
     parent?: { x: number; y: number }
 ): Array<{ node: SkillNode; x: number; y: number; parent?: { x: number; y: number } }> => {
     const result: Array<{ node: SkillNode; x: number; y: number; parent?: { x: number; y: number } }> = [
-        { node, x, y, parent }
+        {node, x, y, parent}
     ];
 
     if (node.children && node.children.length > 0) {
@@ -270,7 +274,7 @@ const calculateNodePositions = (
                 childY,
                 nextHorizontalSpacing,
                 verticalSpacing,
-                { x, y }
+                {x, y}
             );
             result.push(...childPositions);
         });
@@ -280,6 +284,8 @@ const calculateNodePositions = (
 }
 
 const SkillsTree: React.FC = () => {
+    const t = useTranslations('Skills');
+
     const [tooltip, setTooltip] = useState<TooltipState>({
         visible: false,
         skill: null,
@@ -307,15 +313,15 @@ const SkillsTree: React.FC = () => {
 
             const containerWidth = containerRef.current.clientWidth;
             const baseHorizontalSpacing = Math.min(180, containerWidth / 6);
-            const frontendSpacing = baseHorizontalSpacing;
-            const backendSpacing = baseHorizontalSpacing * 0.7;
-            const softSpacing = baseHorizontalSpacing * 0.7;
-
-            const verticalSpacing = 120;
-            const frontendX = containerWidth * 0.2;
+            const isMobile = containerWidth < 768;
+            const frontendSpacing = isMobile ? baseHorizontalSpacing * 0.8 : baseHorizontalSpacing;
+            const backendSpacing = isMobile ? baseHorizontalSpacing * 0.6 : baseHorizontalSpacing * 0.7;
+            const softSpacing = isMobile ? baseHorizontalSpacing * 0.6 : baseHorizontalSpacing * 0.7;
+            const verticalSpacing = isMobile ? 100 : 120;
+            const frontendX = isMobile ? containerWidth * 0.25 : containerWidth * 0.2;
             const backendX = containerWidth * 0.5;
-            const softX = containerWidth * 0.8;
-            const startY = 100;
+            const softX = isMobile ? containerWidth * 0.75 : containerWidth * 0.8;
+            const startY = isMobile ? 150 : 100;
 
             const frontendPositions = calculateNodePositions(
                 skillTrees.frontend,
@@ -373,37 +379,33 @@ const SkillsTree: React.FC = () => {
     };
 
     return (
-        <div className="container py-5">
+        <div className="container py-5 d-flex flex-column justify-content-center align-items-center min-vh-100">
             <div className="text-center mb-5 mt-3">
-                <h2 className={styles.headerTitle}>My Skills</h2>
-                <p className={styles.headerDescription} style={{maxWidth: '700px', margin: '0 auto'}}>
-                    A selected collection of technical and interpersonal skills that I have developed throughout my career.
-                </p>
+                <h2 className={styles.headerTitle}>{t('headerTitle')}</h2>
             </div>
-
             <div
                 ref={containerRef}
-                className={styles.skillTreeContainer}
+                className={`${styles.skillTreeContainer} mx-auto w-100`}
             >
-                {/* Conexiones */}
+                {/* Connections */}
                 <TreeConnections nodes={[...treePositions.frontend, ...treePositions.backend, ...treePositions.soft]}/>
 
-                {/* Categorías principales */}
+                {/* Main Categories */}
                 <div className={styles.treeCategoryLabels}>
                     <div className={`${styles.treeCategoryLabel} ${styles.frontendLabel}`}>
-                        Frontend
+                        {t('frontendCategory')}
                     </div>
                     <div className={`${styles.treeCategoryLabel} ${styles.backendLabel}`}>
-                        Backend
+                        {t('backendCategory')}
                     </div>
                     <div className={`${styles.treeCategoryLabel} ${styles.softLabel}`}>
-                        Soft Skills
+                        {t('softSkillsCategory')}
                     </div>
                 </div>
 
-                {/* Nodos del Frontend */}
+                {/* Frontend Nodes */}
                 {treePositions.frontend.map((item, index) => (
-                    <SkillNode
+                    <SkillNod
                         key={`frontend-${index}`}
                         node={item.node}
                         x={item.x}
@@ -413,9 +415,9 @@ const SkillsTree: React.FC = () => {
                     />
                 ))}
 
-                {/* Nodos del Backend */}
+                {/* Backend Nodes */}
                 {treePositions.backend.map((item, index) => (
-                    <SkillNode
+                    <SkillNod
                         key={`backend-${index}`}
                         node={item.node}
                         x={item.x}
@@ -425,9 +427,9 @@ const SkillsTree: React.FC = () => {
                     />
                 ))}
 
-                {/* Nodos de Habilidades Blandas */}
+                {/* Soft Skills Nodes */}
                 {treePositions.soft.map((item, index) => (
-                    <SkillNode
+                    <SkillNod
                         key={`soft-${index}`}
                         node={item.node}
                         x={item.x}

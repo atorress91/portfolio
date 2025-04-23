@@ -64,7 +64,7 @@
   },
   "Skills": {
     "headerSubtitle": "Lo que puedo hacer",
-    "headerTitle": "Mis Competencias",
+    "headerTitle": "Mis Habilidades",
     "headerDescription": "Una colección seleccionada de habilidades técnicas e interpersonales que he desarrollado a lo largo de mi carrera, demostrando mi capacidad para ofrecer soluciones integrales.",
     "technicalSkills": "Habilidades Técnicas",
     "softSkills": "Habilidades Interpersonales",
@@ -76,6 +76,87 @@
     "frontendCategory": "Frontend",
     "backendCategory": "Backend",
     "softSkillsCategory": "Habilidades Blandas",
+    "frontend": {
+      "name": "Desarrollo Frontend",
+      "category": "Área de Desarrollo"
+    },
+    "backend": {
+      "name": "Desarrollo Backend",
+      "category": "Área de Desarrollo"
+    },
+    "soft": {
+      "name": "Habilidades Blandas",
+      "category": "Habilidades Personales"
+    },
+    "react": {
+      "name": "React",
+      "category": "Frontend",
+      "point1": "Construcción de interfaces de usuario escalables y mantenibles basadas en componentes",
+      "point2": "Gestión de estado con Redux y Context API",
+      "point3": "Optimización de rendimiento con hooks de React y memoización"
+    },
+    "angular": {
+      "name": "Angular",
+      "category": "Frontend",
+      "point1": "Desarrollo de aplicaciones empresariales con TypeScript",
+      "point2": "Integración de APIs RESTful con servicios de Angular"
+    },
+    "dotnet": {
+      "name": ".NET Core",
+      "category": "Backend",
+      "point1": "Desarrollo de APIs web escalables y microservicios",
+      "point2": "Implementación de sistemas seguros de autenticación y autorización"
+    },
+    "csharp": {
+      "name": "C#",
+      "category": "Lenguaje de Programación",
+      "point1": "Programación orientada a objetos y principios SOLID",
+      "point2": "Programación asíncrona con async/await"
+    },
+    "spring": {
+      "name": "Spring Boot",
+      "category": "Backend",
+      "point1": "Creación de aplicaciones empresariales con Java",
+      "point2": "Implementación de inyección de dependencias e IoC"
+    },
+    "java": {
+      "name": "Java",
+      "category": "Lenguaje de Programación",
+      "point1": "Patrones de diseño orientados a objetos y mejores prácticas",
+      "point2": "Programación multi-hilo y concurrente"
+    },
+    "databases": {
+      "name": "Bases de Datos",
+      "category": "Backend",
+      "point1": "Diseño y optimización de bases de datos",
+      "point2": "Ajuste de rendimiento de consultas"
+    },
+    "sqlserver": {
+      "name": "SQL Server",
+      "category": "Base de Datos"
+    },
+    "mariadb": {
+      "name": "MariaDB",
+      "category": "Base de Datos"
+    },
+    "communication": {
+      "name": "Comunicación",
+      "category": "Habilidad Blanda",
+      "point1": "Comunicación técnica clara y efectiva",
+      "point2": "Presentación de ideas complejas a interesados no técnicos"
+    },
+    "teamwork": {
+      "name": "Trabajo en Equipo",
+      "category": "Habilidad Blanda",
+      "point1": "Colaboración en equipos multifuncionales",
+      "point2": "Contribución a una cultura de equipo positiva y compartición de conocimientos"
+    },
+    "problemsolving": {
+      "name": "Resolución de Problemas",
+      "category": "Habilidad Blanda",
+      "point1": "Pensamiento analítico y análisis de causa raíz",
+      "point2": "Enfoque creativo para desafíos técnicos"
+    },
     "ui": {
       "name": "UI/UX",
       "category": "Frontend"
@@ -98,10 +179,6 @@
       "name": "Express.js",
       "category": "Backend"
     },
-    "databases": {
-      "name": "Bases de Datos",
-      "category": "Backend"
-    },
     "sql": {
       "name": "SQL",
       "category": "Base de datos"
@@ -110,17 +187,51 @@
       "name": "DevOps",
       "category": "Infraestructura"
     },
-    "frontend": {
-      "name": "Frontend",
-      "category": "Desarrollo"
+    "typescript": {
+      "name": "TypeScript",
+      "category": "Lenguaje de Programación",
+      "point1": "Tipado estático y características de tipos avanzadas",
+      "point2": "Escritura de código mantenible y escalable"
     },
-    "backend": {
-      "name": "Backend",
-      "category": "Desarrollo"
+    "node": {
+      "name": "Node.js",
+      "category": "Backend",
+      "point1": "Construcción de aplicaciones escalables del lado del servidor",
+      "point2": "Modelo de E/S dirigido por eventos y no bloqueante"
     },
-    "soft": {
-      "name": "Habilidades Blandas",
-      "category": "Personal"
+    "aws": {
+      "name": "AWS",
+      "category": "Nube",
+      "point1": "Diseño e implementación de soluciones basadas en la nube",
+      "point2": "Infraestructura como código con CloudFormation y CDK"
+    },
+    "docker": {
+      "name": "Docker",
+      "category": "DevOps",
+      "point1": "Contenedorización de aplicaciones para despliegues consistentes",
+      "point2": "Aplicaciones multi-contenedor con Docker Compose"
+    },
+    "mongodb": {
+      "name": "MongoDB",
+      "category": "Base de Datos",
+      "point1": "Diseño de esquemas para bases de datos NoSQL",
+      "point2": "Optimización de rendimiento para bases de datos de documentos"
+    },
+    "leadership": {
+      "name": "Liderazgo",
+      "category": "Habilidad Blanda",
+      "point1": "Mentoría de desarrolladores junior",
+      "point2": "Liderazgo de iniciativas técnicas y desarrollo de características"
+    },
+    "english": {
+      "name": "Inglés",
+      "category": "Idioma",
+      "point1": "Dominio profesional en lectura, escritura y habla"
+    },
+    "spanish": {
+      "name": "Español",
+      "category": "Idioma",
+      "point1": "Dominio nativo"
     }
   },
   "Projects": {

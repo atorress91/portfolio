@@ -25,31 +25,31 @@ const Contact = () => {
     const socialLinks = [
         {
             id: 'linkedin',
-            icon: <Image src="/linkedin.svg" width={40} height={40} alt="LinkedIn" unoptimized/>,
+            icon: <Image src="/linkedin.svg" width={40} height={40} alt="" unoptimized/>,
             label: 'LinkedIn',
             url: 'https://linkedin.com/in/andrés-torres-sánchez-3ba367353'
         },
         {
             id: 'github',
-            icon: <Image src="/github.svg" width={40} height={40} alt="GitHub" unoptimized/>,
+            icon: <Image src="/github.svg" width={40} height={40} alt="" unoptimized/>,
             label: 'GitHub',
             url: 'https://github.com/atorress91'
         },
         {
             id: 'instagram',
-            icon: <Image src="/instagram.svg" width={40} height={40} alt="Instagram" unoptimized/>,
+            icon: <Image src="/instagram.svg" width={40} height={40} alt="" unoptimized/>,
             label: 'Instagram',
             url: 'https://instagram.com/axts78'
         },
         {
             id: 'whatsapp',
-            icon: <Image src="/whatsapp.svg" width={40} height={40} alt="WhatsApp" unoptimized/>,
+            icon: <Image src="/whatsapp.svg" width={40} height={40} alt="" unoptimized/>,
             label: 'WhatsApp',
             url: 'https://wa.me/50683010150'
         },
         {
             id: 'email',
-            icon: <Image src="/email.svg" width={40} height={40} alt="Email" unoptimized/>,
+            icon: <Image src="/email.svg" width={40} height={40} alt="" unoptimized/>,
             label: 'Email',
             url: 'mailto:andres91411@gmail.com'
         }
