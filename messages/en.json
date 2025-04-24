@@ -65,12 +65,9 @@
   "Skills": {
     "headerSubtitle": "What I Can Do",
     "headerTitle": "My Skills",
-    "headerDescription": "A selected collection of technical and interpersonal skills that I have developed throughout my career, demonstrating my ability to deliver comprehensive solutions.",
     "technicalSkills": "Technical Skills",
     "softSkills": "Interpersonal Skills",
     "featuredSkills": "Featured Skills",
-    "languageSkills": "Languages",
-    "skillLevel": "Level",
     "keyCapabilities": "Key Capabilities",
     "featured": "Featured",
     "frontendCategory": "Frontend",
@@ -91,21 +88,22 @@
     "react": {
       "name": "React",
       "category": "Frontend",
-      "point1": "Building scalable and maintainable component-based UIs",
-      "point2": "State management with Redux and Context API",
-      "point3": "Performance optimization with React hooks and memoization"
+      "point1": "Building scalable and maintainable component-based user interfaces",
+      "point2": "State management with Redux and Context API"
     },
     "angular": {
       "name": "Angular",
       "category": "Frontend",
-      "point1": "Developing enterprise-grade applications with TypeScript",
-      "point2": "Integrating RESTful APIs with Angular services"
+      "point1": "Development of enterprise applications with TypeScript",
+      "point2": "Implementation of lazy loading and performance optimization"
     },
     "dotnet": {
-      "name": ".NET Core",
+      "name": ".NET",
       "category": "Backend",
-      "point1": "Developing scalable web APIs and microservices",
-      "point2": "Implementing secure authentication and authorization systems"
+      "point1": "Development of scalable web APIs and microservices",
+      "point2": "Implementation of clean code architecture and design patterns",
+      "point3": "Implementation of Entity Framework Core for data access and migrations",
+      "point4": "Deployment with Docker and Kubernetes"
     },
     "csharp": {
       "name": "C#",
@@ -116,14 +114,12 @@
     "spring": {
       "name": "Spring Boot",
       "category": "Backend",
-      "point1": "Building enterprise applications with Java",
-      "point2": "Implementing dependency injection and IoC"
+      "point1": "Creation of enterprise applications with Java"
     },
     "java": {
       "name": "Java",
       "category": "Programming Language",
-      "point1": "Object-oriented design patterns and best practices",
-      "point2": "Multi-threading and concurrent programming"
+      "point1": "Object-oriented design patterns and best practices"
     },
     "databases": {
       "name": "Databases",
@@ -142,96 +138,23 @@
     "communication": {
       "name": "Communication",
       "category": "Soft Skill",
-      "point1": "Clear and effective technical communication",
-      "point2": "Presenting complex ideas to non-technical stakeholders"
+      "point1": "Clear and effective technical communication"
     },
     "teamwork": {
       "name": "Teamwork",
       "category": "Soft Skill",
-      "point1": "Collaborating in cross-functional teams",
-      "point2": "Contributing to positive team culture and knowledge sharing"
+      "point1": "Collaboration in cross-functional teams",
+      "point2": "Contribution to a positive team culture and knowledge sharing"
     },
     "problemsolving": {
       "name": "Problem Solving",
       "category": "Soft Skill",
-      "point1": "Analytical thinking and root cause analysis",
+      "point1": "Analytical thinking and problem-solving approach",
       "point2": "Creative approach to technical challenges"
-    },
-    "ui": {
-      "name": "UI/UX",
-      "category": "Frontend"
-    },
-    "nextjs": {
-      "name": "Next.js",
-      "category": "Frontend",
-      "point1": "Web application development with SSR and SSG",
-      "point2": "Performance and SEO optimization"
-    },
-    "css": {
-      "name": "CSS/SCSS",
-      "category": "Frontend"
-    },
-    "responsive": {
-      "name": "Responsive Design",
-      "category": "Frontend"
-    },
-    "express": {
-      "name": "Express.js",
-      "category": "Backend"
     },
     "sql": {
       "name": "SQL",
       "category": "Database"
-    },
-    "devops": {
-      "name": "DevOps",
-      "category": "Infrastructure"
-    },
-    "typescript": {
-      "name": "TypeScript",
-      "category": "Programming Language",
-      "point1": "Static typing and advanced type features",
-      "point2": "Writing maintainable and scalable code"
-    },
-    "node": {
-      "name": "Node.js",
-      "category": "Backend",
-      "point1": "Building scalable server-side applications",
-      "point2": "Event-driven and non-blocking I/O model"
-    },
-    "aws": {
-      "name": "AWS",
-      "category": "Cloud",
-      "point1": "Designing and implementing cloud-based solutions",
-      "point2": "Infrastructure as code with CloudFormation and CDK"
-    },
-    "docker": {
-      "name": "Docker",
-      "category": "DevOps",
-      "point1": "Containerization of applications for consistent deployments",
-      "point2": "Multi-container applications with Docker Compose"
-    },
-    "mongodb": {
-      "name": "MongoDB",
-      "category": "Database",
-      "point1": "Schema design for NoSQL databases",
-      "point2": "Performance optimization for document databases"
-    },
-    "leadership": {
-      "name": "Leadership",
-      "category": "Soft Skill",
-      "point1": "Mentoring junior developers",
-      "point2": "Leading technical initiatives and feature development"
-    },
-    "english": {
-      "name": "English",
-      "category": "Language",
-      "point1": "Professional proficiency in reading, writing, and speaking"
-    },
-    "spanish": {
-      "name": "Spanish",
-      "category": "Language",
-      "point1": "Native proficiency"
     }
   },
   "Projects": {

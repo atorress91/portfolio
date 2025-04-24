@@ -65,12 +65,9 @@
   "Skills": {
     "headerSubtitle": "Lo que puedo hacer",
     "headerTitle": "Mis Habilidades",
-    "headerDescription": "Una colección seleccionada de habilidades técnicas e interpersonales que he desarrollado a lo largo de mi carrera, demostrando mi capacidad para ofrecer soluciones integrales.",
     "technicalSkills": "Habilidades Técnicas",
     "softSkills": "Habilidades Interpersonales",
     "featuredSkills": "Habilidades Destacadas",
-    "languageSkills": "Idiomas",
-    "skillLevel": "Nivel",
     "keyCapabilities": "Capacidades Clave",
     "featured": "Destacado",
     "frontendCategory": "Frontend",
@@ -92,20 +89,21 @@
       "name": "React",
       "category": "Frontend",
       "point1": "Construcción de interfaces de usuario escalables y mantenibles basadas en componentes",
-      "point2": "Gestión de estado con Redux y Context API",
-      "point3": "Optimización de rendimiento con hooks de React y memoización"
+      "point2": "Gestión de estado con Redux y Context API"
     },
     "angular": {
       "name": "Angular",
       "category": "Frontend",
       "point1": "Desarrollo de aplicaciones empresariales con TypeScript",
-      "point2": "Integración de APIs RESTful con servicios de Angular"
+      "point2": "Implementación de carga perezosa y optimización de rendimiento"
     },
     "dotnet": {
-      "name": ".NET Core",
+      "name": ".NET",
       "category": "Backend",
       "point1": "Desarrollo de APIs web escalables y microservicios",
-      "point2": "Implementación de sistemas seguros de autenticación y autorización"
+      "point2": "Implementación de Arquitectura código limpio y patrones de diseño",
+      "point3": "Implementación de Entity Framework Core para acceso a datos y migraciones",
+      "point4": "Despliegue con Docker y Kubernetes"
     },
     "csharp": {
       "name": "C#",
@@ -116,14 +114,12 @@
     "spring": {
       "name": "Spring Boot",
       "category": "Backend",
-      "point1": "Creación de aplicaciones empresariales con Java",
-      "point2": "Implementación de inyección de dependencias e IoC"
+      "point1": "Creación de aplicaciones empresariales con Java"
     },
     "java": {
       "name": "Java",
       "category": "Lenguaje de Programación",
-      "point1": "Patrones de diseño orientados a objetos y mejores prácticas",
-      "point2": "Programación multi-hilo y concurrente"
+      "point1": "Patrones de diseño orientados a objetos y mejores prácticas"
     },
     "databases": {
       "name": "Bases de Datos",
@@ -142,8 +138,7 @@
     "communication": {
       "name": "Comunicación",
       "category": "Habilidad Blanda",
-      "point1": "Comunicación técnica clara y efectiva",
-      "point2": "Presentación de ideas complejas a interesados no técnicos"
+      "point1": "Comunicación técnica clara y efectiva"
     },
     "teamwork": {
       "name": "Trabajo en Equipo",
@@ -154,84 +149,13 @@
     "problemsolving": {
       "name": "Resolución de Problemas",
       "category": "Habilidad Blanda",
-      "point1": "Pensamiento analítico y análisis de causa raíz",
+      "point1": "Pensamiento analítico y enfoque en la solución de problemas",
       "point2": "Enfoque creativo para desafíos técnicos"
     },
-    "ui": {
-      "name": "UI/UX",
-      "category": "Frontend"
-    },
-    "nextjs": {
-      "name": "Next.js",
-      "category": "Frontend",
-      "point1": "Desarrollo de aplicaciones web con SSR y SSG",
-      "point2": "Optimización de rendimiento y SEO"
-    },
-    "css": {
-      "name": "CSS/SCSS",
-      "category": "Frontend"
-    },
-    "responsive": {
-      "name": "Diseño Responsivo",
-      "category": "Frontend"
-    },
-    "express": {
-      "name": "Express.js",
-      "category": "Backend"
-    },
+   
     "sql": {
       "name": "SQL",
       "category": "Base de datos"
-    },
-    "devops": {
-      "name": "DevOps",
-      "category": "Infraestructura"
-    },
-    "typescript": {
-      "name": "TypeScript",
-      "category": "Lenguaje de Programación",
-      "point1": "Tipado estático y características de tipos avanzadas",
-      "point2": "Escritura de código mantenible y escalable"
-    },
-    "node": {
-      "name": "Node.js",
-      "category": "Backend",
-      "point1": "Construcción de aplicaciones escalables del lado del servidor",
-      "point2": "Modelo de E/S dirigido por eventos y no bloqueante"
-    },
-    "aws": {
-      "name": "AWS",
-      "category": "Nube",
-      "point1": "Diseño e implementación de soluciones basadas en la nube",
-      "point2": "Infraestructura como código con CloudFormation y CDK"
-    },
-    "docker": {
-      "name": "Docker",
-      "category": "DevOps",
-      "point1": "Contenedorización de aplicaciones para despliegues consistentes",
-      "point2": "Aplicaciones multi-contenedor con Docker Compose"
-    },
-    "mongodb": {
-      "name": "MongoDB",
-      "category": "Base de Datos",
-      "point1": "Diseño de esquemas para bases de datos NoSQL",
-      "point2": "Optimización de rendimiento para bases de datos de documentos"
-    },
-    "leadership": {
-      "name": "Liderazgo",
-      "category": "Habilidad Blanda",
-      "point1": "Mentoría de desarrolladores junior",
-      "point2": "Liderazgo de iniciativas técnicas y desarrollo de características"
-    },
-    "english": {
-      "name": "Inglés",
-      "category": "Idioma",
-      "point1": "Dominio profesional en lectura, escritura y habla"
-    },
-    "spanish": {
-      "name": "Español",
-      "category": "Idioma",
-      "point1": "Dominio nativo"
     }
   },
   "Projects": {
