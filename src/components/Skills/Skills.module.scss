@@ -1,16 +1,12 @@
-$primary-color: #6B46C1;
-$secondary-color: #2DD4BF;
-$accent-color: #FF6B6B;
+$primary-color: #6b46c1;
+$secondary-color: #2dd4bf;
+$accent-color: #ff6b6b;
 $card-bg: rgba(29, 24, 54, 0.85);
 
 @mixin glass-effect {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background: linear-gradient(
-                  135deg,
-                  rgba($card-bg, 0.9),
-                  rgba($card-bg, 0.8)
-  );
+  background: linear-gradient(135deg, rgba($card-bg, 0.9), rgba($card-bg, 0.8));
 }
 
 .headerTitle {
@@ -25,7 +21,6 @@ $card-bg: rgba(29, 24, 54, 0.85);
   color: $secondary-color;
   line-height: 1.6;
 }
-
 
 .skillTreeContainer {
   position: relative;
@@ -99,9 +94,15 @@ $card-bg: rgba(29, 24, 54, 0.85);
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .connections {
@@ -129,11 +130,11 @@ $card-bg: rgba(29, 24, 54, 0.85);
 }
 
 .purple {
-  background: linear-gradient(135deg, #4c2889, #6B46C1);
+  background: linear-gradient(135deg, #4c2889, #6b46c1);
 }
 
 .gray {
-  background: linear-gradient(135deg, #0066FF, #7F00FF);
+  background: linear-gradient(135deg, #0066ff, #7f00ff);
 }
 
 .blue {
@@ -167,6 +168,32 @@ $card-bg: rgba(29, 24, 54, 0.85);
   max-width: 320px;
   pointer-events: none;
   transition: opacity 0.3s, transform 0.3s;
+}
+
+.mobileTooltip {
+  position: fixed;
+  z-index: 1000;
+  min-width: 250px;
+  max-width: 80%;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  pointer-events: auto;
+
+  .tooltipContent {
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  }
 }
 
 .tooltipContent {
@@ -230,7 +257,7 @@ $card-bg: rgba(29, 24, 54, 0.85);
       line-height: 1.4;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 0.45rem;
@@ -273,7 +300,7 @@ $card-bg: rgba(29, 24, 54, 0.85);
 }
 
 .softLabel {
-  background: linear-gradient(135deg, rgba(#4c2889, 0.8), rgba(#6B46C1, 0.8));
+  background: linear-gradient(135deg, rgba(#4c2889, 0.8), rgba(#6b46c1, 0.8));
   color: white;
 }
 
@@ -330,7 +357,7 @@ $card-bg: rgba(29, 24, 54, 0.85);
   padding-left: 15px;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
