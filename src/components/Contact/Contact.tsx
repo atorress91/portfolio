@@ -258,7 +258,7 @@ const Contact = () => {
                       disabled={loading}
                     >
                       {loading ? (
-                        <span className="d-flex align-items-center text-white">
+                        <span className="d-flex align-items-center">
                           <motion.div
                             animate={{ rotate: 360 }}
                             transition={{
@@ -277,7 +277,7 @@ const Contact = () => {
                           {t("sending") || "Enviando..."}
                         </span>
                       ) : (
-                        <span className="d-flex align-items-center text-white">
+                        <span className="d-flex align-items-center">
                           {t("btnSend") || "Send Message"}
                           <motion.div
                             animate={{ x: [0, 4, 0] }}
@@ -288,7 +288,7 @@ const Contact = () => {
                               repeatDelay: 1,
                             }}
                           >
-                            <Send size={16} className="ms-2 text-white" />
+                            <Send size={16} className="ms-2" />
                           </motion.div>
                         </span>
                       )}

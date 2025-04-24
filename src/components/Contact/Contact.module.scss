@@ -66,12 +66,12 @@ $text-light: #ffffff;
   text-align: center;
   background-color: transparent;
   border: 2px solid $complementary-color;
-  color: $complementary-color;
+  color: $complementary-color !important;
   transition: all 0.15s ease-in-out;
 
   &:hover {
     background-color: $complementary-color;
-    color: $text-light;
+    color: $text-light !important;
     border-color: $complementary-color;
     text-decoration: none;
     transform: translateY(-3px);
