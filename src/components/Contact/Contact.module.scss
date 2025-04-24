@@ -1,6 +1,7 @@
-$primary-color: #6B46C1;
-$secondary-color: #2DD4BF;
-$complementary-color: #FF6B6B;
+$primary-color: #6b46c1;
+$secondary-color: #2dd4bf;
+$complementary-color: #ff6b6b;
+$text-light: #ffffff;
 
 .primary-color {
   color: $primary-color;
@@ -56,16 +57,39 @@ $complementary-color: #FF6B6B;
 }
 
 .customButton {
-  background-color: $complementary-color !important;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  background-color: transparent;
+  border: 2px solid $complementary-color;
+  color: $complementary-color;
+  transition: all 0.15s ease-in-out;
 
   &:hover {
-    background-color: darken($complementary-color, 10%);
+    background-color: $complementary-color;
+    color: $text-light;
+    border-color: $complementary-color;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  span {
+    color: inherit;
+  }
+
+  svg {
+    color: inherit;
   }
 }
 
@@ -85,7 +109,8 @@ $complementary-color: #FF6B6B;
   transition: all 0.3s ease;
 
   &:hover {
-    filter: invert(67%) sepia(85%) saturate(1000%) hue-rotate(330deg) brightness(95%) contrast(110%);
+    filter: invert(67%) sepia(85%) saturate(1000%) hue-rotate(330deg)
+      brightness(95%) contrast(110%);
     transform: translateY(-5px);
   }
 }
