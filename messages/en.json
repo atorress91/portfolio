@@ -159,22 +159,22 @@
   },
   "Projects": {
     "sectionTitle": "My Projects",
-    "sectionDescription": "A selection of my most recent and outstanding works. Click on any project to see more details.",
+    "sectionDescription": "A selection of my most recent and outstanding work. Click on any project to see more details.",
     "viewDetails": "View Details",
     "technologies": "Technologies",
     "viewCode": "View Code",
     "imageAlt": "image",
     "project1": {
-      "title": "Component Project",
-      "description": "An application developed with Angular and .Net similar to an NFT Ecommerce, where users can buy and sell NFTs. Includes an authentication system, user management, and an admin panel."
+      "title": "Components Project",
+      "description": "An application developed with Angular and .NET similar to an NFT e-commerce where users can buy and sell NFTs. It includes JWT, user management, and an admin panel."
     },
     "project2": {
       "title": "Patterns Project",
-      "description": "A Unity video game similar to Pokemon, where players can capture creatures, train them, and battle each other. Includes an inventory system, character management, and an interactive map."
+      "description": "Unity video game called Cenfomon, where players can capture creatures and battle each other. It includes an inventory system and an interactive map."
     },
     "project3": {
       "title": "Project 3",
-      "description": "A web system called Rural Animal, created for agricultural needs. Users can offer or auction their animals, view them in 3D, and book appointments through an AI-powered chat."
+      "description": "Web system called Rural Animal, created for agricultural needs. Users can bid or auction their animals, view in 3D, and book appointments through an AI chat."
     }
   }
 }

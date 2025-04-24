@@ -52,12 +52,9 @@ const Experience = () => {
   const t = useTranslations('Experiences');
 
   return (
-    <div className="container my-5">
+    <div className="container my-5 100vh">
       <motion.div variants={textVariant(1)}>
-        <p className={`text-center mb-2 ${styles['secondary-color']}`}>
-          {t('headerSubtitle')}
-        </p>
-        <h2 className={`text-center mb-4 ${styles['primary-color']}`}>
+        <h2 className={`text-center mt-4 ${styles['primary-color']}`}>
           {t('headerTitle')}
         </h2>
         <div className={styles.timeline}>

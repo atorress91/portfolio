@@ -111,7 +111,7 @@ const buildSkillTree = () => {
           icon: "brain",
           featured: true,
           iconBg: "green",
-          points: [1, 2],	
+          points: [1, 2],
         },
       ],
     },

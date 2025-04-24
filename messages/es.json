@@ -152,7 +152,7 @@
       "point1": "Pensamiento analítico y enfoque en la solución de problemas",
       "point2": "Enfoque creativo para desafíos técnicos"
     },
-   
+
     "sql": {
       "name": "SQL",
       "category": "Base de datos"
@@ -167,11 +167,11 @@
     "imageAlt": "imagen",
     "project1": {
       "title": "Proyecto Componentes",
-      "description": "Una aplicación desarrollada con Angular y .Net similar a un Ecommerce de NFTS, donde los usuarios pueden comprar y vender NFTS. Incluye un sistema de autenticación, gestión de usuarios y un panel de administración."
+      "description": "Una aplicación desarrollada con Angular y .Net similar a un Ecommerce de NFTS, donde los usuarios pueden comprar y vender NFTS. Incluye JWt, gestión de usuarios y un panel de administración."
     },
     "project2": {
       "title": "Proyecto Patrones",
-      "description": "Videojuego en Unity similar a Pokemon, donde los jugadores pueden capturar criaturas, entrenarlas y luchar entre sí. Incluye un sistema de inventario, gestión de personajes y un mapa interactivo."
+      "description": "Videojuego en Unity llamado Cenfomon, donde los jugadores pueden capturar criaturas y luchar entre sí. Incluye un sistema de inventario y un mapa interactivo."
     },
     "project3": {
       "title": "Proyecto 3",

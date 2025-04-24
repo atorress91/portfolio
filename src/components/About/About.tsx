@@ -29,13 +29,11 @@ const ServiceCard = ({ index, title, icon }) => (
             width={64}
             height={64}
             style={{
-                maxWidth: '100%',
-                height: 'auto'
+              maxWidth: "100%",
+              height: "auto",
             }}
           />
-          <h3 className="text-white fs-4 fw-bold text-center mt-3">
-            {title}
-          </h3>
+          <h3 className="text-white fs-4 fw-bold text-center mt-3">{title}</h3>
         </div>
       </motion.div>
     </Tilt>
@@ -44,7 +42,7 @@ const ServiceCard = ({ index, title, icon }) => (
 
 const About = () => {
   return (
-    <div className={`${styles["about-section"]} container`}>
+    <div className={`${styles["about-section"]} container 100vh`}>
       <motion.div variants={textVariant(3)}>
         <p className={styles["section-subtext"]}>Introduction</p>
         <h2 className={styles["section-headtext"]}>Overview.</h2>
@@ -55,10 +53,11 @@ const About = () => {
         className={`mt-4 text-secondary fs-5 ${styles["max-width-3xl"]}`}
       >
         I&apos;m a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and Three.js.
-        I&apos;m a quick learner and collaborate closely with clients to create
-        efficient, scalable, and user-friendly solutions that solve real-world
-        problems. Let&apos;s work together to bring your ideas to life!
+        JavaScript, and expertise in frameworks like React, Node.js, and
+        Three.js. I&apos;m a quick learner and collaborate closely with clients
+        to create efficient, scalable, and user-friendly solutions that solve
+        real-world problems. Let&apos;s work together to bring your ideas to
+        life!
       </motion.p>
 
       <div className="row mt-5">
