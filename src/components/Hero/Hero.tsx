@@ -7,7 +7,7 @@ const Hero = () => {
   const t = useTranslations("Hero");
 
   return (
-    <section id="about" className={`position-relative container w-100 vh-100 ${styles.heroSection}`}>
+    <section id="about" className={`position-relative w-100 vh-100 ${styles.heroSection}`}>
       <div className="container h-100">
         <div className="row h-100 align-items-center">
           <div className="col-md-6">

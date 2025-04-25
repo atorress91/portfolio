@@ -20,7 +20,7 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  // Social media links
+
   const socialLinks = [
     {
       id: "linkedin",
@@ -135,7 +135,7 @@ const Contact = () => {
   return (
     <section
         id="contact"
-        className={`container ${styles.contactContainer}`}>
+        className={`container d-flex flex-column min-vh-100 py-5`}>
       <Toaster
         position="top-center"
         toastOptions={{
@@ -146,9 +146,9 @@ const Contact = () => {
         }}
       />
 
-      <div className="row justify-content-center">
-        <div className="col-12 col-lg-10">
-          <h3 className={`${styles.sectionHeadText} text-center`}>
+      <div className="row justify-content-center flex-grow-1">
+        <div className="col-12 col-lg-10 d-flex flex-column">
+          <h3 className={`${styles.sectionHeadText} text-center mt-lg-2 mb-lg-5 mb-2`}>
             {t("title") || "Contact."}
           </h3>
           <div className={`${styles.formContainer} p-4 p-md-5`}>

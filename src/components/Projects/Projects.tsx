@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import Image from "next/image";
 import styles from "./Projects.module.scss";
 import { SectionWrapper } from "@/hoc";
@@ -103,9 +103,11 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section className={`${styles.projectsSection} py-4 py-md-5`} id="projects">
-      <Container>
-        <h2 className={`${styles.sectionTitle} mt-4 mb-4`}>
+    <section
+        className={`${styles.projectsSection} d-flex flex-column align-items-center justify-content-lg-start justify-content-center`}
+        id="projects">
+
+      <h2 className={`${styles.sectionTitle} mt-lg-2 mb-lg-5 mb-2`}>
           {t("sectionTitle")}
         </h2>
 
@@ -119,7 +121,7 @@ const ProjectsSection = () => {
             </Col>
           ))}
         </Row>
-      </Container>
+
 
       <ProjectModal
         project={selectedProject}
