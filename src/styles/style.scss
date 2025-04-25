@@ -68,3 +68,14 @@ body {
     opacity: 0;
   }
 }
+
+[id] {
+  // Selecciona cualquier elemento con un id (potenciales destinos de ancla)
+  scroll-margin-top: 80px; // Ajustar según la altura de tu navbar
+}
+
+@media (max-width: 768px) {
+  [id] {
+    scroll-margin-top: 70px; // Valor menor para móviles si la navbar es más pequeña
+  }
+}

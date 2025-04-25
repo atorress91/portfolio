@@ -7,19 +7,15 @@ const Hero = () => {
   const t = useTranslations("Hero");
 
   return (
-    <section className={`position-relative w-100 vh-100 ${styles.heroSection}`}>
-      {/* Contenedor con grid */}
+    <section id="about" className={`position-relative container w-100 vh-100 ${styles.heroSection}`}>
       <div className="container h-100">
         <div className="row h-100 align-items-center">
-          {/* Columna para el contenido */}
           <div className="col-md-6">
             <div className={`d-flex flex-row align-items-start gap-3 ${styles.heroContent}`}>
-              {/* Elemento decorativo: círculo y línea */}
               <div className="d-flex flex-column justify-content-center align-items-center">
                 <div className={styles.circle} />
                 <div className={styles.verticalLine} />
               </div>
-              {/* Texto de bienvenida */}
               <div>
                 <span className={styles.highlight}>Andrés Torres Sánchez</span> <br className="d-none d-sm-block" />
                 <h1 className={`${styles.heroHeadText} text-white`}>

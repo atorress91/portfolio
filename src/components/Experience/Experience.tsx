@@ -31,7 +31,7 @@ const ExperienceCard = ({ experience, index }) => {
         `}
       >
         <div className={styles.timelineDate}>{t(experience.date)}</div>
-        <h3 className="h4 text-white">{t(experience.title)}</h3>
+        <h3 className="text-white">{t(experience.title)}</h3>
         <p className={`mb-0 font-weight-bold ${styles["secondary-color"]}`}>
           {experience.company_name}
         </p>
@@ -52,7 +52,7 @@ const Experience = () => {
   const t = useTranslations('Experiences');
 
   return (
-    <div className="container my-5 100vh">
+    <div id="work" className="container my-5 100vh">
       <motion.div variants={textVariant(1)}>
         <h2 className={`text-center mt-4 ${styles['primary-color']}`}>
           {t('headerTitle')}

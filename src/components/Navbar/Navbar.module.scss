@@ -3,13 +3,23 @@ $secondary-color: #2DD4BF;
 $complementary: #FF6B6B;
 
 .navbar {
-  background-color: black !important;
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white !important;
   font-size: 1.5rem;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  
+  &.scrolled {
+    padding: 0.4rem 0 !important;
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .navbar-logo {
@@ -18,6 +28,11 @@ $complementary: #FF6B6B;
   gap: 1rem;
   font-weight: 500;
   font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
 
   svg {
     color: $primary-color;
@@ -29,33 +44,81 @@ $complementary: #FF6B6B;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 700;
 }
 
 .navbar-links {
   a {
     text-decoration: none;
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease;
     color: $secondary-color;
     text-transform: capitalize;
+    position: relative;
+    padding: 0.25rem 0.5rem;
+    margin: 0 0.25rem;
+    font-weight: 500;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, $secondary-color, $complementary);
+      transition: width 0.3s ease;
+    }
 
     &:hover {
       color: $complementary;
+      
+      &::after {
+        width: 100%;
+      }
+    }
+    
+    &.active {
+      color: $complementary;
+      
+      &::after {
+        width: 100%;
+      }
     }
   }
 }
 
 .navbar-links-mobile {
+  background-color: rgba(20, 15, 35, 0.97);
+  backdrop-filter: blur(15px);
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  margin-top: 0.5rem;
+  overflow: hidden;
+  
   a {
     text-decoration: none;
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease;
     color: $secondary-color;
     text-transform: capitalize;
-    border-bottom: 1px solid #333;
-    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.5rem;
+    display: block;
+    font-weight: 500;
 
     &:hover {
       color: $complementary;
       background-color: rgba(255, 255, 255, 0.05);
+      padding-left: 2rem;
+    }
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &.active {
+      color: $complementary;
+      border-left: 3px solid $complementary;
+      background-color: rgba(255, 107, 107, 0.05);
     }
   }
 }
@@ -75,35 +138,35 @@ $complementary: #FF6B6B;
   background-color: rgba(255, 255, 255, 0.08);
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 
   &:hover,
   &:focus {
     background-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   }
 
   &:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
   }
 
   span {
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   span:last-child {
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
     margin-left: 6px;
     font-size: 0.7rem;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   &[aria-expanded="true"] span:last-child {
@@ -112,38 +175,58 @@ $complementary: #FF6B6B;
 }
 
 .cv-download-btn {
-  background-color: rgba($complementary, 0.15);
+  background-color: rgba($complementary, 0.1);
   color: white;
   border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  border-radius: 12px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(to right, $complementary, darken($complementary, 10%));
+    transition: width 0.3s ease;
+    z-index: 0;
+  }
 
   &:hover,
   &:focus {
-    background-color: rgba($complementary, 0.25);
-    transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     color: white;
+    
+    &::before {
+      width: 100%;
+    }
+    
+    .cv-icon {
+      transform: translateY(-3px);
+      filter: brightness(1.2);
+    }
   }
 
   &:active {
-    transform: translateY(0);
+    transform: translateY(-2px);
   }
 }
 
 .cv-icon {
-  transition: transform 0.3s ease;
-}
-
-.cv-download-btn:hover .cv-icon {
-  transform: translateY(-2px);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .navbar-cv-mobile {
@@ -156,26 +239,31 @@ $complementary: #FF6B6B;
 
 .language-dropdown-menu {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 10px);
   right: 0;
-  min-width: 140px;
-  background-color: rgba(30, 30, 30, 0.95);
-  border-radius: 8px;
+  min-width: 160px;
+  background-color: rgba(30, 25, 50, 0.95);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
   z-index: 1010;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   transform-origin: top right;
-  animation: dropdownScale 0.2s ease;
+  animation: dropdownScale 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 
   &::before {
     content: '';
     position: absolute;
-    top: -4px;
-    right: 14px;
-    width: 8px;
-    height: 8px;
-    background-color: rgba(30, 30, 30, 0.95);
+    top: -6px;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(30, 25, 50, 0.95);
     transform: rotate(45deg);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -187,77 +275,66 @@ $complementary: #FF6B6B;
   color: rgba(255, 255, 255, 0.85);
   border: none;
   text-align: left;
-  padding: 0.6rem 0.8rem;
-  font-size: 0.9rem;
-  transition: all 0.15s ease;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: $primary-color;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: $complementary;
+    transform: translateX(5px);
   }
 
   &:active {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.12);
   }
 }
 
-.cv-download-container {
-  position: relative;
-  display: inline-block;
-}
-
-.cv-download-btn {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 0.4rem 0.8rem;
-  display: flex;
-  align-items: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    background-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-
-  span {
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-}
-
-.cv-icon {
-  width: 1.2em;
-  height: 1.2em;
-}
-
-.navbar-toggler {
-  border: none;
+.hamburgerBtn {
+  display: none;
   background: transparent;
-  padding: 0.25rem 0.5rem;
+  border: none;
   cursor: pointer;
-  color: white;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: $primary-color;
+  padding: 0.5rem;
+  width: 45px;
+  height: 40px;
+  position: relative;
+  z-index: 1020;
+  
+  @media (max-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
+}
+
+.hamburgerLine {
+  width: 26px;
+  height: 2px;
+  background-color: $secondary-color;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  border-radius: 2px;
+}
+
+.lineTop {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.lineMiddle {
+  opacity: 0;
+}
+
+.lineBottom {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 @keyframes dropdownScale {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
 
   to {
@@ -266,11 +343,10 @@ $complementary: #FF6B6B;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .navbar {
     font-size: 1.2rem;
-    padding: 0.2rem 0.5rem;
-    margin-bottom: 0;
+    padding: 0.5rem 1rem;
   }
 
   .navbar-links {
@@ -278,14 +354,43 @@ $complementary: #FF6B6B;
       font-size: 1rem;
     }
   }
+}
 
-  .navbar-toggler {
-    font-size: 1.5rem;
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.3rem 0.5rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.3rem;
   }
 
   .cv-download-btn {
-    background-color: rgba(255, 255, 255, 0.08);
-    padding: 0.3rem 0.6rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 38px;
+    height: 38px;
+  }
+  
+  .lang-selector-btn {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .navbar-toggler {
+    padding: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .lang-selector-btn span:not(:first-child) {
+    display: none;
+  }
+  
+  .cv-download-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .cv-icon {
+    width: 18px !important;
+    height: 18px !important;
   }
 }

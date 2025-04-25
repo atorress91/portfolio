@@ -1,7 +1,6 @@
 "use client";
 
 import { SectionWrapper } from "@/hoc";
-import { slideIn } from "@/utils/motion";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -134,10 +133,9 @@ const Contact = () => {
   };
 
   return (
-    <motion.div
-      variants={slideIn("up", "tween", 0.2, 1)}
-      className={`container ${styles.contactContainer}`}
-    >
+    <section
+        id="contact"
+        className={`container ${styles.contactContainer}`}>
       <Toaster
         position="top-center"
         toastOptions={{
@@ -300,7 +298,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </section>
   );
 };
 

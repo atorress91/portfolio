@@ -523,7 +523,7 @@ const SkillsTree: React.FC = () => {
   };
 
   return (
-    <div className="container py-5 d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <div id="skills" className="container py-5 d-flex flex-column justify-content-center align-items-center min-vh-100">
       <div className="text-center mb-5 mt-3">
         <h2 className={styles.headerTitle}>{t("headerTitle")}</h2>
       </div>
