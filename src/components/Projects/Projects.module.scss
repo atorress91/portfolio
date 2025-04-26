@@ -82,7 +82,7 @@ $text-muted: #b4b4b4;
 
 .projectDescription {
   color: $text-light;
-  font-size: 0.9rem;
+  font-size: 1.25rem;
   margin-bottom: 1rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -115,7 +115,7 @@ $text-muted: #b4b4b4;
 
 .viewDetails {
   color: $complementary-color;
-  font-size: 0.9rem;
+  font-size: 1.25rem;
   font-weight: 500;
 }
 
@@ -244,6 +244,7 @@ $text-muted: #b4b4b4;
 
 .modalDescription {
   margin-bottom: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .modalTechnologies {
@@ -251,7 +252,7 @@ $text-muted: #b4b4b4;
 
   h4 {
     color: $complementary-color;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     margin-bottom: 0.75rem;
   }
 }
@@ -262,6 +263,7 @@ $text-muted: #b4b4b4;
   border-radius: 0.25rem;
   text-decoration: none;
   cursor: pointer;
+  font-size: 1.25rem;
   font-weight: 500;
   text-align: center;
   background-color: transparent;

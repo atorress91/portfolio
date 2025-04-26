@@ -16,6 +16,7 @@ $text-light: #ffffff;
 }
 
 .formLabel {
+  font-size: 1.25rem;
   color: $secondary-color !important;
 }
 
@@ -43,6 +44,7 @@ $text-light: #ffffff;
   border: none !important;
 
   &::placeholder {
+    font-size: 1.25rem;
     color: rgba(255, 255, 255, 0.8) !important;
   }
 
