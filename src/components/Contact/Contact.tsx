@@ -39,14 +39,6 @@ const Contact = () => {
       url: "https://github.com/atorress91",
     },
     {
-      id: "instagram",
-      icon: (
-        <Image src="/instagram.svg" width={40} height={40} alt="" unoptimized />
-      ),
-      label: "Instagram",
-      url: "https://instagram.com/axts78",
-    },
-    {
       id: "whatsapp",
       icon: (
         <Image src="/whatsapp.svg" width={40} height={40} alt="" unoptimized />
