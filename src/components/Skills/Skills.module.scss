@@ -116,7 +116,7 @@ $card-bg: rgba(29, 24, 54, 0.85);
 
 .connectionPath {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.15);
+  stroke: rgba(255, 107, 107, 1);
   stroke-width: 2;
   stroke-dasharray: 5, 5;
   animation: flowPath 30s linear infinite;
@@ -129,23 +129,23 @@ $card-bg: rgba(29, 24, 54, 0.85);
 }
 
 .purple {
-  background: linear-gradient(135deg, #4c2889, #6b46c1);
-}
-
-.gray {
-  background: linear-gradient(135deg, #0066ff, #7f00ff);
+  background: linear-gradient(135deg, $primary-color, lighten($primary-color, 15%));
 }
 
 .blue {
-  background: linear-gradient(135deg, #0284c7, #38bdf8);
-}
-
-.green {
-  background: linear-gradient(135deg, #059669, #10b981);
+  background: linear-gradient(135deg, $secondary-color, lighten($secondary-color, 15%));
 }
 
 .red {
-  background: linear-gradient(135deg, #dd0031, #c3002f);
+  background: linear-gradient(135deg, $accent-color, darken($accent-color, 10%));
+}
+
+.green {
+  background: $card-bg;
+}
+
+.gray {
+  background: rgba($secondary-color, 0.15);
 }
 
 .featuredIndicator {
