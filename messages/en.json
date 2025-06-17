@@ -1,7 +1,35 @@
 {
-  "Layout": {
-    "title": "Andrés Torres",
-    "description": "Andrés Torres Sánchez's personal portfolio"
+  "Contact": {
+    "btnSend": "Send",
+    "contactMessage": "Prefer to speak directly? Contact me through any of my social channels.",
+    "emailLabel": "Email",
+    "errorMessage": "There was an error sending the message. Please try again.",
+    "messageLabel": "Message",
+    "nameLabel": "Name",
+    "placeholderEmail": "What's your email?",
+    "placeholderMessage": "What do you want to say?",
+    "placeholderName": "What's your good name?",
+    "scrollTitle": "Back to Experience",
+    "sending": "Sending...",
+    "sendingMessage": "Sending message...",
+    "subtitle": "Get in touch",
+    "successMessage": "Thank you for your message! I will get back to you soon.",
+    "title": "Contact"
+  },
+  "Experiences": {
+    "date1": "Jan 2022 - Dec 2022",
+    "date2": "Jan 2023 - Present",
+    "fullStackDeveloper": "Full Stack Developer",
+    "headerSubtitle": "What I have done so far",
+    "headerTitle": "Work Experience",
+    "point1": "Participation in the design and administration of databases in MS SQL Server, ensuring efficiency and security in data storage and access",
+    "point2": "Implementation of business logic and server functionalities using .NET Core, handling interaction with the database and communication with the frontend.",
+    "point3": "Development and optimization of user interfaces with Angular, translating technical requirements into a smooth and effective user experience.",
+    "point4": "Collaboration in evaluating and continuously improving existing processes, increasing software efficiency and enhancing user satisfaction.",
+    "point5": "Design and development of the user interface in Angular, providing a smooth and functional experience for the equipment management and technical staff system.",
+    "point6": "Implementation of business logic in .NET 6 to control data flow between the server and the user interface, enhancing system functionality and efficiency.",
+    "point7": "Creation of the database in SQL Server from scratch, considering the business's specific needs and designing the structure to optimize data storage and retrieval.",
+    "webDeveloper": "Web Developer"
   },
   "Hero": {
     "line-1": "Hello, I'm",
@@ -9,172 +37,144 @@
     "line-3": "in Web Development, Microservices, and Software Analysis. Constantly updating, with teamwork skills,",
     "line-4": "problem solving and results oriented."
   },
+  "Layout": {
+    "description": "Andrés Torres Sánchez's personal portfolio",
+    "title": "Andrés Torres"
+  },
   "Navbar": {
     "about": "About me",
+    "alternateLangFlag": "Flag of {lang}",
+    "contact": "Contact",
+    "currentLangFlag": "Flag of {lang}",
+    "downloadCV": "Download CV",
     "experience": "Experience",
     "projects": "Projects",
     "skills": "Skills",
-    "contact": "Contact",
-    "currentLangFlag": "Flag of {lang}",
-    "alternateLangFlag": "Flag of {lang}",
-    "toggleMenu": "Open/Close navigation menu",
-    "downloadCV": "Download CV"
+    "toggleMenu": "Open/Close navigation menu"
   },
-  "Contact": {
-    "subtitle": "Get in touch",
-    "title": "Contact",
-    "nameLabel": "Name",
-    "emailLabel": "Email",
-    "messageLabel": "Message",
-    "btnSend": "Send",
-    "contactMessage": "Prefer to speak directly? Contact me through any of my social channels.",
-    "placeholderName": "What's your good name?",
-    "placeholderEmail": "What's your email?",
-    "placeholderMessage": "What do you want to say?",
-    "scrollTitle": "Back to Experience",
-    "sendingMessage": "Sending message...",
-    "successMessage": "Thank you for your message! I will get back to you soon.",
-    "errorMessage": "There was an error sending the message. Please try again.",
-    "sending": "Sending..."
-  },
-  "Services": {
-    "webDeveloper": "Web Developer",
-    "reactNativeDeveloper": "React Native Developer",
-    "backendDeveloper": "Backend Developer",
-    "contentCreator": "Content Creator"
-  },
-  "Experiences": {
-    "headerSubtitle": "What I have done so far",
-    "headerTitle": "Work Experience",
-    "webDeveloper": "Web Developer",
-    "fullStackDeveloper": "Full Stack Developer",
-    "date1": "Jan 2022 - Dec 2022",
-    "date2": "Jan 2023 - Present",
-    "point1": "Participation in the design and administration of databases in MS SQL Server, ensuring efficiency and security in data storage and access",
-    "point2": "Implementation of business logic and server functionalities using .NET Core, handling interaction with the database and communication with the frontend.",
-    "point3": "Development and optimization of user interfaces with Angular, translating technical requirements into a smooth and effective user experience.",
-    "point4": "Collaboration in evaluating and continuously improving existing processes, increasing software efficiency and enhancing user satisfaction.",
-    "point5": "Design and development of the user interface in Angular, providing a smooth and functional experience for the equipment management and technical staff system.",
-    "point6": "Implementation of business logic in .NET 6 to control data flow between the server and the user interface, enhancing system functionality and efficiency.",
-    "point7": "Creation of the database in SQL Server from scratch, considering the business's specific needs and designing the structure to optimize data storage and retrieval."
+  "Projects": {
+    "imageAlt": "image",
+    "project1": {
+      "description": "An application developed with Angular and .NET similar to an NFT e-commerce where users can buy and sell NFTs. It includes JWT, user management, and an admin panel.",
+      "title": "Components Project"
+    },
+    "project2": {
+      "description": "Unity video game called Cenfomon, where players can capture creatures and battle each other. It includes an inventory system and an interactive map.",
+      "title": "Patterns Project"
+    },
+    "project3": {
+      "description": "Web system called Rural Animal, created for agricultural needs. Users can bid or auction their animals, view in 3D, and book appointments through an AI chat.",
+      "title": "Project 3"
+    },
+    "sectionDescription": "A selection of my most recent and outstanding work. Click on any project to see more details.",
+    "sectionTitle": "My Projects",
+    "technologies": "Technologies",
+    "viewCode": "View Code",
+    "viewDetails": "View Details"
   },
   "Scroll": {
-    "scrollUp": "Scroll up",
-    "scrollDown": "Scroll down"
+    "scrollDown": "Scroll down",
+    "scrollUp": "Scroll up"
+  },
+  "Services": {
+    "backendDeveloper": "Backend Developer",
+    "contentCreator": "Content Creator",
+    "reactNativeDeveloper": "React Native Developer",
+    "webDeveloper": "Web Developer"
   },
   "Skills": {
-    "headerSubtitle": "What I Can Do",
-    "headerTitle": "My Skills",
-    "technicalSkills": "Technical Skills",
-    "softSkills": "Interpersonal Skills",
-    "featuredSkills": "Featured Skills",
-    "keyCapabilities": "Key Capabilities",
-    "featured": "Featured",
-    "frontendCategory": "Frontend",
-    "backendCategory": "Backend",
-    "softSkillsCategory": "Soft Skills",
-    "frontend": {
-      "name": "Frontend Development",
-      "category": "Development Area"
-    },
-    "backend": {
-      "name": "Backend Development",
-      "category": "Development Area"
-    },
-    "soft": {
-      "name": "Soft Skills",
-      "category": "Personal Skills"
-    },
-    "react": {
-      "name": "React",
-      "category": "Frontend",
-      "point1": "Building scalable and maintainable component-based user interfaces",
-      "point2": "State management with Redux and Context API"
-    },
     "angular": {
-      "name": "Angular",
       "category": "Frontend",
+      "name": "Angular",
       "point1": "Development of enterprise applications with TypeScript",
       "point2": "Implementation of lazy loading and performance optimization"
     },
-    "dotnet": {
-      "name": ".NET",
+    "backend": {
+      "category": "Development Area",
+      "name": "Backend Development"
+    },
+    "backendCategory": "Backend",
+    "communication": {
+      "category": "Soft Skill",
+      "name": "Communication",
+      "point1": "Clear and effective technical communication"
+    },
+    "csharp": {
+      "category": "Programming Language",
+      "name": "C#",
+      "point1": "Object-oriented programming and SOLID principles",
+      "point2": "Asynchronous programming with async/await"
+    },
+    "databases": {
       "category": "Backend",
+      "name": "Databases",
+      "point1": "Database design and optimization",
+      "point2": "Query performance tuning"
+    },
+    "dotnet": {
+      "category": "Backend",
+      "name": ".NET",
       "point1": "Development of scalable web APIs and microservices",
       "point2": "Implementation of clean code architecture and design patterns",
       "point3": "Implementation of Entity Framework Core for data access and migrations",
       "point4": "Deployment with Docker and Kubernetes"
     },
-    "csharp": {
-      "name": "C#",
-      "category": "Programming Language",
-      "point1": "Object-oriented programming and SOLID principles",
-      "point2": "Asynchronous programming with async/await"
+    "featured": "Featured",
+    "featuredSkills": "Featured Skills",
+    "frontend": {
+      "category": "Development Area",
+      "name": "Frontend Development"
     },
-    "spring": {
-      "name": "Spring Boot",
-      "category": "Backend",
-      "point1": "Creation of enterprise applications with Java"
-    },
+    "frontendCategory": "Frontend",
+    "headerSubtitle": "What I Can Do",
+    "headerTitle": "My Skills",
     "java": {
-      "name": "Java",
       "category": "Programming Language",
+      "name": "Java",
       "point1": "Object-oriented design patterns and best practices"
     },
-    "databases": {
-      "name": "Databases",
-      "category": "Backend",
-      "point1": "Database design and optimization",
-      "point2": "Query performance tuning"
-    },
-    "sqlserver": {
-      "name": "SQL Server",
-      "category": "Database"
-    },
+    "keyCapabilities": "Key Capabilities",
     "mariadb": {
-      "name": "MariaDB",
-      "category": "Database"
-    },
-    "communication": {
-      "name": "Communication",
-      "category": "Soft Skill",
-      "point1": "Clear and effective technical communication"
-    },
-    "teamwork": {
-      "name": "Teamwork",
-      "category": "Soft Skill",
-      "point1": "Collaboration in cross-functional teams",
-      "point2": "Contribution to a positive team culture and knowledge sharing"
+      "category": "Database",
+      "name": "MariaDB"
     },
     "problemsolving": {
-      "name": "Problem Solving",
       "category": "Soft Skill",
+      "name": "Problem Solving",
       "point1": "Analytical thinking and problem-solving approach",
       "point2": "Creative approach to technical challenges"
     },
+    "react": {
+      "category": "Frontend",
+      "name": "React",
+      "point1": "Building scalable and maintainable component-based user interfaces",
+      "point2": "State management with Redux and Context API"
+    },
+    "soft": {
+      "category": "Personal Skills",
+      "name": "Soft Skills"
+    },
+    "softSkills": "Interpersonal Skills",
+    "softSkillsCategory": "Soft Skills",
+    "spring": {
+      "category": "Backend",
+      "name": "Spring Boot",
+      "point1": "Creation of enterprise applications with Java"
+    },
     "sql": {
-      "name": "SQL",
-      "category": "Database"
-    }
-  },
-  "Projects": {
-    "sectionTitle": "My Projects",
-    "sectionDescription": "A selection of my most recent and outstanding work. Click on any project to see more details.",
-    "viewDetails": "View Details",
-    "technologies": "Technologies",
-    "viewCode": "View Code",
-    "imageAlt": "image",
-    "project1": {
-      "title": "Components Project",
-      "description": "An application developed with Angular and .NET similar to an NFT e-commerce where users can buy and sell NFTs. It includes JWT, user management, and an admin panel."
+      "category": "Database",
+      "name": "SQL"
     },
-    "project2": {
-      "title": "Patterns Project",
-      "description": "Unity video game called Cenfomon, where players can capture creatures and battle each other. It includes an inventory system and an interactive map."
+    "sqlserver": {
+      "category": "Database",
+      "name": "SQL Server"
     },
-    "project3": {
-      "title": "Project 3",
-      "description": "Web system called Rural Animal, created for agricultural needs. Users can bid or auction their animals, view in 3D, and book appointments through an AI chat."
-    }
+    "teamwork": {
+      "category": "Soft Skill",
+      "name": "Teamwork",
+      "point1": "Collaboration in cross-functional teams",
+      "point2": "Contribution to a positive team culture and knowledge sharing"
+    },
+    "technicalSkills": "Technical Skills"
   }
 }

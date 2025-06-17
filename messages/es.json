@@ -1,7 +1,35 @@
 {
-  "Layout": {
-    "title": "Andrés Torres",
-    "description": "Portafolio personal de Andrés Torres Sánchez"
+  "Contact": {
+    "btnSend": "Enviar",
+    "contactMessage": "¿Prefieres hablar directamente? Contáctame por cualquiera de mis redes.",
+    "emailLabel": "Correo electrónico",
+    "errorMessage": "Hubo un error al enviar el mensaje. Por favor intenta de nuevo.",
+    "messageLabel": "Mensaje",
+    "nameLabel": "Nombre",
+    "placeholderEmail": "¿Cuál es tu correo electrónico?",
+    "placeholderMessage": "¿Qué quieres decir?",
+    "placeholderName": "¿Cómo te llamas?",
+    "scrollTitle": "Regresar a experiencia",
+    "sending": "Enviando...",
+    "sendingMessage": "Enviando mensaje...",
+    "subtitle": "Ponte en contacto",
+    "successMessage": "¡Gracias por tu mensaje! Me comunicaré contigo pronto.",
+    "title": "Contacto"
+  },
+  "Experiences": {
+    "date1": "Ene 2022 - Dic 2022",
+    "date2": "Ene 2023 - Presente",
+    "fullStackDeveloper": "Desarrollador Full Stack",
+    "headerSubtitle": "Lo que he hecho hasta ahora",
+    "headerTitle": "Experiencia laboral",
+    "point1": "Participación en el diseño y administración de bases de datos en MS SQL Server, asegurando la eficiencia y seguridad en el almacenamiento y acceso a los datos",
+    "point2": "Implementación de la lógica de negocios y funcionalidades de servidor usando .NET Core, manejando la interacción con la base de datos y la comunicación con el frontend. ",
+    "point3": " Desarrollo y optimización de interfaces de usuario con Angular, traduciendo los requerimientos técnicos en una experiencia de usuario fluida y efectiva. ",
+    "point4": "Colaboración en la evaluación y mejora continua de los procesos existentes, incrementando la eficiencia del software y mejorando la satisfacción de los usuarios. ",
+    "point5": "Diseño y desarrollo de la interfaz de usuario en Angular, ofreciendo una experiencia fluida y funcional para el sistema de control de equipos y personal técnico. ",
+    "point6": "Implementación de la lógica de negocio en .NET 6 para controlar el flujo de datos entre el servidor y la interfaz de usuario, mejorando la funcionalidad y eficiencia del sistema.",
+    "point7": "Creación de la base de datos en SQL Server desde cero, considerando las necesidades específicas del   negocio y diseñando la estructura para optimizar el almacenamiento y la recuperación de datos.",
+    "webDeveloper": "Desarrollador Web"
   },
   "Hero": {
     "line-1": "Hola, Soy",
@@ -9,173 +37,144 @@
     "line-3": "en Desarrollo Web, Microservicios y Analisis de Software. En constante actualizacion, con habilidades para el trabajo en equipo,",
     "line-4": "resolucion de problemas y enfoque en resultados."
   },
+  "Layout": {
+    "description": "Portafolio personal de Andrés Torres Sánchez",
+    "title": "Andrés Torres"
+  },
   "Navbar": {
     "about": "Sobre mí",
+    "alternateLangFlag": "Bandera de {lang}",
+    "contact": "Contacto",
+    "currentLangFlag": "Bandera de {lang}",
+    "downloadCV": "Descarga CV",
     "experience": "Experiencia",
     "projects": "Proyectos",
     "skills": "Habilidades",
-    "contact": "Contacto",
-    "currentLangFlag": "Bandera de {lang}",
-    "alternateLangFlag": "Bandera de {lang}",
-    "toggleMenu": "Abrir/Cerrar menú de navegación",
-    "downloadCV": "Descarga CV"
+    "toggleMenu": "Abrir/Cerrar menú de navegación"
   },
-  "Contact": {
-    "subtitle": "Ponte en contacto",
-    "title": "Contacto",
-    "nameLabel": "Nombre",
-    "emailLabel": "Correo electrónico",
-    "messageLabel": "Mensaje",
-    "btnSend": "Enviar",
-    "contactMessage": "¿Prefieres hablar directamente? Contáctame por cualquiera de mis redes.",
-    "placeholderName": "¿Cómo te llamas?",
-    "placeholderEmail": "¿Cuál es tu correo electrónico?",
-    "placeholderMessage": "¿Qué quieres decir?",
-    "scrollTitle": "Regresar a experiencia",
-    "sendingMessage": "Enviando mensaje...",
-    "successMessage": "¡Gracias por tu mensaje! Me comunicaré contigo pronto.",
-    "errorMessage": "Hubo un error al enviar el mensaje. Por favor intenta de nuevo.",
-    "sending": "Enviando..."
-  },
-  "Services": {
-    "webDeveloper": "Desarrollador Web",
-    "reactNativeDeveloper": "Desarrollador React Native",
-    "backendDeveloper": "Desarrollador Backend",
-    "contentCreator": "Creador de Contenido"
-  },
-  "Experiences": {
-    "headerSubtitle": "Lo que he hecho hasta ahora",
-    "headerTitle": "Experiencia laboral",
-    "webDeveloper": "Desarrollador Web",
-    "fullStackDeveloper": "Desarrollador Full Stack",
-    "date1": "Ene 2022 - Dic 2022",
-    "date2": "Ene 2023 - Presente",
-    "point1": "Participación en el diseño y administración de bases de datos en MS SQL Server, asegurando la eficiencia y seguridad en el almacenamiento y acceso a los datos",
-    "point2": "Implementación de la lógica de negocios y funcionalidades de servidor usando .NET Core, manejando la interacción con la base de datos y la comunicación con el frontend. ",
-    "point3": " Desarrollo y optimización de interfaces de usuario con Angular, traduciendo los requerimientos técnicos en una experiencia de usuario fluida y efectiva. ",
-    "point4": "Colaboración en la evaluación y mejora continua de los procesos existentes, incrementando la eficiencia del software y mejorando la satisfacción de los usuarios. ",
-    "point5": "Diseño y desarrollo de la interfaz de usuario en Angular, ofreciendo una experiencia fluida y funcional para el sistema de control de equipos y personal técnico. ",
-    "point6": "Implementación de la lógica de negocio en .NET 6 para controlar el flujo de datos entre el servidor y la interfaz de usuario, mejorando la funcionalidad y eficiencia del sistema.",
-    "point7": "Creación de la base de datos en SQL Server desde cero, considerando las necesidades específicas del   negocio y diseñando la estructura para optimizar el almacenamiento y la recuperación de datos."
+  "Projects": {
+    "imageAlt": "imagen",
+    "project1": {
+      "description": "Una aplicación desarrollada con Angular y .Net similar a un Ecommerce de NFTS, donde los usuarios pueden comprar y vender NFTS. Incluye JWt, gestión de usuarios y un panel de administración.",
+      "title": "Proyecto Componentes"
+    },
+    "project2": {
+      "description": "Videojuego en Unity llamado Cenfomon, donde los jugadores pueden capturar criaturas y luchar entre sí. Incluye un sistema de inventario y un mapa interactivo.",
+      "title": "Proyecto Patrones"
+    },
+    "project3": {
+      "description": "Sistema web llamado Rural Animal, creado para necesidades Agropecuarias, los usuarios pueden ofertar o subastar sus animales, visualizar en 3D, reservar citas por medio de un chat con IA.",
+      "title": "Proyecto 3"
+    },
+    "sectionDescription": "Una selección de mis trabajos más recientes y destacados. Haz clic en cualquier proyecto para ver más detalles.",
+    "sectionTitle": "Mis Proyectos",
+    "technologies": "Tecnologías",
+    "viewCode": "Ver Código",
+    "viewDetails": "Ver detalles"
   },
   "Scroll": {
-    "scrollUp": "Subir",
-    "scrollDown": "Bajar"
+    "scrollDown": "Bajar",
+    "scrollUp": "Subir"
+  },
+  "Services": {
+    "backendDeveloper": "Desarrollador Backend",
+    "contentCreator": "Creador de Contenido",
+    "reactNativeDeveloper": "Desarrollador React Native",
+    "webDeveloper": "Desarrollador Web"
   },
   "Skills": {
-    "headerSubtitle": "Lo que puedo hacer",
-    "headerTitle": "Mis Habilidades",
-    "technicalSkills": "Habilidades Técnicas",
-    "softSkills": "Habilidades Interpersonales",
-    "featuredSkills": "Habilidades Destacadas",
-    "keyCapabilities": "Capacidades Clave",
-    "featured": "Destacado",
-    "frontendCategory": "Frontend",
-    "backendCategory": "Backend",
-    "softSkillsCategory": "Habilidades Blandas",
-    "frontend": {
-      "name": "Desarrollo Frontend",
-      "category": "Área de Desarrollo"
-    },
-    "backend": {
-      "name": "Desarrollo Backend",
-      "category": "Área de Desarrollo"
-    },
-    "soft": {
-      "name": "Habilidades Blandas",
-      "category": "Habilidades Personales"
-    },
-    "react": {
-      "name": "React",
-      "category": "Frontend",
-      "point1": "Construcción de interfaces de usuario escalables y mantenibles basadas en componentes",
-      "point2": "Gestión de estado con Redux y Context API"
-    },
     "angular": {
-      "name": "Angular",
       "category": "Frontend",
+      "name": "Angular",
       "point1": "Desarrollo de aplicaciones empresariales con TypeScript",
       "point2": "Implementación de carga perezosa y optimización de rendimiento"
     },
-    "dotnet": {
-      "name": ".NET",
+    "backend": {
+      "category": "Área de Desarrollo",
+      "name": "Desarrollo Backend"
+    },
+    "backendCategory": "Backend",
+    "communication": {
+      "category": "Habilidad Blanda",
+      "name": "Comunicación",
+      "point1": "Comunicación técnica clara y efectiva"
+    },
+    "csharp": {
+      "category": "Lenguaje de Programación",
+      "name": "C#",
+      "point1": "Programación orientada a objetos y principios SOLID",
+      "point2": "Programación asíncrona con async/await"
+    },
+    "databases": {
       "category": "Backend",
+      "name": "Bases de Datos",
+      "point1": "Diseño y optimización de bases de datos",
+      "point2": "Ajuste de rendimiento de consultas"
+    },
+    "dotnet": {
+      "category": "Backend",
+      "name": ".NET",
       "point1": "Desarrollo de APIs web escalables y microservicios",
       "point2": "Implementación de Arquitectura código limpio y patrones de diseño",
       "point3": "Implementación de Entity Framework Core para acceso a datos y migraciones",
       "point4": "Despliegue con Docker y Kubernetes"
     },
-    "csharp": {
-      "name": "C#",
-      "category": "Lenguaje de Programación",
-      "point1": "Programación orientada a objetos y principios SOLID",
-      "point2": "Programación asíncrona con async/await"
+    "featured": "Destacado",
+    "featuredSkills": "Habilidades Destacadas",
+    "frontend": {
+      "category": "Área de Desarrollo",
+      "name": "Desarrollo Frontend"
     },
-    "spring": {
-      "name": "Spring Boot",
-      "category": "Backend",
-      "point1": "Creación de aplicaciones empresariales con Java"
-    },
+    "frontendCategory": "Frontend",
+    "headerSubtitle": "Lo que puedo hacer",
+    "headerTitle": "Mis Habilidades",
     "java": {
-      "name": "Java",
       "category": "Lenguaje de Programación",
+      "name": "Java",
       "point1": "Patrones de diseño orientados a objetos y mejores prácticas"
     },
-    "databases": {
-      "name": "Bases de Datos",
-      "category": "Backend",
-      "point1": "Diseño y optimización de bases de datos",
-      "point2": "Ajuste de rendimiento de consultas"
-    },
-    "sqlserver": {
-      "name": "SQL Server",
-      "category": "Base de Datos"
-    },
+    "keyCapabilities": "Capacidades Clave",
     "mariadb": {
-      "name": "MariaDB",
-      "category": "Base de Datos"
-    },
-    "communication": {
-      "name": "Comunicación",
-      "category": "Habilidad Blanda",
-      "point1": "Comunicación técnica clara y efectiva"
-    },
-    "teamwork": {
-      "name": "Trabajo en Equipo",
-      "category": "Habilidad Blanda",
-      "point1": "Colaboración en equipos multifuncionales",
-      "point2": "Contribución a una cultura de equipo positiva y compartición de conocimientos"
+      "category": "Base de Datos",
+      "name": "MariaDB"
     },
     "problemsolving": {
-      "name": "Resolución de Problemas",
       "category": "Habilidad Blanda",
+      "name": "Resolución de Problemas",
       "point1": "Pensamiento analítico y enfoque en la solución de problemas",
       "point2": "Enfoque creativo para desafíos técnicos"
     },
-
+    "react": {
+      "category": "Frontend",
+      "name": "React",
+      "point1": "Construcción de interfaces de usuario escalables y mantenibles basadas en componentes",
+      "point2": "Gestión de estado con Redux y Context API"
+    },
+    "soft": {
+      "category": "Habilidades Personales",
+      "name": "Habilidades Blandas"
+    },
+    "softSkills": "Habilidades Interpersonales",
+    "softSkillsCategory": "Habilidades Blandas",
+    "spring": {
+      "category": "Backend",
+      "name": "Spring Boot",
+      "point1": "Creación de aplicaciones empresariales con Java"
+    },
     "sql": {
-      "name": "SQL",
-      "category": "Base de datos"
-    }
-  },
-  "Projects": {
-    "sectionTitle": "Mis Proyectos",
-    "sectionDescription": "Una selección de mis trabajos más recientes y destacados. Haz clic en cualquier proyecto para ver más detalles.",
-    "viewDetails": "Ver detalles",
-    "technologies": "Tecnologías",
-    "viewCode": "Ver Código",
-    "imageAlt": "imagen",
-    "project1": {
-      "title": "Proyecto Componentes",
-      "description": "Una aplicación desarrollada con Angular y .Net similar a un Ecommerce de NFTS, donde los usuarios pueden comprar y vender NFTS. Incluye JWt, gestión de usuarios y un panel de administración."
+      "category": "Base de datos",
+      "name": "SQL"
     },
-    "project2": {
-      "title": "Proyecto Patrones",
-      "description": "Videojuego en Unity llamado Cenfomon, donde los jugadores pueden capturar criaturas y luchar entre sí. Incluye un sistema de inventario y un mapa interactivo."
+    "sqlserver": {
+      "category": "Base de Datos",
+      "name": "SQL Server"
     },
-    "project3": {
-      "title": "Proyecto 3",
-      "description": "Sistema web llamado Rural Animal, creado para necesidades Agropecuarias, los usuarios pueden ofertar o subastar sus animales, visualizar en 3D, reservar citas por medio de un chat con IA."
-    }
+    "teamwork": {
+      "category": "Habilidad Blanda",
+      "name": "Trabajo en Equipo",
+      "point1": "Colaboración en equipos multifuncionales",
+      "point2": "Contribución a una cultura de equipo positiva y compartición de conocimientos"
+    },
+    "technicalSkills": "Habilidades Técnicas"
   }
 }
