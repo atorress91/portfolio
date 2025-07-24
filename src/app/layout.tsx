@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: "Portafolio personal Andrés Torres Sánchez",
 };
 
-export default function RootLayout({children,}: { children: React.ReactNode; }) {
+export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
     const defaultLocale = "es";
 
     return (
