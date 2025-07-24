@@ -59,7 +59,7 @@ const Experience = () => {
         </h2>
         <div className={styles.timeline}>
           {experiences.map((experience, index) => (
-            <ExperienceCard key={experience.title}
+            <ExperienceCard key={experience.id}
               experience={experience}
               index={index}
             />

@@ -2,6 +2,7 @@ import {SectionConfig} from "@/interfaces/SectionConfig.interface";
 
 export const experiences = [
   {
+    id: 1,
     title: "fullStackDeveloper",
     company_name: "Ocx Group",
     icon: "/images/company/ocx-group.png",
@@ -10,6 +11,7 @@ export const experiences = [
     points: ["point1", "point2", "point3", "point4"],
   },
   {
+    id: 2,
     title: "fullStackDeveloper",
     company_name: "Aura Corporate",
     icon: "/images/company/aura.png",
