@@ -7,11 +7,8 @@ import React, { useEffect, useRef, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import styles from "./Navbar.module.scss";
 import { motion, AnimatePresence } from "framer-motion";
+import {navItems} from "@/constants";
 
-interface NavItem {
-  key: string;
-  id: string;
-}
 
 function Navbar() {
   const { locale, setLocale } = useLanguage();
@@ -25,17 +22,6 @@ function Navbar() {
   const langDropdownMobileRef = useRef<HTMLDivElement | null>(null);
   const t = useTranslations("Navbar");
 
-  const navItems: NavItem[] = React.useMemo(
-    () => [
-      { key: "about", id: "hero" },
-      { key: "experience", id: "work" },
-      { key: "projects", id: "projects" },
-      { key: "skills", id: "skills" },
-      { key: "contact", id: "contact" },
-    ],
-    []
-  );
-
   useEffect(() => {
     const sectionIds = ['hero', 'work', 'projects', 'skills', 'contact'];
     const sections = sectionIds
@@ -47,7 +33,8 @@ function Navbar() {
 
       if (visibleEntries.length > 0) {
         const maxEntry = visibleEntries.reduce((max, entry) =>
-            entry.intersectionRatio > max.intersectionRatio ? entry : max
+            entry.intersectionRatio > max.intersectionRatio ? entry : max,
+            visibleEntries[0]
         );
         setActiveSection(maxEntry.target.id);
       }

@@ -1,4 +1,5 @@
 import {SectionConfig} from "@/interfaces/SectionConfig.interface";
+import {NavItem} from "@/interfaces/NavItem.interface";
 
 export const experiences = [
   {
@@ -70,5 +71,13 @@ export const sectionConfigs: SectionConfig[] = [
   { id: "projects", title: "Projects" },
   { id: "skills", title: "Skills" },
   { id: "contact", title: "Contact" }
+];
+
+export const navItems: NavItem[] = [
+    { key: "about", id: "hero" },
+    { key: "experience", id: "work" },
+    { key: "projects", id: "projects" },
+    { key: "skills", id: "skills" },
+    { key: "contact", id: "contact" },
 ];
 
