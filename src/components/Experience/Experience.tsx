@@ -36,11 +36,11 @@ const ExperienceCard = ({ experience, index }) => {
           {experience.company_name}
         </p>
         <ul className="mt-3 list-unstyled">
-          {experience.points.map((point: string, idx: number) => (
-            <li key={`experience-point-${idx}`} className={styles.timelineListItem}>
-              &#8226; {t(point)}
-            </li>
-          ))}
+            {experience.points.map((point: string, idx: number) => (
+                <li key={`experience-point-${point}-${idx}`} className={styles.timelineListItem}>
+                    &#8226; {t(point)}
+                </li>
+            ))}
         </ul>
       </div>
       <div className="clearfix"></div>
@@ -59,8 +59,7 @@ const Experience = () => {
         </h2>
         <div className={styles.timeline}>
           {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={`experience-${index}`}
+            <ExperienceCard key={experience.title}
               experience={experience}
               index={index}
             />
