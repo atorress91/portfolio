@@ -3,28 +3,9 @@ import { staggerContainer } from "@/utils/motion";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import React, { useEffect, useRef, useState } from "react";
-
-export interface SectionConfig {
-  id: string;
-  title: string;
-}
-
-const sectionConfigs: SectionConfig[] = [
-  { id: "hero", title: "About" },
-  { id: "work", title: "Experience" },
-  { id: "projects", title: "Projects" },
-  { id: "skills", title: "Skills" },
-  { id: "contact", title: "Contact" }
-];
-
-interface SectionWrapperProps {
-  showScroll?: boolean;
-  showUpScroll?: boolean;
-  showDownScroll?: boolean;
-  useCustomScrollTitles?: boolean;
-  scrollUpTitle?: string;
-  scrollDownTitle?: string;
-}
+import {SectionConfig} from "@/interfaces/SectionConfig.interface";
+import {SectionWrapperProps} from "@/interfaces/SectionWrapperProps.interface";
+import {sectionConfigs} from "@/constants";
 
 const SectionWrapper = <P extends Record<string, unknown>>(
   Component: React.ComponentType<P>,

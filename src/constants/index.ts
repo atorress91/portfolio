@@ -1,21 +1,4 @@
-export const services = [
-  {
-    title: "services.webDeveloper",
-    icon: "/images/tech/web.png",
-  },
-  {
-    title: "services.reactNativeDeveloper",
-    icon: "/images/tech/mobile.png",
-  },
-  {
-    title: "services.backendDeveloper",
-    icon: "/images/tech/backend.png",
-  },
-  {
-    title: "services.contentCreator",
-    icon: "/images/tech/creator.png",
-  },
-];
+import {SectionConfig} from "@/interfaces/SectionConfig.interface";
 
 export const experiences = [
   {
@@ -78,3 +61,12 @@ export const projectsData = [
     githubLink: "https://github.com/atorress91/rural-animal-frontend",
   },
 ];
+
+export const sectionConfigs: SectionConfig[] = [
+  { id: "hero", title: "About" },
+  { id: "work", title: "Experience" },
+  { id: "projects", title: "Projects" },
+  { id: "skills", title: "Skills" },
+  { id: "contact", title: "Contact" }
+];
+
