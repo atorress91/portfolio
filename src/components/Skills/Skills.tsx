@@ -7,6 +7,8 @@ import Image from "next/image";
 import { TooltipState } from "@/interfaces/TooltipState.interface";
 import { SkillNode } from "@/interfaces/SkillNode.interface";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
+import {fadeIn} from "@/utils/motion";
 
 const SvgIcon = ({ name }: { name: string }) => {
   return (
@@ -523,7 +525,14 @@ const SkillsTree: React.FC = () => {
   };
 
   return (
-    <div id="skills" className="container py-5 d-flex flex-column justify-content-center align-items-center min-vh-100">
+      <motion.div
+          variants={fadeIn("up", "tween", 0.2, 1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          id="skills"
+          className="container py-5 d-flex flex-column justify-content-center align-items-center min-vh-100"
+      >
       <div className="text-center mb-5 mt-3">
         <h2 className={styles.headerTitle}>{t("headerTitle")}</h2>
       </div>
@@ -605,7 +614,7 @@ const SkillsTree: React.FC = () => {
 
       {/* Tooltip */}
       <SkillTooltip tooltip={tooltip} isMobileView={isMobileView} />
-    </div>
+      </motion.div>
   );
 };
 
