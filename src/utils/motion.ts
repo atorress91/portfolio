@@ -1,4 +1,6 @@
-export const textVariant = (delay: number) => {
+import { Variants } from 'framer-motion';
+
+export const textVariant = (delay: number): Variants => {
   return {
     hidden: {
       y: -50,
@@ -8,7 +10,7 @@ export const textVariant = (delay: number) => {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         duration: 1.25,
         delay: delay,
       },
