@@ -18,7 +18,7 @@ export const textVariant = (delay: number): Variants => {
   };
 };
 
-export const fadeIn = (direction: string, type: any, delay: number, duration: number) => {
+export const fadeIn = (direction: string, type: string, delay: number, duration: number): Variants => {
   return {
     hidden: {
       x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
@@ -30,7 +30,7 @@ export const fadeIn = (direction: string, type: any, delay: number, duration: nu
       y: 0,
       opacity: 1,
       transition: {
-        type: type,
+        type: type as any,
         delay: delay,
         duration: duration,
         ease: "easeOut",
@@ -39,7 +39,7 @@ export const fadeIn = (direction: string, type: any, delay: number, duration: nu
   };
 };
 
-export const zoomIn = (delay: number, duration: number) => {
+export const zoomIn = (delay: number, duration: number): Variants => {
   return {
     hidden: {
       scale: 0,
@@ -58,7 +58,7 @@ export const zoomIn = (delay: number, duration: number) => {
   };
 };
 
-export const slideIn = (direction: string, type: any, delay: number, duration: number) => {
+export const slideIn = (direction: string, type: string, delay: number, duration: number): Variants => {
   return {
     hidden: {
       x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
@@ -68,7 +68,7 @@ export const slideIn = (direction: string, type: any, delay: number, duration: n
       x: 0,
       y: 0,
       transition: {
-        type: type,
+        type: type as any, // Se mantiene 'as any' para flexibilidad
         delay: delay,
         duration: duration,
         ease: "easeOut",
@@ -77,7 +77,7 @@ export const slideIn = (direction: string, type: any, delay: number, duration: n
   };
 };
 
-export const staggerContainer = (staggerChildren = 0.2, delayChildren = 0) => {
+export const staggerContainer = (staggerChildren = 0.2, delayChildren = 0): Variants => {
   return {
     hidden: {},
     show: {

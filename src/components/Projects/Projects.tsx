@@ -6,6 +6,8 @@ import { SectionWrapper } from "@/hoc";
 import { projectsData } from "@/constants";
 import ProjectModal from "./ProjectModal";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
+import {zoomIn} from "@/utils/motion";
 
 const techIconMap = {
   Angular: "/angular.svg",
@@ -103,32 +105,35 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section
-        className={`${styles.projectsSection} d-flex flex-column align-items-center justify-content-lg-start justify-content-center`}
-        id="projects">
+      <motion.section
+          variants={zoomIn(0.2, 1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.1 }}
+          className={`${styles.projectsSection} d-flex flex-column align-items-center justify-content-lg-start justify-content-center`}
+          id="projects">
 
-      <h2 className={`${styles.sectionTitle} mt-lg-2 mb-lg-5 mb-2`}>
+        <h2 className={`${styles.sectionTitle} mt-lg-2 mb-lg-5 mb-2`}>
           {t("sectionTitle")}
         </h2>
 
         <Row className="g-4">
           {projectsData.map((project) => (
-            <Col key={project.id} lg={4} md={6} sm={12} className="mb-4">
-              <ProjectCard
-                project={project}
-                onClick={() => handleProjectClick(project)}
-              />
-            </Col>
+              <Col key={project.id} lg={4} md={6} sm={12} className="mb-4">
+                <ProjectCard
+                    project={project}
+                    onClick={() => handleProjectClick(project)}
+                />
+              </Col>
           ))}
         </Row>
 
-
-      <ProjectModal
-        project={selectedProject}
-        show={showModal}
-        handleClose={handleCloseModal}
-      />
-    </section>
+        <ProjectModal
+            project={selectedProject}
+            show={showModal}
+            handleClose={handleCloseModal}
+        />
+      </motion.section>
   );
 };
 
