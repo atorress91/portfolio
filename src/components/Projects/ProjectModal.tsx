@@ -60,7 +60,8 @@ const ProjectModal = ({ project, show, handleClose }) => {
           controls={true}
         >
           {project.images.map((image: string, index: number) => (
-            <Carousel.Item key={index} className="px-0 px-sm-2">
+            <Carousel.Item key={`${project.title}-image-${index}-${image.split('/').pop()}`}
+                           className="px-0 px-sm-2">
               <div className="ratio ratio-16x9">
                 <Image
                   className="d-block rounded"
@@ -88,7 +89,7 @@ const ProjectModal = ({ project, show, handleClose }) => {
             className={`${styles.techIconsContainer} justify-content-center`}
           >
             {project.tags.map((tag: string, index: number) => (
-              <TechIcon key={index} tag={tag} />
+              <TechIcon key={`${project.title}-tech-${tag}-${index}`} tag={tag} />
             ))}
           </div>
         </div>

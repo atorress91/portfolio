@@ -9,7 +9,6 @@ import styles from "./Navbar.module.scss";
 import { motion, AnimatePresence } from "framer-motion";
 import {navItems} from "@/constants";
 
-
 function Navbar() {
   const { locale, setLocale } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -165,7 +164,7 @@ function Navbar() {
 
   const currentLang = languages[locale as keyof typeof languages];
   const alternateLocale = locale === "es" ? "en" : "es";
-  const alternateLang = languages[alternateLocale as keyof typeof languages];
+  const alternateLang = languages[alternateLocale];
 
   const dropdownVariants = {
     hidden: { opacity: 0, y: -10, scale: 0.95 },
