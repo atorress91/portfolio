@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState, useCallback, useMemo } from "react";
 
 type LanguageContextType = {
   locale: string;
@@ -11,23 +11,28 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined
 );
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
+export function LanguageProvider({ children }: Readonly<{ children: React.ReactNode }>) {
   const [locale, setLocale] = useState("es");
 
   useEffect(() => {
     const savedLocale =
-      document.cookie.match("(^|;)\\s*NEXT_LOCALE\\s*=\\s*([^;]+)")?.pop() ||
+        /(^|;)\s*NEXT_LOCALE\s*=\s*([^;]+)/.exec(document.cookie)?.pop() ||
       "es";
     setLocale(savedLocale);
   }, []);
 
-  const changeLanguage = (newLocale: string) => {
+  const changeLanguage = useCallback((newLocale: string) => {
     document.cookie = `NEXT_LOCALE=${newLocale};path=/;max-age=31536000`;
     setLocale(newLocale);
-  };
+  }, []);
+
+  const contextValue = useMemo(
+    () => ({ locale, setLocale: changeLanguage }),
+    [locale, changeLanguage]
+  );
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale: changeLanguage }}>
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   );
