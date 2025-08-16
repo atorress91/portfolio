@@ -9,7 +9,6 @@ import toast, { Toaster } from "react-hot-toast";
 import styles from "./Contact.module.scss";
 import { MessageCircle, Send } from "lucide-react";
 import Image from "next/image";
-import {slideIn} from "@/utils/motion";
 
 const Contact = () => {
   const t = useTranslations("Contact");
@@ -126,12 +125,11 @@ const Contact = () => {
 
   return (
       <motion.section
-          variants={slideIn("left", "tween", 0.2, 1)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.1 }}
-          id="contact"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className={`container d-flex flex-column min-vh-100 py-5`}
+          style={{ overflow: "visible" }}
       >
       <Toaster
         position="top-center"
