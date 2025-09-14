@@ -1,6 +1,6 @@
-$primary-color: #6B46C1;
-$secondary-color: #2DD4BF;
-$complementary-color: #FF6B6B;
+$primary-color: #6b46c1;
+$secondary-color: #2dd4bf;
+$complementary-color: #ff6b6b;
 $bg-dark: #1d1836;
 $bg-card: #2a2550;
 $text-light: #ffffff;
@@ -199,13 +199,6 @@ $text-muted: #b4b4b4;
       background-color: rgba($complementary-color, 0.6);
     }
   }
-
-  :global(.modal-body) {
-    -ms-overflow-style: none;
-
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    }
-  }
 }
 
 .modalImagesSlider {
@@ -305,8 +298,8 @@ $text-muted: #b4b4b4;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
 
     .svgIcon {
-      filter: brightness(0) saturate(100%) invert(56%) sepia(83%)
-      saturate(1304%) hue-rotate(314deg) brightness(101%) contrast(101%);
+      filter: brightness(0) saturate(100%) invert(56%) sepia(83%) saturate(1304%) hue-rotate(314deg) brightness(101%)
+        contrast(101%);
     }
   }
 }
@@ -316,18 +309,6 @@ $text-muted: #b4b4b4;
   height: 100%;
   object-fit: contain;
   transition: filter 0.3s ease;
-}
-
-.modalTechnologies {
-  .techIconsContainer {
-    justify-content: center;
-    margin-top: 1rem;
-  }
-
-  .techIcon {
-    width: 64px;
-    height: 64px;
-  }
 }
 
 // Responsive
@@ -370,6 +351,7 @@ $text-muted: #b4b4b4;
   .projectDescription {
     font-size: 0.85rem;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }
 

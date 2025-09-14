@@ -14,11 +14,11 @@
 
 /* 1. Reset styles
 */
-@use "./reset";
+@use './reset';
 
 /* 2. Bootstrap setup - Usando @use en lugar de @import
 */
-@use "bootstrap" as bootstrap;
+@use 'bootstrap' as bootstrap;
 
 /**
  * Global body styles
@@ -35,7 +35,7 @@ body {
   color: white;
   margin: 0;
   padding: 0;
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-source-sans), sans-serif;
 }
 
 /*scroll animation*/

@@ -1,21 +1,29 @@
-import { LanguageProvider } from "@/context/languageContext";
-import clsx from "clsx";
-import "../styles/style.scss";
-import React from "react";
-import { Metadata } from "next";
+import { LanguageProvider } from '@/context/languageContext';
+import clsx from 'clsx';
+import '../styles/style.scss';
+import React from 'react';
+import { Metadata } from 'next';
+
+import { Source_Sans_3 } from 'next/font/google';
 
 export const metadata: Metadata = {
-    description: "Portafolio personal Andrés Torres Sánchez",
+  description: 'Portafolio personal Andrés Torres Sánchez',
 };
 
-export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
-    const defaultLocale = "es";
+// Load Inter and expose a CSS variable that matches the SCSS usage: --font-inter
+const sourceSans = Source_Sans_3({
+  subsets: ['latin'],
+  variable: '--font-source-sans',
+});
 
-    return (
-        <html lang={defaultLocale}>
-        <body className={clsx("flex min-h-[100vh] flex-col bg-slate-100")}>
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const defaultLocale = 'es';
+
+  return (
+    <html lang={defaultLocale} className={sourceSans.variable}>
+      <body className={clsx(sourceSans.className, 'flex min-h-[100vh] flex-col bg-slate-100')}>
         <LanguageProvider>{children}</LanguageProvider>
-        </body>
-        </html>
-    );
+      </body>
+    </html>
+  );
 }
