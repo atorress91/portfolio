@@ -10,7 +10,6 @@ export const metadata: Metadata = {
   description: 'Portafolio personal Andrés Torres Sánchez',
 };
 
-// Load Inter and expose a CSS variable that matches the SCSS usage: --font-inter
 const sourceSans = Source_Sans_3({
   subsets: ['latin'],
   variable: '--font-source-sans',
