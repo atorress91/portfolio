@@ -311,6 +311,20 @@ $text-muted: #b4b4b4;
   transition: filter 0.3s ease;
 }
 
+:global(.swiper-pagination-bullet-active) {
+  background-color: $secondary-color !important;
+}
+
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+  color: $secondary-color !important;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $complementary-color !important;
+  }
+}
+
 // Responsive
 @media (max-width: 767px) {
   .projectsSection {

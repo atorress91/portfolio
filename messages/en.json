@@ -66,6 +66,10 @@
       "description": "Web system called Rural Animal, created for agricultural needs. Users can bid or auction their animals, view in 3D, and book appointments through an AI chat.",
       "title": "Project 3"
     },
+    "project4": {
+      "description": "Aquí va la descripción en español de tu nuevo proyecto.",
+      "title": "Recycoin App"
+    },
     "sectionDescription": "A selection of my most recent and outstanding work. Click on any project to see more details.",
     "sectionTitle": "My Projects",
     "technologies": "Technologies",
