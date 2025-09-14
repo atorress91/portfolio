@@ -223,3 +223,30 @@ export const buildSkillTree = () => {
     },
   };
 };
+
+export const socialLinks = [
+  {
+    id: 'linkedin',
+    iconSrc: 'svg/linkedin.svg',
+    label: 'LinkedIn',
+    url: 'https://linkedin.com/in/andrés-torres-sánchez-3ba367353',
+  },
+  {
+    id: 'github',
+    iconSrc: 'svg/github.svg',
+    label: 'GitHub',
+    url: 'https://github.com/atorress91',
+  },
+  {
+    id: 'whatsapp',
+    iconSrc: 'svg/whatsapp.svg',
+    label: 'WhatsApp',
+    url: 'https://wa.me/50683010150',
+  },
+  {
+    id: 'email',
+    iconSrc: 'svg/email.svg',
+    label: 'Email',
+    url: 'mailto:andres91411@gmail.com',
+  },
+];

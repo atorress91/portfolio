@@ -9,6 +9,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import styles from './Contact.module.scss';
 import { MessageCircle, Send } from 'lucide-react';
 import Image from 'next/image';
+import { socialLinks } from '@/constants';
 
 const Contact = () => {
   const t = useTranslations('Contact');
@@ -19,33 +20,6 @@ const Contact = () => {
     message: '',
   });
   const [loading, setLoading] = useState(false);
-
-  const socialLinks = [
-    {
-      id: 'linkedin',
-      icon: <Image src="svg/linkedin.svg" width={40} height={40} alt="" unoptimized />,
-      label: 'LinkedIn',
-      url: 'https://linkedin.com/in/andrés-torres-sánchez-3ba367353',
-    },
-    {
-      id: 'github',
-      icon: <Image src="svg/github.svg" width={40} height={40} alt="" unoptimized />,
-      label: 'GitHub',
-      url: 'https://github.com/atorress91',
-    },
-    {
-      id: 'whatsapp',
-      icon: <Image src="svg/whatsapp.svg" width={40} height={40} alt="" unoptimized />,
-      label: 'WhatsApp',
-      url: 'https://wa.me/50683010150',
-    },
-    {
-      id: 'email',
-      icon: <Image src="svg/email.svg" width={40} height={40} alt="" unoptimized />,
-      label: 'Email',
-      url: 'mailto:andres91411@gmail.com',
-    },
-  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -152,7 +126,7 @@ const Contact = () => {
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {social.icon}
+                    <Image src={social.iconSrc} width={40} height={40} alt="" unoptimized />
                     <span className={styles.socialTooltip}>{social.label}</span>
                   </motion.a>
                 ))}
