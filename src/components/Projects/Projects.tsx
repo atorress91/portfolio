@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import styles from './Projects.module.scss';
 import { SectionWrapper } from '@/hoc';
-import { projectsData } from '@/constants';
+import { projectsData, techIconMap } from '@/constants';
 import ProjectModal from './ProjectModal';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
@@ -13,19 +13,6 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-const techIconMap = {
-  Angular: '/angular.svg',
-  '.Net': '/dotnet.svg',
-  Firebase: '/firebase.svg',
-  SqlServer: '/sql.svg',
-  Unity: '/unity.svg',
-  'C#': '/c-sharp.svg',
-  'Spring boot': '/spring-boot.svg',
-  MariaDb: '/mariadb.svg',
-  flutter: '/flutter.svg',
-  riverpod: '/riverpod.svg',
-};
 
 const TechIcon = ({ tag }) => {
   const hasIcon = techIconMap[tag] !== undefined;
@@ -76,7 +63,7 @@ const ProjectCard = ({ project, onClick }) => {
               onClick={e => e.stopPropagation()}
               aria-label={t('viewCode')}
             >
-              <Image src="/github.svg" width={40} height={40} alt="GitHub" unoptimized />
+              <Image src="svg/github.svg" width={40} height={40} alt="GitHub" unoptimized />
             </a>
           </div>
         </div>
