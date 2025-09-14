@@ -76,7 +76,7 @@ const ProjectCard = ({ project, onClick }) => {
               onClick={e => e.stopPropagation()}
               aria-label={t('viewCode')}
             >
-              <Image src="/github.svg" width={40} height={40} alt="GitHub" unoptimized />,
+              <Image src="/github.svg" width={40} height={40} alt="GitHub" unoptimized />
             </a>
           </div>
         </div>
@@ -105,35 +105,37 @@ const ProjectsSection = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.1 }}
-      className={`${styles.projectsSection} d-flex flex-column align-items-center justify-content-lg-start justify-content-center min-vh-100`}
+      className={`${styles.projectsSection} d-flex flex-column align-items-center justify-content-lg-start justify-content-center`}
       id="projects"
     >
       <h2 className={`${styles.sectionTitle} mt-lg-2 mb-lg-5 mb-2`}>{t('sectionTitle')}</h2>
 
-      <Swiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={30}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        navigation
-        breakpoints={{
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-        }}
-        className="w-100"
-      >
-        {projectsData.map(project => (
-          <SwiperSlide key={project.id}>
-            <ProjectCard project={project} onClick={() => handleProjectClick(project)} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className={styles.swiperContainer}>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          navigation
+          breakpoints={{
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }}
+          className="w-100"
+        >
+          {projectsData.map(project => (
+            <SwiperSlide key={project.id}>
+              <ProjectCard project={project} onClick={() => handleProjectClick(project)} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
       <ProjectModal project={selectedProject} show={showModal} handleClose={handleCloseModal} />
     </motion.section>

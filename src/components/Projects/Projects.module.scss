@@ -35,7 +35,10 @@ $text-muted: #b4b4b4;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
+  width: 100%;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     transform: translateY(-8px);
@@ -72,6 +75,9 @@ $text-muted: #b4b4b4;
 
 .projectContent {
   padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .projectTitle {
@@ -111,6 +117,7 @@ $text-muted: #b4b4b4;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: auto;
 }
 
 .viewDetails {
@@ -311,17 +318,29 @@ $text-muted: #b4b4b4;
   transition: filter 0.3s ease;
 }
 
-:global(.swiper-pagination-bullet-active) {
-  background-color: $secondary-color !important;
-}
+.swiperContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 
-:global(.swiper-button-next),
-:global(.swiper-button-prev) {
-  color: $secondary-color !important;
-  transition: color 0.2s;
+  :global(.swiper-pagination-bullet-active) {
+    background-color: $secondary-color !important;
+  }
 
-  &:hover {
-    color: $complementary-color !important;
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    color: $secondary-color !important;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $complementary-color !important;
+    }
+  }
+
+  :global(.swiper-slide) {
+    height: auto;
+    display: flex;
   }
 }
 
