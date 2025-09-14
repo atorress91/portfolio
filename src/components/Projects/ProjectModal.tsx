@@ -1,19 +1,9 @@
-import React from "react";
-import { Modal, Button, Carousel } from "react-bootstrap";
-import Image from "next/image";
-import styles from "./Projects.module.scss";
-import { useTranslations } from "next-intl";
-
-const techIconMap = {
-  Angular: "/angular.svg",
-  ".Net": "/dotnet.svg",
-  Firebase: "/firebase.svg",
-  SqlServer: "/sql.svg",
-  Unity: "/unity.svg",
-  "C#": "/c-sharp.svg",
-  "Spring boot": "/spring-boot.svg",
-  MariaDb: "/mariadb.svg",
-};
+import React from 'react';
+import { Modal, Button, Carousel } from 'react-bootstrap';
+import Image from 'next/image';
+import styles from './Projects.module.scss';
+import { useTranslations } from 'next-intl';
+import { techIconMap } from '@/constants';
 
 const TechIcon = ({ tag }) => {
   const hasIcon = techIconMap[tag] !== undefined;
@@ -22,19 +12,13 @@ const TechIcon = ({ tag }) => {
 
   return (
     <div className={styles.techIcon} title={tag}>
-      <Image
-        src={techIconMap[tag]}
-        alt={tag}
-        width={32}
-        height={32}
-        className={styles.svgIcon}
-      />
+      <Image src={techIconMap[tag]} alt={tag} width={32} height={32} className={styles.svgIcon} />
     </div>
   );
 };
 
 const ProjectModal = ({ project, show, handleClose }) => {
-  const t = useTranslations("Projects");
+  const t = useTranslations('Projects');
 
   if (!project) return null;
 
@@ -53,25 +37,19 @@ const ProjectModal = ({ project, show, handleClose }) => {
       </Modal.Header>
 
       <Modal.Body className="px-2 px-sm-3 py-3">
-        <Carousel
-          className={styles.modalImagesSlider}
-          indicators={true}
-          interval={null}
-          controls={true}
-        >
+        <Carousel className={styles.modalImagesSlider} indicators={true} interval={null} controls={true}>
           {project.images.map((image: string, index: number) => (
-            <Carousel.Item key={`${project.title}-image-${index}-${image.split('/').pop()}`}
-                           className="px-0 px-sm-2">
+            <Carousel.Item key={`${project.title}-image-${index}-${image.split('/').pop()}`} className="px-0 px-sm-2">
               <div className="ratio ratio-16x9">
                 <Image
                   className="d-block rounded"
                   src={image}
-                  alt={`${t(project.title)} - ${t("imageAlt")} ${index + 1}`}
+                  alt={`${t(project.title)} - ${t('imageAlt')} ${index + 1}`}
                   width={600}
                   height={400}
                   style={{
-                    objectFit: "contain",
-                    backgroundColor: "#121212",
+                    objectFit: 'contain',
+                    backgroundColor: '#121212',
                   }}
                 />
               </div>
@@ -84,10 +62,8 @@ const ProjectModal = ({ project, show, handleClose }) => {
         </div>
 
         <div className={styles.modalTechnologies}>
-          <h4 className="mb-3 text-center">{t("technologies")}</h4>
-          <div
-            className={`${styles.techIconsContainer} justify-content-center`}
-          >
+          <h4 className="mb-3 text-center">{t('technologies')}</h4>
+          <div className={`${styles.techIconsContainer} justify-content-center`}>
             {project.tags.map((tag: string, index: number) => (
               <TechIcon key={`${project.title}-tech-${tag}-${index}`} tag={tag} />
             ))}
@@ -102,7 +78,7 @@ const ProjectModal = ({ project, show, handleClose }) => {
           className={`${styles.customBtnCode} d-flex align-items-center`}
         >
           <i className="bi bi-github me-2"></i>
-          {t("viewCode")}
+          {t('viewCode')}
         </Button>
       </Modal.Footer>
     </Modal>
