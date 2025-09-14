@@ -1,5 +1,5 @@
-import { SectionConfig } from '@/interfaces/SectionConfig.interface';
 import { NavItem } from '@/interfaces/NavItem.interface';
+import { SectionConfig } from '@/interfaces/SectionConfig.interface';
 
 export const experiences = [
   {
@@ -129,3 +129,97 @@ export const navItems: NavItem[] = [
   { key: 'skills', id: 'skills' },
   { key: 'contact', id: 'contact' },
 ];
+
+export const buildSkillTree = () => {
+  return {
+    frontend: {
+      id: 'frontend',
+      icon: 'angular',
+      iconBg: 'red',
+      children: [
+        {
+          id: 'react',
+          icon: 'react',
+          iconBg: 'blue',
+          points: [1, 2],
+          featured: false,
+        },
+        {
+          id: 'angular',
+          icon: 'angular',
+          iconBg: 'red',
+          points: [1, 2],
+          featured: true,
+        },
+      ],
+    },
+    backend: {
+      id: 'backend',
+      icon: 'dotnet',
+      iconBg: 'green',
+      children: [
+        {
+          id: 'dotnet',
+          icon: 'dotnet',
+          iconBg: 'purple',
+          points: [1, 2, 3, 4],
+          featured: true,
+          children: [{ id: 'csharp', icon: 'c-sharp', iconBg: 'purple', points: [1, 2] }],
+        },
+        {
+          id: 'spring',
+          icon: 'spring-boot',
+          iconBg: 'green',
+          points: [1],
+          featured: false,
+          children: [{ id: 'java', icon: 'java', iconBg: 'green', points: [1] }],
+        },
+        {
+          id: 'databases',
+          icon: 'postgresql',
+          iconBg: 'gray',
+          points: [1, 2],
+          featured: true,
+          children: [
+            {
+              id: 'sqlserver',
+              icon: 'sql',
+              iconBg: 'gray',
+            },
+            {
+              id: 'mariadb',
+              icon: 'mariadb',
+              iconBg: 'gray',
+            },
+          ],
+        },
+      ],
+    },
+    soft: {
+      id: 'soft',
+      icon: 'brain',
+      iconBg: 'purple',
+      children: [
+        {
+          id: 'communication',
+          icon: 'communication',
+          iconBg: 'purple',
+          points: [1],
+        },
+        {
+          id: 'teamwork',
+          icon: 'teamwork',
+          iconBg: 'blue',
+          points: [1, 2],
+        },
+        {
+          id: 'problemsolving',
+          icon: 'brain',
+          featured: true,
+          iconBg: 'green',
+          points: [1, 2],
+        },
+      ],
+    },
+  };
+};
