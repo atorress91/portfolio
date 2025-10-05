@@ -1,3 +1,5 @@
+@import '../../styles/sectionTitles';
+
 $primary-color: #6b46c1;
 $secondary-color: #2dd4bf;
 $complementary-color: #ff6b6b;
@@ -16,10 +18,7 @@ $text-muted: #b4b4b4;
 }
 
 .sectionTitle {
-  color: $primary-color;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 1.5rem;
+  @extend .sectionTitle;
 }
 
 .sectionDescription {

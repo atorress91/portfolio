@@ -1,0 +1,24 @@
+// Estilos consistentes para títulos de secciones
+$primary-color: #6b46c1;
+
+.sectionTitle {
+  color: $primary-color;
+  font-weight: 800;
+  font-size: 3.5rem;
+  letter-spacing: -0.5px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+
+  @media screen and (max-width: 968px) {
+    font-size: 2.8rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 2.2rem;
+  }
+
+  @media screen and (max-width: 576px) {
+    font-size: 1.8rem;
+  }
+}

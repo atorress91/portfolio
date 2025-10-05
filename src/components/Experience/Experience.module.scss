@@ -1,156 +1,161 @@
-$primary-color: #6B46C1;
-$secondary-color: #2DD4BF;
-$complementary-color: #FF6B6B;
+@import '../../styles/sectionTitles';
+
+$primary-color: #6b46c1;
+$secondary-color: #2dd4bf;
+$complementary-color: #ff6b6b;
 
 .primary-color {
-    color: $primary-color;
+  color: $primary-color;
 }
 
 .secondary-color {
-    color: $secondary-color;
+  color: $secondary-color;
 }
 
 .complementary-color {
-    color: $complementary-color;
+  color: $complementary-color;
+}
+
+.experienceTitle {
+  @extend .sectionTitle;
 }
 
 .timeline {
-    position: relative;
-    margin: 2rem 0;
+  position: relative;
+  margin: 2rem 0;
 
-    &::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 0;
-        width: 4px;
-        height: 100%;
-        background-color: $complementary-color;
-        transform: translateX(-50%);
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: $complementary-color;
+    transform: translateX(-50%);
+  }
 }
 
 .timelineItem {
-    position: relative;
-    margin: 2rem 0;
+  position: relative;
+  margin: 2rem 0;
 }
 
 .timelineIcon {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    border: 4px solid $complementary-color;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 4px solid $complementary-color;
 }
 
 .purple {
-    background-color: #1d1836;
+  background-color: #1d1836;
 }
 
 .gray {
-    background-color: mix(#0066FF, #7F00FF, 50%);
+  background-color: mix(#0066ff, #7f00ff, 50%);
 }
 
-
 .timelineIconImage {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
 }
 
 .timelineItemContent {
-    background: #1d1836;
-    color: #fff;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    position: relative;
-    width: calc(50% - 40px);
+  background: #1d1836;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  position: relative;
+  width: calc(50% - 40px);
 }
 
 .timelineItemContentLeft {
-    float: left;
-    text-align: right;
-    margin-right: 20px;
+  float: left;
+  text-align: right;
+  margin-right: 20px;
 }
 
 .timelineItemContentRight {
-    float: right;
-    text-align: left;
-    margin-left: 20px;
+  float: right;
+  text-align: left;
+  margin-left: 20px;
 }
 
 .timelineItemContentLeft::after,
 .timelineItemContentRight::after {
-    content: "";
-    position: absolute;
-    top: 20px;
-    width: 0;
-    height: 0;
-    border: 10px solid transparent;
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
 }
 
 .timelineItemContentLeft::after {
-    right: -20px;
-    border-left-color: #1d1836;
+  right: -20px;
+  border-left-color: #1d1836;
 }
 
 .timelineItemContentRight::after {
-    left: -20px;
-    border-right-color: #1d1836;
+  left: -20px;
+  border-right-color: #1d1836;
 }
 
 .timelineDate {
-    font-size: 0.9rem;
-    color: $secondary-color;
-    margin-bottom: 0.5rem;
-    text-align: center;
-    clear: both;
+  font-size: 0.9rem;
+  color: $secondary-color;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  clear: both;
 }
 
 .timelineListItem {
-    font-size: 1.25rem;
-    padding-left: 0.25rem;
-    margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  padding-left: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 @media (max-width: 768px) {
-    .timeline {
-        &::before {
-            left: 50%;
-            transform: translateX(-50%);
-        }
+  .timeline {
+    &::before {
+      left: 50%;
+      transform: translateX(-50%);
     }
+  }
 
-    .timelineItem {
-        margin: 2rem auto;
-        max-width: 600px;
-    }
+  .timelineItem {
+    margin: 2rem auto;
+    max-width: 600px;
+  }
 
-    .timelineItemContent {
-        float: none;
-        width: 90%;
-        margin: 0 auto;
-        text-align: left;
-        padding-top: 3rem;
-    }
+  .timelineItemContent {
+    float: none;
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+    padding-top: 3rem;
+  }
 
-    .timelineItemContentLeft::after,
-    .timelineItemContentRight::after {
-        display: none;
-    }
+  .timelineItemContentLeft::after,
+  .timelineItemContentRight::after {
+    display: none;
+  }
 
-    .timelineIcon {
-        left: auto;
-        right: 1rem;
-        top: 1rem;
-        transform: none;
-    }
+  .timelineIcon {
+    left: auto;
+    right: 1rem;
+    top: 1rem;
+    transform: none;
+  }
 }

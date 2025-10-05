@@ -1,3 +1,5 @@
+@import '../../styles/sectionTitles';
+
 $primary-color: #6b46c1;
 $secondary-color: #2dd4bf;
 $complementary-color: #ff6b6b;
@@ -28,10 +30,8 @@ $text-light: #ffffff;
 }
 
 .sectionHeadText {
+  @extend .sectionTitle;
   margin-bottom: 1rem !important;
-  font-size: 2rem;
-  font-weight: bold;
-  color: $primary-color;
 }
 
 .customInput,
@@ -107,8 +107,7 @@ $text-light: #ffffff;
   transition: all 0.3s ease;
 
   &:hover {
-    filter: invert(67%) sepia(85%) saturate(1000%) hue-rotate(330deg)
-      brightness(95%) contrast(110%);
+    filter: invert(67%) sepia(85%) saturate(1000%) hue-rotate(330deg) brightness(95%) contrast(110%);
     transform: translateY(-5px);
   }
 }
