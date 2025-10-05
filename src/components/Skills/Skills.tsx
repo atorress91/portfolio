@@ -1,377 +1,163 @@
 'use client';
 
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { SectionWrapper } from '../../hoc';
 import styles from './Skills.module.scss';
 import Image from 'next/image';
-import { TooltipState } from '@/interfaces/TooltipState.interface';
 import { SkillNode } from '@/interfaces/SkillNode.interface';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion';
 import { fadeIn } from '@/utils/motion';
 import { buildSkillTree } from '@/constants';
 
-const SvgIcon = ({ name }: { name: string }) => {
-  return <Image src={`svg/${name}.svg`} alt={name} className={styles.svgIcon} width={24} height={24} />;
+const SvgIcon = ({ name, size = 32 }: { name: string; size?: number }) => {
+  return <Image src={`svg/${name}.svg`} alt={name} className={styles.svgIcon} width={size} height={size} />;
 };
 
-const SkillNod = ({
-  node,
-  x,
-  y,
-  onHover,
-  onLeave,
-}: {
+interface SkillCardProps {
   node: SkillNode;
-  x: number;
-  y: number;
-  onHover: (node: SkillNode, x: number, y: number) => void;
-  onLeave: () => void;
-}) => {
-  const nodeRef = React.createRef<HTMLDivElement>();
-  const t = useTranslations('Skills');
+  category: 'frontend' | 'backend' | 'soft';
+  index: number;
+}
 
-  const handleMouseEnter = () => {
-    if (nodeRef.current) {
-      const rect = nodeRef.current.getBoundingClientRect();
-      onHover(node, rect.x + rect.width / 2, rect.y);
+const SkillCard: React.FC<SkillCardProps> = ({ node, category, index }) => {
+  const t = useTranslations('Skills');
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const getCategoryKey = (nodeId: string): string => {
+    if (nodeId === 'frontend') return 'frontendCategory';
+    if (nodeId === 'backend') return 'backendCategory';
+    if (nodeId === 'soft') return 'softSkillsCategory';
+    return `${nodeId}.category`;
+  };
+
+  const skillName = t(`${node.id}.name`, { defaultValue: node.id });
+  const categoryKey = getCategoryKey(node.id);
+  const categoryName = t(categoryKey, { defaultValue: '' });
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: index * 0.1,
+        duration: 0.6,
+        ease: easeOut,
+      },
+    },
+  };
+
+  const getCategoryClass = () => {
+    switch (category) {
+      case 'frontend':
+        return styles.frontendCard;
+      case 'backend':
+        return styles.backendCard;
+      case 'soft':
+        return styles.softCard;
+      default:
+        return '';
     }
   };
 
-  const nodeLabel = node.id ? t(`${node.id}.name`, { defaultValue: node.id }) : node.id;
-
   return (
-    <div
-      ref={nodeRef}
-      className={styles.skillNode}
-      style={{ left: `${x}px`, top: `${y}px` }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={onLeave}
+    <motion.div
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      className={`${styles.skillCard} ${getCategoryClass()}`}
+      onClick={() => setIsExpanded(!isExpanded)}
     >
-      <div className={`${styles.skillIcon} ${styles[node.iconBg || 'purple']}`} data-icon={nodeLabel}>
-        <SvgIcon name={node.icon} />
-      </div>
-      {node.featured && <div className={styles.featuredIndicator}></div>}
-    </div>
-  );
-};
-
-const HierarchicalList = ({
-  skillTrees,
-  onNodeHover,
-  onNodeLeave,
-}: {
-  skillTrees: any;
-  onNodeHover: (node: SkillNode, x: number, y: number) => void;
-  onNodeLeave: () => void;
-}) => {
-  const t = useTranslations('Skills');
-
-  const RenderSkillNode = (node: SkillNode, depth = 0) => {
-    const nodeRef = useRef<HTMLDivElement>(null);
-    const skillName = t(`${node.id}.name`, { defaultValue: node.id });
-
-    const handleMouseEnter = () => {
-      if (nodeRef.current) {
-        const rect = nodeRef.current.getBoundingClientRect();
-        onNodeHover(node, rect.x + rect.width / 2, rect.y);
-      }
-    };
-
-    return (
-      <div key={node.id} className={styles.hierarchyNode}>
-        <div
-          ref={nodeRef}
-          className={`${styles.hierarchyItem} ${styles[`depth-${depth}`]}`}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={onNodeLeave}
-        >
-          <div className={`${styles.skillIcon} ${styles[node.iconBg || 'purple']}`}>
-            <SvgIcon name={node.icon} />
-          </div>
-          <span className={styles.nodeTitle}>{skillName}</span>
-          {node.featured && <div className={styles.featuredIndicator}></div>}
+      {/* Header */}
+      <div className={styles.cardHeader}>
+        <div className={`${styles.iconWrapper} ${styles[node.iconBg || 'purple']}`}>
+          <SvgIcon name={node.icon} size={40} />
+          {node.featured && (
+            <div className={styles.featuredBadge}>
+              <span>★</span>
+            </div>
+          )}
         </div>
-
-        {node.children && node.children.length > 0 && (
-          <div className={styles.childrenContainer}>
-            {node.children.map((child: SkillNode) => RenderSkillNode(child, depth + 1))}
-          </div>
-        )}
-      </div>
-    );
-  };
-
-  return (
-    <div className={styles.hierarchicalView}>
-      <div className={styles.hierarchyCategory}>
-        <h3 className={`${styles.categoryTitle} ${styles.frontendLabel}`}>{t('frontendCategory')}</h3>
-        {RenderSkillNode(skillTrees.frontend)}
+        <div className={styles.cardHeaderText}>
+          <h3 className={styles.skillName}>{skillName}</h3>
+          {categoryName && <span className={styles.categoryBadge}>{categoryName}</span>}
+        </div>
       </div>
 
-      <div className={styles.hierarchyCategory}>
-        <h3 className={`${styles.categoryTitle} ${styles.backendLabel}`}>{t('backendCategory')}</h3>
-        {RenderSkillNode(skillTrees.backend)}
-      </div>
+      {/* Description */}
+      {node.points && node.points.length > 0 && (
+        <div className={`${styles.cardContent} ${isExpanded ? styles.expanded : ''}`}>
+          <ul className={styles.pointsList}>
+            {node.points.map(pointNumber => (
+              <li key={`${node.id}-point-${pointNumber}`}>
+                {t(`${node.id}.point${pointNumber}`, {
+                  defaultValue: `Capability ${pointNumber}`,
+                })}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
-      <div className={styles.hierarchyCategory}>
-        <h3 className={`${styles.categoryTitle} ${styles.softLabel}`}>{t('softSkillsCategory')}</h3>
-        {RenderSkillNode(skillTrees.soft)}
-      </div>
-    </div>
+      {/* Children Skills */}
+      {node.children && node.children.length > 0 && (
+        <div className={styles.childrenSkills}>
+          {node.children.map(child => {
+            const childName = t(`${child.id}.name`, { defaultValue: child.id });
+            return (
+              <div key={child.id} className={styles.childSkillChip}>
+                <SvgIcon name={child.icon} size={16} />
+                <span>{childName}</span>
+                {child.featured && <span className={styles.starIcon}>★</span>}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Expand Indicator */}
+      {node.points && node.points.length > 0 && (
+        <div className={styles.expandIndicator}>
+          <motion.div
+            animate={{ rotate: isExpanded ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+            className={styles.expandArrow}
+          >
+            ▼
+          </motion.div>
+        </div>
+      )}
+    </motion.div>
   );
 };
 
-const TreeConnections = ({
-  nodes,
-}: {
-  nodes: Array<{
-    node: SkillNode;
-    x: number;
-    y: number;
-    parent?: { x: number; y: number };
-  }>;
-}) => {
-  return (
-    <svg className={styles.connections}>
-      {nodes.map((item, index) => {
-        if (!item.parent) return null;
-
-        return (
-          <path
-            key={`connection-${index}`}
-            d={`M${item.parent.x},${item.parent.y + 30} C${item.parent.x},${(item.parent.y + item.y) / 2} ${item.x},${
-              (item.parent.y + item.y) / 2
-            } ${item.x},${item.y - 30}`}
-            className={styles.connectionPath}
-          />
-        );
-      })}
-    </svg>
-  );
-};
-
-const SkillTooltip = ({ tooltip, isMobileView }: { tooltip: TooltipState; isMobileView: boolean }) => {
+const SkillsSection: React.FC = () => {
   const t = useTranslations('Skills');
-
-  if (!tooltip.visible || !tooltip.skill) return null;
-
-  const skillName = t(`${tooltip.skill.id}.name`, {
-    defaultValue: tooltip.skill.id,
-  });
-  const categoryKey =
-    tooltip.skill.id === 'frontend'
-      ? 'frontendCategory'
-      : tooltip.skill.id === 'backend'
-      ? 'backendCategory'
-      : tooltip.skill.id === 'soft'
-      ? 'softSkillsCategory'
-      : `${tooltip.skill.id}.category`;
-  const category = t(categoryKey, { defaultValue: tooltip.skill.id });
-
-  const tooltipStyle: React.CSSProperties = isMobileView
-    ? {
-        position: 'fixed',
-        left: '50%',
-        top: '50%',
-        transform: 'translate(-50%, -50%)',
-      }
-    : {
-        position: 'absolute',
-        left: `${tooltip.x}px`,
-        top: `${tooltip.y + 15}px`,
-        transform: 'translate(-50%, -100%)',
-      };
-
-  return (
-    <div className={`${styles.tooltip} ${isMobileView ? styles.mobileTooltip : ''}`} style={tooltipStyle}>
-      <div className={styles.tooltipContent}>
-        <h3 className={styles.tooltipTitle}>{skillName}</h3>
-        {tooltip.skill.points && tooltip.skill.points.length > 0 && (
-          <div className={styles.tooltipPoints}>
-            <h4>{t('keyCapabilities')}</h4>
-            <ul>
-              {tooltip.skill.points.map((pointNumber, idx) => (
-                <li key={`tooltip-point-${idx}`}>
-                  {t(`${tooltip.skill!.id}.point${pointNumber}`, {
-                    defaultValue: `Skill point ${pointNumber}`,
-                  })}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <div className={styles.tooltipCategory}>{category}</div>
-        {tooltip.skill.featured && (
-          <div className={styles.tooltipCategory} style={{ marginLeft: '8px' }}>
-            {t('featured')}
-          </div>
-        )}
-      </div>
-      {!isMobileView && <div className={styles.tooltipArrow}></div>}
-    </div>
-  );
-};
-
-const calculateNodePositions = (
-  node: SkillNode,
-  x: number,
-  y: number,
-  horizontalSpacing: number,
-  verticalSpacing: number,
-  parent?: { x: number; y: number }
-): Array<{
-  node: SkillNode;
-  x: number;
-  y: number;
-  parent?: { x: number; y: number };
-}> => {
-  const result: Array<{
-    node: SkillNode;
-    x: number;
-    y: number;
-    parent?: { x: number; y: number };
-  }> = [{ node, x, y, parent }];
-
-  if (node.children && node.children.length > 0) {
-    let childWidth = horizontalSpacing * (node.children.length - 1);
-
-    const maxWidth = horizontalSpacing * 2.5;
-    if (childWidth > maxWidth && node.children.length > 3) {
-      childWidth = maxWidth;
-    }
-
-    const startX = x - childWidth / 2;
-
-    node.children.forEach((child, index) => {
-      let childX = startX + (index * childWidth) / Math.max(1, node.children!.length - 1);
-
-      if (node.id === 'backend' || node.id === 'soft') {
-        childX = x + (childX - x) * 0.85;
-      }
-
-      const childY = y + verticalSpacing;
-
-      const nextHorizontalSpacing = horizontalSpacing * 0.75;
-
-      const childPositions = calculateNodePositions(child, childX, childY, nextHorizontalSpacing, verticalSpacing, {
-        x,
-        y,
-      });
-      result.push(...childPositions);
-    });
-  }
-
-  return result;
-};
-
-const SkillsTree: React.FC = () => {
-  const t = useTranslations('Skills');
-  const [isMobileView, setIsMobileView] = useState(false);
-
-  const [tooltip, setTooltip] = useState<TooltipState>({
-    visible: false,
-    skill: null,
-    x: 0,
-    y: 0,
-  });
-
-  const [treePositions, setTreePositions] = useState<{
-    frontend: Array<{
-      node: SkillNode;
-      x: number;
-      y: number;
-      parent?: { x: number; y: number };
-    }>;
-    backend: Array<{
-      node: SkillNode;
-      x: number;
-      y: number;
-      parent?: { x: number; y: number };
-    }>;
-    soft: Array<{
-      node: SkillNode;
-      x: number;
-      y: number;
-      parent?: { x: number; y: number };
-    }>;
-  }>({
-    frontend: [],
-    backend: [],
-    soft: [],
-  });
-
-  const containerRef = useRef<HTMLDivElement>(null);
   const skillTrees = useMemo(() => buildSkillTree(), []);
 
-  useEffect(() => {
-    const calculatePositions = () => {
-      if (!containerRef.current) return;
+  const getAllSkills = (node: SkillNode, skipRoot: boolean = false): SkillNode[] => {
+    const skills: SkillNode[] = [];
 
-      const containerWidth = containerRef.current.clientWidth;
-      const isMobile = window.innerWidth < 768;
-      setIsMobileView(isMobile);
+    // Si no queremos saltar la raíz, agregamos el nodo actual
+    if (!skipRoot) {
+      skills.push(node);
+    }
 
-      if (isMobile) return;
-
-      const baseHorizontalSpacing = Math.min(180, containerWidth / 6);
-      const frontendSpacing = isMobile ? baseHorizontalSpacing * 0.8 : baseHorizontalSpacing;
-      const backendSpacing = isMobile ? baseHorizontalSpacing * 0.6 : baseHorizontalSpacing * 0.7;
-      const softSpacing = isMobile ? baseHorizontalSpacing * 0.6 : baseHorizontalSpacing * 0.7;
-      const verticalSpacing = isMobile ? 100 : 120;
-      const frontendX = isMobile ? containerWidth * 0.25 : containerWidth * 0.2;
-      const backendX = containerWidth * 0.5;
-      const softX = isMobile ? containerWidth * 0.75 : containerWidth * 0.8;
-      const startY = isMobile ? 150 : 100;
-
-      const frontendPositions = calculateNodePositions(
-        skillTrees.frontend,
-        frontendX,
-        startY,
-        frontendSpacing,
-        verticalSpacing
-      );
-
-      const backendPositions = calculateNodePositions(
-        skillTrees.backend,
-        backendX,
-        startY,
-        backendSpacing,
-        verticalSpacing
-      );
-
-      const softPositions = calculateNodePositions(skillTrees.soft, softX, startY, softSpacing, verticalSpacing);
-
-      setTreePositions({
-        frontend: frontendPositions,
-        backend: backendPositions,
-        soft: softPositions,
+    // Agregamos todos los hijos recursivamente
+    if (node.children) {
+      node.children.forEach(child => {
+        skills.push(...getAllSkills(child, false));
       });
-    };
-
-    calculatePositions();
-    window.addEventListener('resize', calculatePositions);
-
-    return () => {
-      window.removeEventListener('resize', calculatePositions);
-    };
-  }, [skillTrees]);
-
-  const handleNodeHover = (node: SkillNode, x: number, y: number) => {
-    setTooltip({
-      visible: true,
-      skill: node,
-      x,
-      y,
-    });
+    }
+    return skills;
   };
 
-  const handleNodeLeave = () => {
-    setTooltip({
-      ...tooltip,
-      visible: false,
-    });
-  };
+  // Obtenemos solo las habilidades hijas, sin incluir los nodos raíz
+  const frontendSkills = getAllSkills(skillTrees.frontend, true);
+  const backendSkills = getAllSkills(skillTrees.backend, true);
+  const softSkills = getAllSkills(skillTrees.soft, true);
 
   return (
     <motion.div
@@ -382,69 +168,101 @@ const SkillsTree: React.FC = () => {
       id="skills"
       className="container py-5 d-flex flex-column justify-content-center align-items-center min-vh-100"
     >
+      {/* Header */}
       <div className="text-center mb-5 mt-3">
-        <h2 className={styles.headerTitle}>{t('headerTitle')}</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className={styles.headerTitle}
+        >
+          {t('headerTitle')}
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className={styles.headerSubtitle}
+        >
+          {t('headerSubtitle', { defaultValue: 'Technical expertise and professional capabilities' })}
+        </motion.p>
       </div>
 
-      {isMobileView ? (
-        <HierarchicalList skillTrees={skillTrees} onNodeHover={handleNodeHover} onNodeLeave={handleNodeLeave} />
-      ) : (
-        <div ref={containerRef} className={`${styles.skillTreeContainer} mx-auto w-100`}>
-          {/* Connections */}
-          <TreeConnections nodes={[...treePositions.frontend, ...treePositions.backend, ...treePositions.soft]} />
-
-          {/* Categories */}
-          <div className={styles.treeCategoryLabels}>
-            <div className={`${styles.treeCategoryLabel} ${styles.frontendLabel}`}>{t('frontendCategory')}</div>
-            <div className={`${styles.treeCategoryLabel} ${styles.backendLabel}`}>{t('backendCategory')}</div>
-            <div className={`${styles.treeCategoryLabel} ${styles.softLabel}`}>{t('softSkillsCategory')}</div>
+      {/* Skills Grid */}
+      <div className={styles.skillsContainer}>
+        {/* Frontend Section */}
+        <div className={styles.categorySection}>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className={`${styles.categoryHeader} ${styles.frontendHeader}`}
+          >
+            <div className={styles.categoryIcon}>
+              <SvgIcon name="angular" size={28} />
+            </div>
+            <h3>{t('frontendCategory')}</h3>
+            <div className={styles.categoryLine}></div>
+          </motion.div>
+          <div className={styles.cardsGrid}>
+            {frontendSkills.map((skill, index) => (
+              <SkillCard key={skill.id} node={skill} category="frontend" index={index} />
+            ))}
           </div>
-
-          {/* Frontend Nodes */}
-          {treePositions.frontend.map((item, index) => (
-            <SkillNod
-              key={`frontend-${index}`}
-              node={item.node}
-              x={item.x}
-              y={item.y}
-              onHover={handleNodeHover}
-              onLeave={handleNodeLeave}
-            />
-          ))}
-
-          {/* Backend Nodes */}
-          {treePositions.backend.map((item, index) => (
-            <SkillNod
-              key={`backend-${index}`}
-              node={item.node}
-              x={item.x}
-              y={item.y}
-              onHover={handleNodeHover}
-              onLeave={handleNodeLeave}
-            />
-          ))}
-
-          {/* Soft Skills Nodes */}
-          {treePositions.soft.map((item, index) => (
-            <SkillNod
-              key={`soft-${index}`}
-              node={item.node}
-              x={item.x}
-              y={item.y}
-              onHover={handleNodeHover}
-              onLeave={handleNodeLeave}
-            />
-          ))}
         </div>
-      )}
 
-      {/* Tooltip */}
-      <SkillTooltip tooltip={tooltip} isMobileView={isMobileView} />
+        {/* Backend Section */}
+        <div className={styles.categorySection}>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className={`${styles.categoryHeader} ${styles.backendHeader}`}
+          >
+            <div className={styles.categoryIcon}>
+              <SvgIcon name="dotnet" size={28} />
+            </div>
+            <h3>{t('backendCategory')}</h3>
+            <div className={styles.categoryLine}></div>
+          </motion.div>
+          <div className={styles.cardsGrid}>
+            {backendSkills.map((skill, index) => (
+              <SkillCard key={skill.id} node={skill} category="backend" index={index} />
+            ))}
+          </div>
+        </div>
+
+        {/* Soft Skills Section */}
+        <div className={styles.categorySection}>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className={`${styles.categoryHeader} ${styles.softHeader}`}
+          >
+            <div className={styles.categoryIcon}>
+              <SvgIcon name="brain" size={28} />
+            </div>
+            <h3>{t('softSkillsCategory')}</h3>
+            <div className={styles.categoryLine}></div>
+          </motion.div>
+          <div className={styles.cardsGrid}>
+            {softSkills.map((skill, index) => (
+              <SkillCard key={skill.id} node={skill} category="soft" index={index} />
+            ))}
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };
 
-export default SectionWrapper(SkillsTree, 'skills', {
+export default SectionWrapper(SkillsSection, 'skills', {
   showScroll: true,
   showUpScroll: true,
   showDownScroll: true,
