@@ -36,12 +36,26 @@ export const techIconMap = {
   PostgreSQL: 'svg/postgresql.svg',
 };
 
-export const projectsData = [
+export type ProjectCategory = 'frontend' | 'backend' | 'mobile';
+
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  tags: string[];
+  categories: ProjectCategory[];
+  mainImage: string;
+  images: string[];
+  githubLink: string;
+}
+
+export const projectsData: Project[] = [
   {
     id: 5,
     title: 'project5.title',
     description: 'project5.description',
     tags: ['Angular', '.Net', 'Firebase', 'PostgreSQL'],
+    categories: ['frontend', 'backend'],
     mainImage: '/images/projects/recycoin-web/recycoin-1.png',
     images: [
       '/images/projects/recycoin-web/recycoin-1.png',
@@ -56,6 +70,7 @@ export const projectsData = [
     title: 'project4.title',
     description: 'project4.description',
     tags: ['flutter', 'riverpod', 'Firebase'],
+    categories: ['mobile'],
     mainImage: '/images/projects/recycoin-app/recycoin-app-10.png',
     images: [
       '/images/projects/recycoin-app/recycoin-app-1.png',
@@ -83,6 +98,7 @@ export const projectsData = [
     title: 'project1.title',
     description: 'project1.description',
     tags: ['Angular', '.Net', 'Firebase', 'SqlServer'],
+    categories: ['frontend', 'backend'],
     mainImage: '/images/projects/componentes-2.png',
     images: ['/images/projects/componentes-1.png', '/images/projects/componentes-2.png'],
     githubLink: 'https://github.com/atorress91/componentes-ui',
@@ -92,6 +108,7 @@ export const projectsData = [
     title: 'project2.title',
     description: 'project2.description',
     tags: ['Unity', 'C#'],
+    categories: ['frontend'],
     mainImage: '/images/projects/patrones-1.png',
     images: ['/images/projects/patrones-1.png', '/images/projects/patrones-2.png'],
     githubLink: 'https://github.com/atorress91/cenfomon',
@@ -101,6 +118,7 @@ export const projectsData = [
     title: 'project3.title',
     description: 'project3.description',
     tags: ['Angular', 'Spring boot', 'MariaDb'],
+    categories: ['frontend', 'backend'],
     mainImage: '/images/projects/proyecto-1.png',
     images: [
       '/images/projects/proyecto-1.png',
@@ -130,6 +148,112 @@ export const navItems: NavItem[] = [
   { key: 'contact', id: 'contact' },
 ];
 
+// Skill Categories for the new Skills section design
+export type SkillCategoryType = 'frontend' | 'backend' | 'mobile' | 'devops' | 'tools' | 'design';
+
+export interface SkillItem {
+  name: string;
+  featured?: boolean;
+}
+
+export interface SkillCategory {
+  id: SkillCategoryType;
+  icon: string;
+  colorFrom: string;
+  colorTo: string;
+  skills: SkillItem[];
+}
+
+export const skillCategories: SkillCategory[] = [
+  {
+    id: 'frontend',
+    icon: 'code',
+    colorFrom: '#9810fa',
+    colorTo: '#ad46ff',
+    skills: [
+      { name: 'React', featured: true },
+      { name: 'TypeScript', featured: true },
+      { name: 'Next.js' },
+      { name: 'Tailwind CSS' },
+      { name: 'HTML/CSS' },
+      { name: 'JavaScript', featured: true },
+      { name: 'Angular' },
+      { name: 'Redux' },
+    ],
+  },
+  {
+    id: 'backend',
+    icon: 'server',
+    colorFrom: '#0092b8',
+    colorTo: '#00b8db',
+    skills: [
+      { name: '.NET', featured: true },
+      { name: 'Express' },
+      { name: 'PostgreSQL' },
+      { name: 'MongoDB' },
+      { name: 'REST APIs', featured: true },
+      { name: 'GraphQL' },
+      { name: 'Spring Boot' },
+      { name: 'SQL Server' },
+    ],
+  },
+  {
+    id: 'mobile',
+    icon: 'smartphone',
+    colorFrom: '#e60076',
+    colorTo: '#f6339a',
+    skills: [
+      { name: 'Flutter', featured: true },
+      { name: 'Dart' },
+      { name: 'iOS Development' },
+      { name: 'Android Development' },
+      { name: 'Expo' },
+    ],
+  },
+  {
+    id: 'devops',
+    icon: 'cloud',
+    colorFrom: '#4f39f6',
+    colorTo: '#615fff',
+    skills: [
+      { name: 'Docker', featured: true },
+      { name: 'AWS' },
+      { name: 'CI/CD' },
+      { name: 'Kubernetes' },
+      { name: 'Azure' },
+      { name: 'Vercel' },
+    ],
+  },
+  {
+    id: 'tools',
+    icon: 'settings',
+    colorFrom: '#7f22fe',
+    colorTo: '#8e51ff',
+    skills: [
+      { name: 'Git', featured: true },
+      { name: 'Figma' },
+      { name: 'Jest' },
+      { name: 'Webpack' },
+      { name: 'Vite' },
+      { name: 'Postman' },
+    ],
+  },
+  {
+    id: 'design',
+    icon: 'palette',
+    colorFrom: '#c800de',
+    colorTo: '#e12afb',
+    skills: [
+      { name: 'UI/UX Design' },
+      { name: 'Responsive Design', featured: true },
+      { name: 'Prototyping' },
+      { name: 'Design Systems' },
+      { name: 'Wireframing' },
+    ],
+  },
+];
+
+// Legacy buildSkillTree for backward compatibility (if needed elsewhere)
 export const buildSkillTree = () => {
   return {
     frontend: {
@@ -137,20 +261,8 @@ export const buildSkillTree = () => {
       icon: 'angular',
       iconBg: 'red',
       children: [
-        {
-          id: 'react',
-          icon: 'react',
-          iconBg: 'blue',
-          points: [1, 2],
-          featured: false,
-        },
-        {
-          id: 'angular',
-          icon: 'angular',
-          iconBg: 'red',
-          points: [1, 2],
-          featured: true,
-        },
+        { id: 'react', icon: 'react', iconBg: 'blue', points: [1, 2], featured: false },
+        { id: 'angular', icon: 'angular', iconBg: 'red', points: [1, 2], featured: true },
       ],
     },
     backend: {
@@ -158,41 +270,8 @@ export const buildSkillTree = () => {
       icon: 'dotnet',
       iconBg: 'green',
       children: [
-        {
-          id: 'dotnet',
-          icon: 'dotnet',
-          iconBg: 'purple',
-          points: [1, 2, 3, 4],
-          featured: true,
-          children: [{ id: 'csharp', icon: 'c-sharp', iconBg: 'purple', points: [1, 2] }],
-        },
-        {
-          id: 'spring',
-          icon: 'spring-boot',
-          iconBg: 'green',
-          points: [1],
-          featured: false,
-          children: [{ id: 'java', icon: 'java', iconBg: 'green', points: [1] }],
-        },
-        {
-          id: 'databases',
-          icon: 'postgresql',
-          iconBg: 'gray',
-          points: [1, 2],
-          featured: true,
-          children: [
-            {
-              id: 'sqlserver',
-              icon: 'sql',
-              iconBg: 'gray',
-            },
-            {
-              id: 'mariadb',
-              icon: 'mariadb',
-              iconBg: 'gray',
-            },
-          ],
-        },
+        { id: 'dotnet', icon: 'dotnet', iconBg: 'purple', points: [1, 2, 3, 4], featured: true },
+        { id: 'spring', icon: 'spring-boot', iconBg: 'green', points: [1], featured: false },
       ],
     },
     soft: {
@@ -200,25 +279,9 @@ export const buildSkillTree = () => {
       icon: 'brain',
       iconBg: 'purple',
       children: [
-        {
-          id: 'communication',
-          icon: 'communication',
-          iconBg: 'purple',
-          points: [1],
-        },
-        {
-          id: 'teamwork',
-          icon: 'teamwork',
-          iconBg: 'blue',
-          points: [1, 2],
-        },
-        {
-          id: 'problemsolving',
-          icon: 'brain',
-          featured: true,
-          iconBg: 'green',
-          points: [1, 2],
-        },
+        { id: 'communication', icon: 'communication', iconBg: 'purple', points: [1] },
+        { id: 'teamwork', icon: 'teamwork', iconBg: 'blue', points: [1, 2] },
+        { id: 'problemsolving', icon: 'brain', featured: true, iconBg: 'green', points: [1, 2] },
       ],
     },
   };

@@ -53,6 +53,9 @@
     "toggleMenu": "Abrir/Cerrar menú de navegación"
   },
   "Projects": {
+    "categoryBackend": "Backend",
+    "categoryFrontend": "Frontend",
+    "categoryMobile": "Mobile",
     "imageAlt": "imagen",
     "project1": {
       "description": "Una aplicación desarrollada con Angular y .Net similar a un Ecommerce de NFTS, donde los usuarios pueden comprar y vender NFTS. Incluye JWt, gestión de usuarios y un panel de administración.",
@@ -75,6 +78,7 @@
       "title": "Recycoin Web"
     },
     "sectionDescription": "Una selección de mis trabajos más recientes y destacados. Haz clic en cualquier proyecto para ver más detalles.",
+    "sectionSubtitle": "Explora mi trabajo en desarrollo Frontend, Backend y Mobile",
     "sectionTitle": "Mis Proyectos",
     "technologies": "Tecnologías",
     "viewCode": "Ver Código",
@@ -134,8 +138,16 @@
       "name": "Desarrollo Frontend"
     },
     "frontendCategory": "Frontend",
-    "headerSubtitle": "Experiencia técnica y capacidades profesionales",
+    "headerSubtitle": "Tecnologías y herramientas que domino para crear soluciones completas",
     "headerTitle": "Mis Habilidades",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "devops": "DevOps & Cloud",
+      "tools": "Tools & Others",
+      "design": "Design"
+    },
     "java": {
       "category": "Lenguaje de Programación",
       "name": "Java",

@@ -1,6 +1,3 @@
-export { default as SvgIcon } from './SvgIcon/SvgIcon';
-export { default as SkillCard } from './SkillCard/SkillCard';
-export { default as CategoryHeader } from './CategoryHeader/CategoryHeader';
-export { default as CategorySection } from './CategorySection/CategorySection';
-export { default as SkillsHeader } from './SkillsHeader/SkillsHeader';
+// Export only the main Skills component (subcomponents are now inline)
+export { default as Skills } from './Skills';
 export * from '../../utils/skillsUtils';

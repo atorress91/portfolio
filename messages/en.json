@@ -53,6 +53,9 @@
     "toggleMenu": "Open/Close navigation menu"
   },
   "Projects": {
+    "categoryBackend": "Backend",
+    "categoryFrontend": "Frontend",
+    "categoryMobile": "Mobile",
     "imageAlt": "image",
     "project1": {
       "description": "An application developed with Angular and .NET similar to an NFT e-commerce where users can buy and sell NFTs. It includes JWT, user management, and an admin panel.",
@@ -75,6 +78,7 @@
       "title": "Recycoin Web"
     },
     "sectionDescription": "A selection of my most recent and outstanding work. Click on any project to see more details.",
+    "sectionSubtitle": "Explore my work in Frontend, Backend, and Mobile development",
     "sectionTitle": "My Projects",
     "technologies": "Technologies",
     "viewCode": "View Code",
@@ -134,8 +138,16 @@
       "name": "Frontend Development"
     },
     "frontendCategory": "Frontend",
-    "headerSubtitle": "Technical expertise and professional capabilities",
+    "headerSubtitle": "Technologies and tools I master to create complete solutions",
     "headerTitle": "My Skills",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "devops": "DevOps & Cloud",
+      "tools": "Tools & Others",
+      "design": "Design"
+    },
     "java": {
       "category": "Programming Language",
       "name": "Java",
